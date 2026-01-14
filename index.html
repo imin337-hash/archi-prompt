@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건축 나노바나나프로 이미지 생성기</title>
+    <style>
+        :root { --primary: #F4D03F; /* 바나나색 */ --dark: #2c3e50; --light: #fcfcfc; }
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; background: var(--light); margin: 0; padding: 20px; color: var(--dark); display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background: white; width: 100%; max-width: 600px; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 3px solid var(--primary); }
+        
+        h1 { text-align: center; margin-bottom: 25px; color: var(--dark); font-weight: 800; }
+        .banana-icon { font-size: 1.5em; vertical-align: middle; margin-right: 5px; }
+        
+        .selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 5px; }
+        .input-group.full-width { grid-column: span 2; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; color: #555; }
+        select { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; font-size: 15px; -webkit-appearance: none; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E") no-repeat right 10px center; transition: 0.3s; cursor: pointer; }
+        select:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.3); }
+        
+        .btn-gen { width: 100%; padding: 15px; background-color: var(--dark); color: var(--primary); border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-gen:hover { background-color: #1a252f; transform: translateY(-2px); }
+
+        .result-box { margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 12px; border: 2px dashed #ccc; position: relative; }
+        h3 { margin: 0 0 10px 0; font-size: 16px; color: #777; }
+        #promptResult { width: 100%; height: 120px; border: none; background: transparent; resize: none; font-family: monospace; font-size: 14px; color: #333; outline: none; }
+        .btn-copy { position: absolute; bottom: 15px; right: 15px; padding: 8px 15px; background: var(--primary); color: var(--dark); border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; }
+        .btn-copy:hover { background: #e5c332; }
+        .guide-text { font-size: 13px; color: #888; text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1><span class="banana-icon">🍌</span>건축 나노바나나프로<br><span style="font-size:0.7em; font-weight:normal;">AI 이미지 프롬프트 생성기</span></h1>
+    
+    <div class="selection-grid">
+        <div class="input-group">
+            <label>🗺️ 장소 (Location)</label>
+            <select id="sel_loc">
+                <option value="in a dense urban center, surrounded by skyscrapers">도심 한복판 (빌딩숲)</option>
+                <option value="on a quiet suburban street lined with trees">한적한 교외 주택가</option>
+                <option value="perched on a rugged coastal cliffside overlooking the ocean">해안가 절벽 위</option>
+                <option value="nestled deep within a lush, dense forest">울창한 숲 속</option>
+                <option value="in a vast, arid desert landscape at sunset">광활한 사막 (해질녘)</option>
+                <option value="in a snowy mountain landscape">눈 덮인 산악 지대</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>✨ 분위기 (Atmosphere)</label>
+            <select id="sel_mood">
+                <option value="serene, peaceful, and warm atmosphere with soft lighting">평온하고 따뜻한 (안락함)</option>
+                <option value="bustling, vibrant, and dynamic atmosphere with many people">활기차고 분주한 (역동적)</option>
+                <option value="moody, dramatic, and cinematic atmosphere with fog">극적이고 웅장한 (시네마틱)</option>
+                <option value="mysterious and dreamy atmosphere">신비롭고 몽환적인</option>
+                <option value="clean, bright, and airy atmosphere with natural daylight">깨끗하고 밝은 (자연광)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>🎨 디자인 컨셉 (Concept)</label>
+            <select id="sel_concept">
+                <option value="minimalist architecture featuring raw concrete and large glass panels">미니멀리즘 (노출콘크리트+유리)</option>
+                <option value="sustainable eco-architecture with green roofs and timber facade">친환경/지속가능 (목재+녹화)</option>
+                <option value="brutalist architecture with heavy, geometric concrete forms">브루탈리즘 (거대한 콘크리트)</option>
+                <option value="futuristic high-tech architecture with sleek curves and metal panels">미래지향적/하이테크 (곡선+메탈)</option>
+                <option value="contemporary interpretation of traditional Korean architecture mixture">전통과 현대의 조화 (한옥 모티브)</option>
+                <option value="organic architecture that blends seamlessly with nature">유기적 건축 (자연과 융합)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>🏢 프로그램 (용도)</label>
+            <select id="sel_program">
+                <option value="A private residence villa">개인 주택 / 빌라</option>
+                <option value="A contemporary art museum">현대 미술관 / 갤러리</option>
+                <option value="A trendy boutique cafe">트렌디한 카페</option>
+                <option value="A high-rise office tower">오피스 빌딩</option>
+                <option value="A public library and community center">공공 도서관 / 커뮤니티</option>
+                <option value="A luxury hotel resort">럭셔리 호텔 리조트</option>
+            </select>
+        </div>
+        <div class="input-group full-width">
+            <label>📏 규모 (Scale)</label>
+            <select id="sel_scale">
+                <option value="small-scale intimate">소형 (파빌리온, 단독주택급)</option>
+                <option value="medium-sized">중형 (일반 근생 건물급)</option>
+                <option value="massive large-scale complex">대형 (복합단지, 대형시설)</option>
+                <option value="monumental skyscraper">초고층 (랜드마크 타워)</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="btn-gen" onclick="generatePrompt()">🍌 프롬프트 생성하기! 🍌</button>
+
+    <div class="result-box">
+        <h3>▼ 생성된 프롬프트 (Gemini에 붙여넣으세요)</h3>
+        <textarea id="promptResult" readonly placeholder="위 옵션을 선택하고 버튼을 누르면 여기에 마법의 주문이 나타납니다."></textarea>
+        <button class="btn-copy" onclick="copyPrompt()">복사하기</button>
+    </div>
+    <p class="guide-text">Tip: 제미나이 채팅창에 "이미지 생성해줘" 라는 말과 함께 위 영어 문장을 붙여넣으세요.</p>
+</div>
+
+<script>
+    function generatePrompt() {
+        // 선택값 가져오기
+        const loc = document.getElementById('sel_loc').value;
+        const mood = document.getElementById('sel_mood').value;
+        const concept = document.getElementById('sel_concept').value;
+        const program = document.getElementById('sel_program').value;
+        const scale = document.getElementById('sel_scale').value;
+
+        // 프롬프트 조합 (영어 구조)
+        // 구조: [Scale] [Program], [Concept], situated [Location]. [Atmosphere]. [Quality Modifiers]
+        let finalPrompt = `A ${scale} ${program}, designed with ${concept}, situated ${loc}. The scene has a ${mood}. Photorealistic architectural photography, 8k resolution, highly detailed, cinematic lighting, wide angle view.`;
+
+        // 결과창에 표시
+        document.getElementById('promptResult').value = finalPrompt;
+    }
+
+    function copyPrompt() {
+        const textarea = document.getElementById('promptResult');
+        if(textarea.value === "") return alert("먼저 프롬프트를 생성해주세요.");
+        
+        textarea.select();
+        document.execCommand('copy');
+        alert("프롬프트가 복사되었습니다! 제미나이로 가서 붙여넣으세요.");
+    }
+</script>
+
+</body>
+</html>
