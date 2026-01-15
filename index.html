@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MY ARCHITECT - V19.2</title>
+    <title>MY ARCHITECT</title>
     <style>
         :root { --dark: #1a1a1a; --bg: #f4f4f4; --border: #dcdcdc; --white: #fff; }
         
@@ -23,9 +23,9 @@
         header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
         h1 { margin: 0; color: var(--dark); font-weight: 900; letter-spacing: -1px; font-size: 28px; text-transform: uppercase; }
         .subtitle { color: #666; font-size: 13px; margin-top: 6px; font-weight: 500; }
-        .badge { display: inline-block; background: var(--dark); color: #fff; padding: 3px 8px; font-size: 11px; border-radius: 4px; vertical-align: middle; margin-top: 5px; }
+        .badge { display: inline-block; background: #e74c3c; color: #fff; padding: 3px 8px; font-size: 11px; border-radius: 4px; vertical-align: middle; margin-top: 5px; }
 
-        /* [수정됨] 3개 버튼 스타일 */
+        /* 3개 스마트 버튼 스타일 */
         .magic-box { 
             display: grid; 
             grid-template-columns: 1fr 1fr 1fr; 
@@ -60,8 +60,7 @@
 
         .input-group { margin-bottom: 5px; }
         label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 12px; color: #444; text-transform: uppercase; }
-        .sub-label { font-weight: normal; color: #888; font-size: 11px; margin-left: 4px; text-transform: none; }
-
+        
         select, input[type="text"] { 
             width: 100%; height: 50px; padding: 0 12px; 
             border: 1px solid var(--border); background-color: #fff; 
@@ -104,7 +103,7 @@
 <div class="container">
     <header>
         <h1>MY ARCHITECT</h1>
-        <span class="badge">V19.2</span>
+        <span class="badge">V19.3</span>
         <div class="subtitle">AI PROMPT GENERATOR</div>
     </header>
 
@@ -116,48 +115,23 @@
 
     <div class="section-header">1. PROJECT DEFINITION (기본 설정)</div>
     <div class="grid-box">
-        
         <div class="input-group">
-            <label>1-A. Region <span class="sub-label">지역 / 도시 배경</span></label>
+            <label>1-A. Region</label>
             <select id="s_region" onchange="toggleCustom(this, 'inp_loc_region')">
                 <option value="">-- 지역 선택 --</option>
-                <optgroup label="🇰🇷 Seoul: Old & New">
-                    <option value="in Gangnam Teheran-ro with skyscrapers">Gangnam (강남 테헤란로)</option>
-                    <option value="in Yeouido financial district">Yeouido (여의도 금융가)</option>
-                    <option value="in Seongsu-dong red brick factory cafe street">Seongsu-dong (성수동)</option>
-                    <option value="in Euljiro retro industrial alleyway">Euljiro (을지로 노포)</option>
-                    <option value="in Hongdae energetic youth street">Hongdae (홍대 거리)</option>
-                    <option value="in Bukchon Hanok Village">Bukchon (북촌 한옥마을)</option>
-                    <option value="in Itaewon hillside neighborhood">Itaewon (이태원)</option>
-                    <option value="near Gwanghwamun square">Gwanghwamun (광화문)</option>
+                <optgroup label="Seoul & Urban">
+                    <option value="in Gangnam Teheran-ro">Gangnam</option>
+                    <option value="in Yeouido financial district">Yeouido</option>
+                    <option value="in Seongsu-dong cafe street">Seongsu-dong</option>
+                    <option value="in Hongdae youth street">Hongdae</option>
+                    <option value="in Bukchon Hanok Village">Bukchon</option>
                 </optgroup>
-                <optgroup label="🇰🇷 Residential & Life">
-                    <option value="in a red brick villa neighborhood">Red Brick Villa (빌라촌)</option>
-                    <option value="in a massive high-rise apartment complex">Apartment Complex (아파트단지)</option>
-                    <option value="in a mixed-use residential area (Sang-ga Jutaek)">Sang-ga Jutaek (상가주택지)</option>
-                    <option value="in a semi-basement banjiha neighborhood">Banjiha Area (다세대/반지하)</option>
-                    <option value="in a quiet suburban cul-de-sac">Suburban Housing (전원주택단지)</option>
-                </optgroup>
-                <optgroup label="🇰🇷 New Town & Infra">
-                    <option value="in Pangyo Techno Valley">Pangyo (판교 테크노밸리)</option>
-                    <option value="in a planned New Town like Dongtan">New Town (신도시)</option>
-                    <option value="near a clean Lake Park">Lake Park (호수공원)</option>
-                    <option value="near a busy Subway Station exit">Subway Station (역세권)</option>
-                    <option value="under a massive highway bridge">Under-bridge (고가하부)</option>
-                </optgroup>
-                <optgroup label="🇰🇷 Local & Nature">
-                    <option value="in Busan Haeundae coastal city">Busan Haeundae (해운대)</option>
-                    <option value="in a hillside village (Gamcheon style)">Hillside Village (달동네)</option>
-                    <option value="on Jeju Island volcanic coast">Jeju Coast (제주 해안)</option>
-                    <option value="in a rural rice paddy field">Rice Paddy (시골 논밭)</option>
-                    <option value="in a pine tree forest">Pine Forest (소나무 숲)</option>
-                </optgroup>
-                <optgroup label="🌍 Global Context">
-                    <option value="in New York City">New York (뉴욕)</option>
-                    <option value="in a European Old Town">Europe (유럽 구도심)</option>
-                    <option value="in a Cyberpunk City">Cyberpunk (사이버펑크)</option>
-                    <option value="perched on a steep cliff">Coastal Cliff (절벽)</option>
-                    <option value="in the Sahara Desert">Desert (사막)</option>
+                <optgroup label="Nature & Global">
+                    <option value="in Jeju Island volcanic coast">Jeju Island</option>
+                    <option value="in a pine tree forest">Pine Forest</option>
+                    <option value="in New York City">New York</option>
+                    <option value="in a European Old Town">Europe</option>
+                    <option value="in a Cyberpunk City">Cyberpunk</option>
                 </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
@@ -165,798 +139,160 @@
         </div>
 
         <div class="input-group">
-            <label>1-B. Site Condition <span class="sub-label">대지 조건</span></label>
+            <label>1-B. Site Condition</label>
             <select id="s_site" onchange="toggleCustom(this, 'inp_loc_site')">
                 <option value="">-- 대지 조건 선택 --</option>
-                <optgroup label="Urban Fabric">
-                    <option value="on a prominent corner lot">Corner Lot (코너 대지)</option>
-                    <option value="between two tall buildings (in-fill)">In-fill Site (틈새 대지)</option>
-                    <option value="at a busy intersection">Intersection (교차로)</option>
-                    <option value="in a narrow dead-end alley">Dead-end Alley (막다른 골목)</option>
-                    <option value="facing a public plaza">Facing Plaza (광장 앞)</option>
-                    <option value="on an existing rooftop">Rooftop (옥상 증축)</option>
-                    <option value="in a redevelopment zone">Redevelopment (재개발지구)</option>
-                </optgroup>
-                <optgroup label="Topography">
-                    <option value="on a flat open field">Flat Field (평지)</option>
-                    <option value="on a gentle grassy slope">Gentle Slope (완만한 경사)</option>
-                    <option value="clinging to a steep hillside">Steep Hillside (급경사지)</option>
-                    <option value="perched on a rocky cliff edge">Cliff Edge (절벽 끝)</option>
-                    <option value="in a sunken recessed plot">Sunken Plot (썬큰/꺼진땅)</option>
-                    <option value="on a terraced landscape">Terraced (계단식)</option>
-                </optgroup>
-                <optgroup label="Water & Nature">
-                    <option value="on a riverbank overlooking water">Riverbank (강변)</option>
-                    <option value="on a serene lakeside">Lakeside (호수변)</option>
-                    <option value="on a sandy coastal beach">Coastal Beach (해변)</option>
-                    <option value="in a wetland marsh">Wetland (습지)</option>
-                </optgroup>
-                <optgroup label="Infrastructure">
-                    <option value="next to a busy highway">Highway Side (고속도로변)</option>
-                    <option value="under a massive bridge">Underbridge (교량하부)</option>
-                    <option value="along a railway track">Railway Side (철길 옆)</option>
-                </optgroup>
-                <optgroup label="Shapes">
-                    <option value="on a triangular wedge shape">Triangular (삼각형)</option>
-                    <option value="on a long narrow strip">Narrow Strip (세장형)</option>
-                    <option value="on an irregular polygon shape">Irregular (부정형)</option>
-                    <option value="on a tiny micro-plot">Micro Plot (협소대지)</option>
-                </optgroup>
+                <option value="on a corner lot">Corner Lot</option>
+                <option value="between two tall buildings">In-fill Site</option>
+                <option value="on a steep hillside">Steep Hillside</option>
+                <option value="on a flat open field">Flat Field</option>
+                <option value="on a riverbank">Riverbank</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_loc_site" placeholder="대지 조건 입력...">
         </div>
 
         <div class="input-group full-width">
-            <label>2-A. Main Usage <span class="sub-label">건축법상 용도군 (29개군)</span></label>
+            <label>2. Usage & Program</label>
             <select id="s_usage" onchange="toggleCustom(this, 'inp_prog_main')">
-                <option value="">-- 용도 선택 (건축법 시행령 별표1) --</option>
-                <optgroup label="주거 & 근린 (Living)">
-                    <option value="Single-detached House">1. 단독주택 (Single House)</option>
-                    <option value="Multi-unit Housing">2. 공동주택 (Multi-unit)</option>
-                    <option value="Class 1 Neighborhood Living Facility">3. 제1종 근린생활시설</option>
-                    <option value="Class 2 Neighborhood Living Facility">4. 제2종 근린생활시설</option>
-                </optgroup>
-                <optgroup label="문화, 집회 & 종교 (Culture)">
-                    <option value="Cultural and Assembly Facility">5. 문화 및 집회시설</option>
-                    <option value="Religious Facility">6. 종교시설 (Religious)</option>
-                </optgroup>
-                <optgroup label="판매, 영업 & 업무 (Business)">
-                    <option value="Sales Facility">7. 판매시설 (Sales)</option>
-                    <option value="Transportation Facility">8. 운수시설 (Transport)</option>
-                    <option value="Business Facility">14. 업무시설 (Office)</option>
-                    <option value="Lodging Facility">15. 숙박시설 (Lodging)</option>
-                    <option value="Amusement Facility">16. 위락시설 (Amusement)</option>
-                </optgroup>
-                <optgroup label="교육 & 의료 & 복지 (Public)">
-                    <option value="Medical Facility">9. 의료시설 (Medical)</option>
-                    <option value="Education and Research Facility">10. 교육연구시설 (Education)</option>
-                    <option value="Elderly and Children Facility">11. 노유자시설 (Elderly/Child)</option>
-                    <option value="Training Facility">12. 수련시설 (Training)</option>
-                    <option value="Sports Facility">13. 운동시설 (Sports)</option>
-                </optgroup>
-                <optgroup label="산업 & 기타 (Industry/Etc)">
-                    <option value="Factory">17. 공장 (Factory)</option>
-                    <option value="Warehouse Facility">18. 창고시설 (Warehouse)</option>
-                    <option value="Hazardous Substance Storage">19. 위험물 저장 및 처리 시설</option>
-                    <option value="Automotive Related Facility">20. 자동차 관련 시설</option>
-                    <option value="Animal and Plant Facility">21. 동/식물 관련 시설</option>
-                    <option value="Resource Circulation Facility">22. 자원순환 관련 시설</option>
-                    <option value="Correctional and Military Facility">23. 교정 및 군사 시설</option>
-                    <option value="Broadcasting Communication Facility">24. 방송통신시설</option>
-                    <option value="Power Generation Facility">25. 발전시설</option>
-                    <option value="Cemetery Related Facility">26. 묘지 관련 시설</option>
-                    <option value="Tourism and Rest Facility">27. 관광 휴게 시설</option>
-                    <option value="Funeral Facility">28. 장례시설</option>
-                    <option value="Campsite Facility">29. 야영장 시설</option>
-                </optgroup>
+                <option value="">-- 용도 선택 --</option>
+                <option value="Single-detached House">Single House (단독주택)</option>
+                <option value="Commercial Office Building">Office (업무시설)</option>
+                <option value="Cultural Art Museum">Art Museum (미술관)</option>
+                <option value="Public Library">Library (도서관)</option>
+                <option value="Trendy Cafe">Cafe (카페)</option>
+                <option value="Luxury Hotel Resort">Hotel (호텔)</option>
+                <option value="Pop-up Store">Pop-up Store (팝업스토어)</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_prog_main" placeholder="용도 입력...">
         </div>
 
-        <div class="input-group full-width">
-            <label>2-B. Specific Type <span class="sub-label">세부 시설 / 유형 (설계공모 포함)</span></label>
-            <select id="s_type" onchange="toggleCustom(this, 'inp_prog_type')">
-                <option value="">-- 세부 시설 선택 --</option>
-                
-                <optgroup label="🏆 Design Competition (설계공모/공공)">
-                    <option value="Complex Cultural Center (Living SOC)">Living SOC (생활SOC 복합화시설)</option>
-                    <option value="Public Library & Archives">Public Library (공공 도서관)</option>
-                    <option value="National Sports Center (Swimming Pool)">Sports Center (국민체육센터/수영장)</option>
-                    <option value="Administrative Welfare Center (Jumin Center)">Community Center (행정복지센터/주민센터)</option>
-                    <option value="Youth Support Center">Youth Center (청소년 수련관/문화의집)</option>
-                    <option value="Elderly Welfare Center">Senior Center (노인복지관)</option>
-                    <option value="Public Daycare / Kindergarten">Public Daycare (국공립 어린이집/유치원)</option>
-                    <option value="Green Smart Future School">Future School (그린스마트 미래학교)</option>
-                    <option value="Urban Regeneration Anchor Facility">Regeneration Hub (도시재생 앵커시설)</option>
-                    <option value="Start-up Incubation Center">Start-up Hub (창업지원센터)</option>
-                    <option value="Public Health Center">Health Center (보건소)</option>
-                    <option value="Fire Station (119 Safety Center)">Fire Station (소방서/119안전센터)</option>
-                    <option value="Happy Housing (Public Rental Apt)">Public Housing (행복주택/공공임대)</option>
-                </optgroup>
-
-                <optgroup label="🏠 Residential (한국 주거)">
-                    <option value="Branded Apartment Complex">Branded Apartment (대단지 브랜드 아파트)</option>
-                    <option value="Officetel (Studio Apartment)">Officetel (오피스텔/풀옵션 원룸)</option>
-                    <option value="Red Brick Multi-family Villa">Red Brick Villa (빨간벽돌 다세대 빌라)</option>
-                    <option value="Piloti Structure Villa">Piloti Villa (1층 주차장 필로티 빌라)</option>
-                    <option value="Rooftop House (Oktapbang)">Rooftop House (옥탑방/초록 방수페인트)</option>
-                    <option value="Semi-basement Housing (Banjiha)">Banjiha (반지하 주택)</option>
-                    <option value="Micro-housing Gosiwon">Gosiwon (고시원/고시텔)</option>
-                    <option value="Share House">Share House (청년 쉐어하우스)</option>
-                    <option value="Traditional Hanok House">Hanok Residence (전통 한옥)</option>
-                    <option value="Modernized 2-story House">Yang-ok (70-80년대식 2층 양옥)</option>
-                </optgroup>
-
-                <optgroup label="🏪 Commercial & Retail (생활 상권)">
-                    <option value="24h Convenience Store (K-Store)">Convenience Store (편의점+야외테이블)</option>
-                    <option value="Coin Karaoke (Noraebang)">Coin Karaoke (코인노래방)</option>
-                    <option value="PC Bang (Gaming Center)">PC Bang (PC방)</option>
-                    <option value="Study Cafe">Study Cafe (스터디카페)</option>
-                    <option value="Screen Golf Center">Screen Golf (스크린 골프장)</option>
-                    <option value="Korean Sauna (Jjimjilbang)">Jjimjilbang (대형 찜질방/사우나)</option>
-                    <option value="Beauty Salon / Hair Shop">Hair Shop (미용실/헤어샵)</option>
-                    <option value="Real Estate Agency">Real Estate Agency (부동산/공인중개사)</option>
-                    <option value="Neighborhood Supermarket">Local Supermarket (동네 마트/슈퍼)</option>
-                    <option value="Unmanned Ice Cream Shop">Unmanned Shop (무인 아이스크림/빨래방)</option>
-                </optgroup>
-
-                <optgroup label="🍗 Food & Nightlife (음식/유흥)">
-                    <option value="Korean BBQ Restaurant">K-BBQ Restaurant (고깃집/드럼통 의자)</option>
-                    <option value="Fried Chicken Pub (Hof)">Chicken Hof (치킨집/호프)</option>
-                    <option value="Trendy Seongsu-style Cafe">Industrial Cafe (성수동 공장형 카페)</option>
-                    <option value="Traditional Teahouse">Hanok Teahouse (전통 찻집)</option>
-                    <option value="Street Food Tent (Pojangmacha)">Pojangmacha (포장마차 텐트)</option>
-                    <option value="Traditional Market Stall">Market Stall (재래시장 가판대)</option>
-                    <option value="Food Alley (Mukja Golmok)">Food Alley (먹자골목)</option>
-                </optgroup>
-
-                <optgroup label="🏢 Office & Industry (업무/산업)">
-                    <option value="Knowledge Industry Center">Knowledge Industry Center (지식산업센터)</option>
-                    <option value="Co-working Space">Shared Office (공유 오피스)</option>
-                    <option value="Small Factory (Semi-industrial)">Small Factory (준공업지역 소규모 공장)</option>
-                    <option value="Logistics Warehouse">Logistics Center (물류 창고/택배 터미널)</option>
-                </optgroup>
-
-                <optgroup label="⛪ Religious & Others (기타)">
-                    <option value="Red Cross Church">Church with Neon Cross (상가 교회)</option>
-                    <option value="Buddhist Mountain Temple">Mountain Temple (산사/절)</option>
-                    <option value="Funeral Home">Funeral Hall (장례식장)</option>
-                    <option value="Automated Parking Tower">Parking Tower (기계식 주차타워)</option>
-                    <option value="Subway Station Entrance">Subway Entrance (지하철 출입구)</option>
-                    <option value="Drive-thru Coffee Shop">Drive-thru (드라이브 스루 매장)</option>
-                </optgroup>
-
-                <option value="custom">✍️ 직접 입력 (Custom)</option>
-            </select>
-            <input type="text" id="inp_prog_type" placeholder="세부 유형 입력...">
-        </div>
-
         <div class="input-group">
-            <label>3-A. Style <span class="sub-label">건축 양식 (50+)</span></label>
+            <label>3-A. Style</label>
             <select id="s_style" onchange="toggleCustom(this, 'inp_con_style')">
                 <option value="">-- 스타일 선택 --</option>
-                <optgroup label="Modern & Contemporary">
-                    <option value="Minimalist">Minimalist (미니멀리즘)</option>
-                    <option value="International Style">International Style (국제주의)</option>
-                    <option value="Bauhaus">Bauhaus (바우하우스)</option>
-                    <option value="Modernism">Modernism (모더니즘)</option>
-                    <option value="Postmodernism">Postmodernism (포스트모더니즘)</option>
-                    <option value="Mid-Century Modern">Mid-Century Modern (미드센추리)</option>
-                    <option value="Brutalist">Brutalist (브루탈리즘)</option>
-                    <option value="High-Tech Architecture">High-Tech (하이테크)</option>
-                    <option value="Structural Expressionism">Structural Expressionism (구조주의)</option>
-                    <option value="Deconstructivism">Deconstructivism (해체주의)</option>
-                    <option value="Blobitecture">Blobitecture (블롭/유선형)</option>
-                    <option value="Parametric">Parametric (파라메트릭)</option>
-                    <option value="Eco-Brutalism">Eco-Brutalism (에코 브루탈리즘)</option>
-                    <option value="Metabolism">Metabolism (메타볼리즘)</option>
-                </optgroup>
-                <optgroup label="Regional & Vernacular">
-                    <option value="Modern Hanok">Modern Hanok (현대적 한옥)</option>
-                    <option value="Japanese Zen">Japanese Zen (일본 젠)</option>
-                    <option value="Sukiya Style">Sukiya (일본 수키야)</option>
-                    <option value="Mediterranean">Mediterranean (지중해풍)</option>
-                    <option value="Scandinavian">Scandinavian (북유럽)</option>
-                    <option value="Swiss Chalet">Swiss Chalet (스위스 샬레)</option>
-                    <option value="Tudor Style">Tudor (튜더 양식)</option>
-                    <option value="Tropical Modernism">Tropical Modernism (열대 모던)</option>
-                    <option value="Desert Modernism">Desert Modernism (사막 모던)</option>
-                </optgroup>
-                <optgroup label="Historical & Classic">
-                    <option value="Neoclassical">Neoclassical (신고전주의)</option>
-                    <option value="Gothic Revival">Gothic Revival (고딕)</option>
-                    <option value="Art Deco">Art Deco (아르데코)</option>
-                    <option value="Art Nouveau">Art Nouveau (아르누보)</option>
-                    <option value="Victorian">Victorian (빅토리아풍)</option>
-                    <option value="Beaux-Arts">Beaux-Arts (보자르)</option>
-                    <option value="Romanesque">Romanesque (로마네스크)</option>
-                    <option value="Baroque">Baroque (바로크)</option>
-                </optgroup>
-                <optgroup label="Concept & Future">
-                    <option value="Futuristic">Futuristic (미래지향)</option>
-                    <option value="Cyberpunk">Cyberpunk (사이버펑크)</option>
-                    <option value="Solarpunk">Solarpunk (솔라펑크)</option>
-                    <option value="Steampunk">Steampunk (스팀펑크)</option>
-                    <option value="Biophilic Design">Biophilic (바이오필릭)</option>
-                    <option value="Organic Architecture">Organic (유기적 건축)</option>
-                    <option value="Kinetic Architecture">Kinetic (키네틱)</option>
-                    <option value="Modular Architecture">Modular (모듈러)</option>
-                    <option value="Tiny House Movement">Tiny House (타이니 하우스)</option>
-                    <option value="Container Architecture">Container (컨테이너)</option>
-                </optgroup>
+                <option value="Minimalist">Minimalist</option>
+                <option value="Modernism">Modernism</option>
+                <option value="Brutalist">Brutalist</option>
+                <option value="Futuristic">Futuristic</option>
+                <option value="Modern Hanok">Modern Hanok</option>
+                <option value="Organic Architecture">Organic</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_con_style" placeholder="스타일 입력...">
         </div>
 
         <div class="input-group">
-            <label>3-B. Material <span class="sub-label">주요 마감재 (50+)</span></label>
+            <label>3-B. Material</label>
             <select id="s_mat" onchange="toggleCustom(this, 'inp_con_mat')">
                 <option value="">-- 재료 선택 --</option>
-                <optgroup label="Concrete & Masonry">
-                    <option value="Exposed Concrete">Exposed Concrete (노출콘크리트)</option>
-                    <option value="Board-formed Concrete">Board-formed Concrete (송판노출)</option>
-                    <option value="Polished Concrete">Polished Concrete (폴리싱)</option>
-                    <option value="Precast Concrete Panels">Precast Panels (PC 패널)</option>
-                    <option value="Red Brick">Red Brick (붉은 벽돌)</option>
-                    <option value="Grey Brick">Grey Brick (회색 벽돌)</option>
-                    <option value="White Brick">White Brick (백색 벽돌)</option>
-                    <option value="Reclaimed Brick">Reclaimed Brick (고벽돌)</option>
-                    <option value="Black Brick">Black Brick (전돌)</option>
-                    <option value="Stone Gabion">Gabion (게비온)</option>
-                </optgroup>
-                <optgroup label="Metals">
-                    <option value="Rusted Corten Steel">Corten Steel (코르텐강)</option>
-                    <option value="Black Steel Panels">Black Steel (블랙 스틸/징크)</option>
-                    <option value="Anodized Aluminum">Anodized Aluminum (알루미늄)</option>
-                    <option value="Perforated Metal Screen">Perforated Metal (타공판)</option>
-                    <option value="Corrugated Metal">Corrugated Metal (골강판)</option>
-                    <option value="Titanium Zinc">Titanium Zinc (티타늄 징크)</option>
-                    <option value="Copper Cladding">Copper (구리/동판)</option>
-                    <option value="Brass Accents">Brass (황동/브라스)</option>
-                    <option value="Gold-plated Facade">Gold-plated (금도금)</option>
-                    <option value="Stainless Steel (Mirror)">Mirror Steel (거울 스텐)</option>
-                </optgroup>
-                <optgroup label="Wood & Natural">
-                    <option value="Natural Timber Siding">Natural Timber (천연 목재)</option>
-                    <option value="Red Cedar">Red Cedar (적삼목)</option>
-                    <option value="Charred Wood (Shou Sugi Ban)">Charred Wood (탄화목)</option>
-                    <option value="Bamboo Facade">Bamboo (대나무)</option>
-                    <option value="Plywood Panels">Plywood (합판)</option>
-                    <option value="Cross Laminated Timber (CLT)">CLT (구조용 집성판)</option>
-                    <option value="Rammed Earth">Rammed Earth (담틀/흙다짐)</option>
-                    <option value="Terracotta Panels">Terracotta (테라코타 패널)</option>
-                    <option value="Green Living Wall">Green Wall (수직 정원)</option>
-                    <option value="Thatch Roof">Thatch (초가지붕)</option>
-                </optgroup>
-                <optgroup label="Glass & Synthetics">
-                    <option value="Glass Curtain Wall">Glass Curtain Wall (커튼월)</option>
-                    <option value="Frameless Glass">Frameless Glass (프레임리스 유리)</option>
-                    <option value="Frosted Glass (U-Glass)">U-Glass (U글래스/불투명)</option>
-                    <option value="Dichroic Glass">Dichroic Glass (다이크로익)</option>
-                    <option value="Translucent Polycarbonate">Polycarbonate (폴리카보네이트)</option>
-                    <option value="ETFE Pillow Cladding">ETFE (ETFE 쿠션)</option>
-                    <option value="Fiber Cement Panels">Fiber Cement (시멘트 사이딩)</option>
-                    <option value="White Stucco">White Stucco (스타코/플라스터)</option>
-                    <option value="Ceramic Tiles">Ceramic Tiles (세라믹 타일)</option>
-                    <option value="Photovoltaic Panels (BIPV)">BIPV (태양광 패널)</option>
-                </optgroup>
-                <optgroup label="Stone">
-                    <option value="White Marble">White Marble (백색 대리석)</option>
-                    <option value="Black Granite">Black Granite (검은 화강석)</option>
-                    <option value="Limestone">Limestone (라임스톤)</option>
-                    <option value="Sandstone">Sandstone (사암)</option>
-                    <option value="Travertine">Travertine (트래버틴)</option>
-                    <option value="Basalt Stone">Basalt (현무암)</option>
-                    <option value="Slate Stone">Slate (슬레이트석)</option>
-                </optgroup>
+                <option value="Exposed Concrete">Exposed Concrete</option>
+                <option value="Red Brick">Red Brick</option>
+                <option value="Glass Curtain Wall">Glass Curtain Wall</option>
+                <option value="White Stucco">White Stucco</option>
+                <option value="Wood Siding">Wood</option>
+                <option value="Corten Steel">Corten Steel</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_con_mat" placeholder="재료 입력...">
         </div>
 
         <div class="input-group">
-            <label>4-A. Floor Count <span class="sub-label">층수</span></label>
-            <select id="s_floor" onchange="toggleCustom(this, 'inp_scale_floor')">
-                <option value="">-- 층수 선택 --</option>
-                <option value="single-story">1F (단층)</option>
-                <option value="low-rise (2-4 stories)">Low-rise (2~4층)</option>
-                <option value="mid-rise (10-15 stories)">Mid-rise (10~15층)</option>
-                <option value="high-rise (20-30 stories)">High-rise (20~30층)</option>
-                <option value="skyscraper (50+ stories)">Skyscraper (50층+)</option>
-                <option value="supertall tower (100+ stories)">Supertall (100층+/랜드마크)</option>
-                <option value="custom">✍️ 직접 입력</option>
-            </select>
-            <input type="text" id="inp_scale_floor" placeholder="층수 입력...">
-        </div>
-
-        <div class="input-group">
-            <label>4-B. Form <span class="sub-label">건물 형태 (50+)</span></label>
+            <label>4. Form & Scale</label>
             <select id="s_form" onchange="toggleCustom(this, 'inp_scale_form')">
                 <option value="">-- 형태 선택 --</option>
-                <optgroup label="Basic Geometric">
-                    <option value="Boxy and Cubic">Boxy/Cubic (박스형)</option>
-                    <option value="Rectangular Prism">Rectangular Prism (직육면체)</option>
-                    <option value="Perfect Cube">Perfect Cube (정육면체)</option>
-                    <option value="Cylindrical">Cylindrical (원통형)</option>
-                    <option value="Spherical">Spherical (구형)</option>
-                    <option value="Pyramidal">Pyramidal (피라미드형)</option>
-                    <option value="Triangular Prism">Triangular Prism (삼각기둥)</option>
-                    <option value="Hexagonal">Hexagonal (육각형)</option>
-                    <option value="Torus / Donut">Torus (도넛형)</option>
-                    <option value="Dome Shaped">Dome (돔형)</option>
-                </optgroup>
-                <optgroup label="Structural & Dynamic">
-                    <option value="Cantilevered">Cantilevered (캔틸레버/돌출)</option>
-                    <option value="Bridge-like structure">Bridge-like (브릿지 형태)</option>
-                    <option value="Suspended structure">Suspended (매달린 형태)</option>
-                    <option value="Twisted Tower">Twisted (비틀린 타워)</option>
-                    <option value="Tilted / Leaning">Tilted (기울어진)</option>
-                    <option value="Arched Form">Arched (아치형)</option>
-                    <option value="Vaulted Roof">Vaulted (볼트 지붕)</option>
-                    <option value="A-Frame">A-Frame (A자형)</option>
-                    <option value="Stepped Terraces">Stepped Terraces (계단식 테라스)</option>
-                    <option value="Upside Down Pyramid">Inverted Pyramid (역피라미드)</option>
-                </optgroup>
-                <optgroup label="Organic & Fluid">
-                    <option value="Curved and Fluid">Curved/Fluid (유선형)</option>
-                    <option value="Wave-like Form">Wave-like (파도 모양)</option>
-                    <option value="Biomorphic Blob">Biomorphic (생체모방/블롭)</option>
-                    <option value="Shell-like Structure">Shell-like (조개껍질 형태)</option>
-                    <option value="Mushroom Shaped">Mushroom (버섯 모양)</option>
-                    <option value="Tree-like Structure">Tree-like (나무 형태)</option>
-                    <option value="Cloud-like Form">Cloud-like (구름 모양)</option>
-                </optgroup>
-                <optgroup label="Aggregated & Composite">
-                    <option value="Stacked Boxes">Stacked Boxes (박스 적층)</option>
-                    <option value="Interlocking Volumes">Interlocking (맞물린 형태)</option>
-                    <option value="Cluster of Small Units">Cluster (군집형)</option>
-                    <option value="Pixelated Form">Pixelated (픽셀 형태)</option>
-                    <option value="Modular Assembly">Modular (모듈 조립)</option>
-                    <option value="Village-like Composition">Village-like (마을 같은 구성)</option>
-                    <option value="Fragmented Shards">Fragmented (파편화된)</option>
-                </optgroup>
-                <optgroup label="Spatial Layout">
-                    <option value="Courtyard (U-shaped)">Courtyard U-shape (ㄷ자 중정형)</option>
-                    <option value="Atrium (Central Void)">Atrium Void (중앙 보이드)</option>
-                    <option value="L-shaped">L-shaped (L자형)</option>
-                    <option value="Circular Ring">Circular Ring (원형 고리)</option>
-                    <option value="Spiral / Helix">Spiral (나선형)</option>
-                    <option value="Maze-like labyrinth">Maze-like (미로형)</option>
-                    <option value="Wide Sprawling">Sprawling (넓게 퍼진)</option>
-                    <option value="Narrow Pencil Tower">Pencil Tower (좁고 긴 타워)</option>
-                    <option value="Subterranean / Underground">Subterranean (지하/반지하)</option>
-                    <option value="Monolithic Block">Monolithic (거대 단일 매스)</option>
-                </optgroup>
+                <option value="Boxy and Cubic">Boxy/Cubic</option>
+                <option value="Curved and Fluid">Curved</option>
+                <option value="Stacked Boxes">Stacked</option>
+                <option value="Cantilevered">Cantilevered</option>
+                <option value="High-rise Tower">High-rise Tower</option>
+                <option value="Low-rise Sprawling">Low-rise</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_scale_form" placeholder="형태 입력...">
         </div>
     </div>
 
-    <div class="section-header">2. DETAILED ENVIRONMENT (환경)</div>
+    <div class="section-header">2. ENVIRONMENT & MOOD (환경)</div>
     <div class="grid-box">
         <div class="input-group">
-            <label>5-A. Time <span class="sub-label">시간대</span></label>
+            <label>5-A. Time & Weather</label>
             <select id="s_time" onchange="toggleCustom(this, 'inp_time')">
-                <option value="">-- 시간 선택 --</option>
-                <option value="early morning dawn">Dawn (새벽)</option>
-                <option value="clear sunny noon">High Noon (정오)</option>
-                <option value="golden hour sunset">Golden Hour (골든아워)</option>
-                <option value="blue hour twilight">Blue Hour (해진 직후)</option>
-                <option value="dark night">Night (밤)</option>
-                <option value="midnight with full moon">Full Moon (보름달)</option>
+                <option value="">-- 시간/날씨 선택 --</option>
+                <option value="clear sunny noon">Sunny Noon</option>
+                <option value="golden hour sunset">Golden Hour</option>
+                <option value="blue hour twilight">Blue Hour</option>
+                <option value="rainy night">Rainy Night</option>
+                <option value="foggy morning">Foggy Morning</option>
+                <option value="snowy day">Snowy Day</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_time" placeholder="시간 입력...">
         </div>
         <div class="input-group">
-            <label>5-B. Weather <span class="sub-label">날씨</span></label>
-            <select id="s_weather" onchange="toggleCustom(this, 'inp_weather')">
-                <option value="">-- 날씨 선택 --</option>
-                <option value="clear blue sky">Clear (맑음)</option>
-                <option value="overcast grey sky">Overcast (흐림)</option>
-                <option value="heavy rain">Rain (비)</option>
-                <option value="thick fog">Fog (안개)</option>
-                <option value="heavy snow">Snow (눈)</option>
-                <option value="stormy with lightning">Thunderstorm (천둥번개)</option>
-                <option value="custom">✍️ 직접 입력</option>
-            </select>
-            <input type="text" id="inp_weather" placeholder="날씨 입력...">
-        </div>
-        <div class="input-group full-width">
-            <label>5-C. Mood <span class="sub-label">분위기 (50+)</span></label>
+            <label>5-B. Mood</label>
             <select id="s_mood" onchange="toggleCustom(this, 'inp_mood')">
                 <option value="">-- 분위기 선택 --</option>
-                <optgroup label="🌿 Calm & Serene (차분함/힐링)">
-                    <option value="Peaceful and serene">Peaceful (평온한)</option>
-                    <option value="Zen-like silence">Zen (정적/젠 스타일)</option>
-                    <option value="Meditative atmosphere">Meditative (명상적인)</option>
-                    <option value="Idyllic pastoral vibe">Idyllic (전원적인)</option>
-                    <option value="Warm and cozy">Cozy (아늑한)</option>
-                    <option value="Homely and inviting">Homey (가정적인)</option>
-                    <option value="Bright and airy">Airy (화사한)</option>
-                    <option value="Clean and minimalist">Clean (깨끗한)</option>
-                    <option value="Quiet and tranquil">Tranquil (고요한)</option>
-                    <option value="Harmonious with nature">Harmonious (조화로운)</option>
-                </optgroup>
-                <optgroup label="🏙️ Urban & Energetic (활력/도시)">
-                    <option value="Bustling and vibrant">Bustling (북적이는)</option>
-                    <option value="Dynamic and energetic">Dynamic (역동적인)</option>
-                    <option value="Chaotic urban energy">Chaotic (혼란스러운)</option>
-                    <option value="Electric nightlife vibe">Electric (짜릿한)</option>
-                    <option value="Hectic city life">Hectic (분주한)</option>
-                    <option value="Festive and celebratory">Festive (축제 분위기)</option>
-                    <option value="Lively street atmosphere">Lively (생기 넘치는)</option>
-                    <option value="Trendy and hip">Trendy (트렌디한)</option>
-                    <option value="Modern and chic">Chic (시크한)</option>
-                    <option value="Sophisticated urban">Sophisticated (세련된)</option>
-                </optgroup>
-                <optgroup label="🌑 Dark & Dramatic (무거움/극적)">
-                    <option value="Moody and melancholic">Melancholic (우울한/감성적)</option>
-                    <option value="Noir cinematic style">Noir (누아르풍)</option>
-                    <option value="Mysterious and secretive">Mysterious (신비로운)</option>
-                    <option value="Ominous and foreboding">Ominous (불길한)</option>
-                    <option value="Gloomy and overcast">Gloomy (음울한)</option>
-                    <option value="Dramatic lighting contrast">Dramatic (극적인)</option>
-                    <option value="Gritty industrial vibe">Gritty (거친)</option>
-                    <option value="Post-apocalyptic abandoned">Abandoned (버려진)</option>
-                    <option value="Dystopian future">Dystopian (디스토피아)</option>
-                    <option value="Spooky and horror">Horror (공포/스산한)</option>
-                </optgroup>
-                <optgroup label="✨ Dreamy & Artistic (몽환/예술)">
-                    <option value="Ethereal and dreamy">Ethereal (천상의/몽환적)</option>
-                    <option value="Surreal fantasy world">Surreal (초현실적)</option>
-                    <option value="Whimsical and playful">Whimsical (기발한)</option>
-                    <option value="Romantic and soft">Romantic (로맨틱)</option>
-                    <option value="Nostalgic retro vibe">Nostalgic (향수어린)</option>
-                    <option value="Vintage cinematic look">Vintage (빈티지)</option>
-                    <option value="Magical realism">Magical (마법 같은)</option>
-                    <option value="Theatrical stage lighting">Theatrical (연극적인)</option>
-                    <option value="Cinematic epic scale">Epic (서사적인/웅장한)</option>
-                    <option value="Abstract and conceptual">Abstract (추상적인)</option>
-                </optgroup>
-                <optgroup label="💎 Luxury & Future (고급/미래)">
-                    <option value="High-end luxury">Luxury (럭셔리)</option>
-                    <option value="Opulent and grand">Opulent (호화로운)</option>
-                    <option value="Majestic and regal">Majestic (장엄한)</option>
-                    <option value="Elegant and refined">Elegant (우아한)</option>
-                    <option value="Clinical and sterile">Clinical (임상적/냉철한)</option>
-                    <option value="High-tech futuristic">High-tech (하이테크)</option>
-                    <option value="Cyberpunk neon style">Cyberpunk (사이버펑크)</option>
-                    <option value="Sci-fi laboratory">Sci-fi (공상과학)</option>
-                    <option value="Artificial and synthetic">Artificial (인공적인)</option>
-                    <option value="Minimalist perfection">Perfection (완벽주의)</option>
-                </optgroup>
+                <option value="peaceful and serene">Peaceful</option>
+                <option value="bustling and vibrant">Bustling</option>
+                <option value="moody and dramatic">Dramatic</option>
+                <option value="dreamy and ethereal">Dreamy</option>
+                <option value="cyberpunk neon">Cyberpunk</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_mood" placeholder="분위기 입력...">
         </div>
     </div>
 
-    <div class="section-header">3. PEOPLE & ACTIVITY (인물)</div>
+    <div class="section-header">3. PEOPLE & RENDER (인물/렌더)</div>
     <div class="grid-box">
         <div class="input-group">
-            <label>6-A. Density <span class="sub-label">인구 밀도</span></label>
-            <select id="s_den" onchange="toggleCustom(this, 'inp_den')">
-                <option value="">-- 밀도 선택 --</option>
-                <option value="no people, pure architectural focus">No People (사람 없음)</option>
+            <label>6. People (Entourage)</label>
+            <select id="s_people" onchange="toggleCustom(this, 'inp_people')">
+                <option value="">-- 인물 선택 --</option>
+                <option value="no people, pure architecture">No People</option>
                 <option value="sparse figures for scale">Sparse (소수)</option>
-                <option value="moderate daily activity">Moderate (보통)</option>
-                <option value="bustling crowded atmosphere">Crowded (북적임)</option>
+                <option value="walking business people">Business People</option>
+                <option value="happy families playing">Families</option>
+                <option value="trendy young crowd">Trendy Youth</option>
+                <option value="silhouetted figures">Silhouettes</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
-            <input type="text" id="inp_den" placeholder="밀도 입력...">
+            <input type="text" id="inp_people" placeholder="인물 입력...">
         </div>
         <div class="input-group">
-            <label>6-B. Activity <span class="sub-label">활동 / 유형 (50+)</span></label>
-            <select id="s_act" onchange="toggleCustom(this, 'inp_act')">
-                <option value="">-- 활동 선택 --</option>
-                
-                <optgroup label="Business & Commute (업무/출퇴근)">
-                    <option value="Business people walking in suits">Business Suits (정장 입은 직장인)</option>
-                    <option value="Busy commuters rushing to subway">Rushing Commuters (바쁜 출근길)</option>
-                    <option value="Creative professionals with laptops">Laptop Workers (노트북 작업/카공족)</option>
-                    <option value="Group meeting in a glass room">Meeting Group (회의하는 사람들)</option>
-                    <option value="Architects looking at blueprints">Architects (도면 보는 건축가)</option>
-                    <option value="Construction workers in safety gear">Construction Workers (안전모 쓴 인부)</option>
-                    <option value="Delivery riders on motorbikes">Delivery Riders (오토바이 배달원)</option>
-                    <option value="People waiting at a bus stop">Waiting for Bus (버스 기다리는 줄)</option>
-                </optgroup>
-
-                <optgroup label="Urban Lifestyle (도시 생활)">
-                    <option value="Shoppers carrying paper bags">Shoppers (쇼핑백 든 사람들)</option>
-                    <option value="Friends taking selfies together">Taking Selfies (셀카 찍는 친구들)</option>
-                    <option value="Tourists with luggage and cameras">Tourists (캐리어 끄는 관광객)</option>
-                    <option value="People drinking coffee on terrace">Terrace Coffee (테라스 커피 타임)</option>
-                    <option value="Street musicians busking">Busking (버스킹/거리 공연)</option>
-                    <option value="People looking at window displays">Window Shopping (아이쇼핑)</option>
-                    <option value="Crowd queueing for a store">Queueing Crowd (줄 서 있는 사람들)</option>
-                    <option value="Students with backpacks">Students (가방 멘 학생들)</option>
-                    <option value="People eating street food">Street Food (길거리 음식 먹는 모습)</option>
-                </optgroup>
-
-                <optgroup label="Park & Leisure (휴식/여가)">
-                    <option value="People walking dogs on leash">Dog Walkers (반려견 산책)</option>
-                    <option value="People jogging and running">Joggers (조깅/러닝 크루)</option>
-                    <option value="Families having a picnic on grass">Picnic Families (잔디밭 피크닉)</option>
-                    <option value="Cyclists riding bikes along river">Cyclists (자전거 라이딩)</option>
-                    <option value="Elderly people relaxing on benches">Elderly Relaxing (벤치에서 쉬는 노인)</option>
-                    <option value="Children playing in a fountain">Kids in Fountain (분수에서 노는 아이들)</option>
-                    <option value="People doing yoga outdoors">Outdoor Yoga (야외 요가/스트레칭)</option>
-                    <option value="People reading books under trees">Reading Books (나무 그늘 독서)</option>
-                    <option value="Couples walking hand in hand">Couples (손잡고 걷는 연인)</option>
-                    <option value="Skateboarders doing tricks">Skateboarders (스케이트보드)</option>
-                </optgroup>
-
-                <optgroup label="Night & Atmosphere (밤/감성)">
-                    <option value="People dining in a rooftop bar">Rooftop Dining (루프탑 파티)</option>
-                    <option value="People eating in street tent bar">Pojangmacha (포장마차 술자리)</option>
-                    <option value="Crowd enjoying a night festival">Night Festival (밤 축제 인파)</option>
-                    <option value="People holding lanterns">Lantern Festival (연등/랜턴)</option>
-                    <option value="Elegant crowd in evening wear">Evening Gala (파티복/드레스)</option>
-                    <option value="Lonely figure walking under streetlight">Lonely Figure (가로등 아래 1인)</option>
-                    <option value="Couple gazing at city view">City Gazing (야경 보는 뒷모습)</option>
-                </optgroup>
-
-                <optgroup label="Weather & Situational (날씨/상황)">
-                    <option value="People holding colorful umbrellas">Umbrellas (우산 쓴 사람들)</option>
-                    <option value="People running from rain">Running from Rain (비 피하는 모습)</option>
-                    <option value="People wearing thick winter coats">Winter Coats (패딩/겨울 코트)</option>
-                    <option value="Children having a snowball fight">Snowball Fight (눈싸움)</option>
-                    <option value="People in summer beachwear">Beachwear (수영복/해변)</option>
-                    <option value="People wearing raincoats">Raincoats (우비 입은 사람들)</option>
-                </optgroup>
-
-                <optgroup label="Artistic & Abstract (예술적 표현)">
-                    <option value="Abstract silhouette figures">Silhouettes (검은 실루엣)</option>
-                    <option value="Long exposure motion blur people">Motion Blur (잔상 효과)</option>
-                    <option value="Translucent ghosted figures">Ghosted Figures (반투명 사람)</option>
-                    <option value="White architectural scale figures">Scale Figures (건축모형용 흰 사람)</option>
-                    <option value="Sketch style 2D cutouts">Sketch Cutouts (스케치 느낌)</option>
-                </optgroup>
-
-                <option value="custom">✍️ 직접 입력 (Custom)</option>
-            </select>
-            <input type="text" id="inp_act" placeholder="활동 입력...">
-        </div>
-        <div class="input-group full-width">
-            <label>6-C. Representation Style <span class="sub-label">표현 기법 / 렌더링 스타일 (50+)</span></label>
-            <select id="s_rep" onchange="toggleCustom(this, 'inp_rep')">
-                <option value="">-- 스타일 선택 --</option>
-                
-                <optgroup label="📸 Photorealism & High-End (실사/하이엔드)">
-                    <option value="Photorealistic architectural photography">Photorealistic (완벽한 실사)</option>
-                    <option value="Unreal Engine 5 render with Lumen">Unreal Engine 5 (게임 엔진 스타일)</option>
-                    <option value="V-Ray render with global illumination">V-Ray Render (브이레이/건축CG 정석)</option>
-                    <option value="Cinematic movie scene lighting">Cinematic (영화 장면 같은 연출)</option>
-                    <option value="8k resolution highly detailed">8K Ultra Detail (초고해상도)</option>
-                    <option value="Architectural digest magazine style">Magazine Style (인테리어 잡지풍)</option>
-                    <option value="Commercial real estate listing photo">Real Estate Photo (부동산 분양광고풍)</option>
-                    <option value="National Geographic style photography">Nat Geo Style (다큐멘터리 사진풍)</option>
-                </optgroup>
-
-                <optgroup label="🎨 Artistic & Traditional (회화/수작업)">
-                    <option value="Watercolor architectural sketch">Watercolor (수채화/감성 터치)</option>
-                    <option value="Pencil sketch on textured paper">Pencil Sketch (연필 스케치)</option>
-                    <option value="Ink line drawing with wash">Ink & Wash (먹물/잉크 드로잉)</option>
-                    <option value="Charcoal smudge sketch">Charcoal (목탄화/거친 느낌)</option>
-                    <option value="Marker pen architectural rendering">Marker Pen (마카 렌더링)</option>
-                    <option value="Oil painting impasto style">Oil Painting (유화/두꺼운 질감)</option>
-                    <option value="Pastel crayon drawing">Pastel (파스텔톤/부드러움)</option>
-                    <option value="Urban sketching style">Urban Sketch (여행 스케치풍)</option>
-                    <option value="Gouache painting style">Gouache (과슈/불투명 수채화)</option>
-                    <option value="Impressionist painting style">Impressionist (인상파/빛의 느낌)</option>
-                </optgroup>
-
-                <optgroup label="🏗️ Technical & Model (건축 모형/도면)">
-                    <option value="White architectural scale model">White Model (백색 모형/스터디)</option>
-                    <option value="Wooden maquette model">Wooden Model (목재 모형/따뜻함)</option>
-                    <option value="Clay render (Ambient Occlusion)">Clay Render (클레이/덩어리감)</option>
-                    <option value="Blueprint schematic style">Blueprint (청사진/설계도면)</option>
-                    <option value="Cyanotype print style">Cyanotype (시아노타입/파란 도면)</option>
-                    <option value="Wireframe render on dark background">Wireframe (와이어프레임/구조)</option>
-                    <option value="Cross-section cutaway view">Section Cut (단면 투시도)</option>
-                    <option value="Isometric diagram style">Isometric Diagram (아이소메트릭)</option>
-                    <option value="3D printed plastic texture">3D Printed (3D 프린팅 질감)</option>
-                    <option value="Laser cut cardboard model">Cardboard Model (골판지 모형)</option>
-                </optgroup>
-
-                <optgroup label="🎬 Camera & Film Effects (카메라 효과)">
-                    <option value="Tilt-shift miniature effect">Tilt-Shift (미니어처 효과)</option>
-                    <option value="Long exposure light trails">Long Exposure (장노출/차량 궤적)</option>
-                    <option value="Bokeh depth of field">Bokeh (아웃포커싱/보케)</option>
-                    <option value="Fish-eye lens distortion">Fish-eye Lens (어안렌즈)</option>
-                    <option value="Vintage Kodak Portra film look">Vintage Film (빈티지 필름룩)</option>
-                    <option value="Black and white noir style">B&W Noir (흑백 느와르)</option>
-                    <option value="Polaroid instant photo style">Polaroid (폴라로이드 감성)</option>
-                    <option value="Drone aerial photography">Drone Shot (드론 항공촬영)</option>
-                    <option value="Wide angle architectural lens">Wide Angle (광각 렌즈/시원함)</option>
-                    <option value="Telephoto lens compression">Telephoto (망원 압축 효과)</option>
-                </optgroup>
-
-                <optgroup label="💻 Digital & Stylized (디지털/그래픽)">
-                    <option value="Cyberpunk neon glitch art">Glitch Art (글리치/사이버펑크)</option>
-                    <option value="Anime style background art (Makoto Shinkai)">Anime Style (신카이 마코토풍)</option>
-                    <option value="Studio Ghibli painted background">Ghibli Style (지브리풍/동화)</option>
-                    <option value="Low poly 3d art">Low Poly (로우폴/각진 형태)</option>
-                    <option value="Voxel art style (Minecraft)">Voxel Art (복셀/마인크래프트)</option>
-                    <option value="Matte painting concept art">Matte Painting (영화 배경 컨셉아트)</option>
-                    <option value="Vector flat illustration">Vector Art (벡터 일러스트/플랫)</option>
-                    <option value="Synthwave retro 80s style">Synthwave (80년대 레트로 퓨처)</option>
-                    <option value="Pop art comic book style">Pop Art (팝아트/만화책)</option>
-                    <option value="Collage architecture style">Post-digital Collage (콜라주/몽타주)</option>
-                </optgroup>
-
-                <option value="custom">✍️ 직접 입력 (Custom)</option>
-            </select>
-            <input type="text" id="inp_rep" placeholder="표현 기법 입력...">
-        </div>
-    </div>
-
-    <div class="section-header">4. CAMERA & RENDER SETTINGS (카메라/렌더)</div>
-    <div class="grid-box">
-        
-        <div class="input-group">
-            <label>7. Viewpoint & Lens <span class="sub-label">카메라 앵글 / 렌즈 (50+)</span></label>
-            <select id="s_view" onchange="toggleCustom(this, 'inp_view')">
-                <option value="">-- 카메라 선택 --</option>
-                
-                <optgroup label="📏 Angles & Perspectives (앵글)">
-                    <option value="Eye-level perspective">Eye-Level (사람 눈높이/1.6m)</option>
-                    <option value="Low angle worm's eye view">Low Angle (로우 앵글/웅장함)</option>
-                    <option value="Extreme low angle">Extreme Low Angle (바닥에 붙은 시선)</option>
-                    <option value="High angle shot">High Angle (하이 앵글)</option>
-                    <option value="Aerial bird's eye view">Aerial/Bird's Eye (조감도)</option>
-                    <option value="Top-down plan view">Top-Down (수직 내려다보기/배치도)</option>
-                    <option value="Drone shot from 45 degree">Drone Shot 45° (드론 쿼터뷰)</option>
-                    <option value="Dutch angle (tilted)">Dutch Angle (기울어진 앵글/역동적)</option>
-                    <option value="Over-the-shoulder shot">Over-the-shoulder (어깨 너머 시선)</option>
-                </optgroup>
-
-                <optgroup label="📷 Lens Focal Length (렌즈 mm)">
-                    <option value="16mm Ultra-wide lens">16mm Ultra-Wide (초광각/왜곡)</option>
-                    <option value="24mm Wide angle lens">24mm Wide Angle (광각/시원함)</option>
-                    <option value="35mm Street photography lens">35mm Classic (스트릿/다큐)</option>
-                    <option value="50mm Standard lens">50mm Standard (표준/편안함)</option>
-                    <option value="85mm Portrait lens">85mm Portrait (인물/준망원)</option>
-                    <option value="100mm Macro lens">100mm Macro (매크로/접사)</option>
-                    <option value="200mm Telephoto compression">200mm Telephoto (망원/공간압축)</option>
-                    <option value="Fish-eye lens distortion">Fish-eye (어안렌즈)</option>
-                    <option value="Tilt-shift miniature effect">Tilt-Shift (미니어처 효과)</option>
-                    <option value="Anamorphic lens flares">Anamorphic (영화용 렌즈/플레어)</option>
-                </optgroup>
-
-                <optgroup label="📐 Composition (구도)">
-                    <option value="One-point perspective">One-point Perspective (1소점 투시)</option>
-                    <option value="Two-point perspective">Two-point Perspective (2소점 투시)</option>
-                    <option value="Three-point perspective">Three-point Perspective (3소점 투시)</option>
-                    <option value="Symmetrical composition">Symmetrical (완벽한 대칭)</option>
-                    <option value="Rule of thirds framing">Rule of Thirds (3분할 구도)</option>
-                    <option value="Leading lines composition">Leading Lines (소실점 유도선)</option>
-                    <option value="Frame within a frame">Frame within a Frame (프레임 속 프레임)</option>
-                    <option value="Golden ratio composition">Golden Ratio (황금비율)</option>
-                    <option value="Negative space emphasis">Negative Space (여백의 미)</option>
-                </optgroup>
-
-                <optgroup label="📐 Technical Views (도면/테크니컬)">
-                    <option value="Isometric architectural diagram">Isometric (아이소메트릭)</option>
-                    <option value="Exploded axonometric view">Exploded Axonometric (분해 조립도)</option>
-                    <option value="Cross-section cutaway">Section Cut (단면 투시도)</option>
-                    <option value="Front elevation view">Front Elevation (정면도)</option>
-                    <option value="Side profile elevation">Side Elevation (측면도)</option>
-                </optgroup>
-                <option value="custom">✍️ 직접 입력</option>
-            </select>
-            <input type="text" id="inp_view" placeholder="카메라/렌즈 입력...">
-        </div>
-
-        <div class="input-group">
-            <label>8. Render Engine & Tech <span class="sub-label">렌더 엔진 / 품질 (50+)</span></label>
+            <label>7. Render Style</label>
             <select id="s_render" onchange="toggleCustom(this, 'inp_style')">
-                <option value="">-- 렌더 엔진 선택 --</option>
-                
-                <optgroup label="🖥️ Render Engines (엔진)">
-                    <option value="Unreal Engine 5 with Lumen">Unreal Engine 5 (루멘/실시간)</option>
-                    <option value="V-Ray 6 render">V-Ray 6 (건축 CG 표준)</option>
-                    <option value="Corona Renderer">Corona Renderer (사실적/부드러움)</option>
-                    <option value="Octane Render">Octane Render (GPU/빠르고 선명)</option>
-                    <option value="Redshift Render">Redshift (영화/애니메이션)</option>
-                    <option value="Blender Cycles">Blender Cycles (패스 트레이싱)</option>
-                    <option value="D5 Render">D5 Render (실시간 레이트레이싱)</option>
-                    <option value="Lumion 12">Lumion (건축 조경 특화)</option>
-                    <option value="Enscape Real-time">Enscape (실시간 워크스루)</option>
-                    <option value="Twinmotion">Twinmotion (트윈모션)</option>
-                </optgroup>
-
-                <optgroup label="💎 Quality & Tech Specs (품질)">
-                    <option value="8k resolution ultra detailed">8K Resolution (초고해상도)</option>
-                    <option value="16k massive resolution">16K Massive (초대형 해상도)</option>
-                    <option value="Photorealistic physically based rendering (PBR)">PBR Materials (물리기반 렌더링)</option>
-                    <option value="Ray tracing global illumination">Ray Tracing (레이 트레이싱)</option>
-                    <option value="Path tracing realism">Path Tracing (패스 트레이싱)</option>
-                    <option value="Ambient occlusion pass">Ambient Occlusion (음영 강조)</option>
-                    <option value="Volumetric lighting pass">Volumetric (볼륨 라이트)</option>
-                    <option value="Caustics light refraction">Caustics (빛의 굴절/물결)</option>
-                    <option value="Subsurface scattering (SSS)">Subsurface Scattering (빛 투과/질감)</option>
-                    <option value="Depth of field (DOF)">Depth of Field (피사계 심도)</option>
-                </optgroup>
-
-                <optgroup label="🎞️ Post-Processing (후보정)">
-                    <option value="Raw photo format style">RAW Format (무보정 원본 느낌)</option>
-                    <option value="Color graded cinematic look">Color Graded (영화 색보정)</option>
-                    <option value="High dynamic range (HDR)">HDR (높은 명암비)</option>
-                    <option value="Bleach bypass filter">Bleach Bypass (채도 낮고 대비 높음)</option>
-                    <option value="Technicolor film stock">Technicolor (고전 영화 색감)</option>
-                    <option value="Vignette effect">Vignette (비네팅)</option>
-                    <option value="Chromatic aberration">Chromatic Aberration (색수차 효과)</option>
-                    <option value="Film grain texture">Film Grain (필름 그레인)</option>
-                    <option value="Lens flare and bloom">Lens Flare (렌즈 플레어)</option>
-                </optgroup>
+                <option value="">-- 렌더 스타일 --</option>
+                <option value="Photorealistic, 8k resolution">Photorealistic</option>
+                <option value="White architectural model">White Model</option>
+                <option value="Watercolor sketch">Watercolor</option>
+                <option value="Cinematic lighting">Cinematic</option>
+                <option value="Unreal Engine 5 style">Unreal Engine 5</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
-            <input type="text" id="inp_style" placeholder="렌더 설정 입력...">
+            <input type="text" id="inp_style" placeholder="렌더 스타일 입력...">
         </div>
-
         <div class="input-group">
-            <label>9. Lighting & Tone <span class="sub-label">조명 / 톤앤매너 (50+)</span></label>
-            <select id="s_light" onchange="toggleCustom(this, 'inp_light')">
-                <option value="">-- 조명 선택 --</option>
-                
-                <optgroup label="☀️ Natural Light (자연광)">
-                    <option value="Golden hour warm sunlight">Golden Hour (골든아워/황금빛)</option>
-                    <option value="Blue hour cool twilight">Blue Hour (매직아워/푸른빛)</option>
-                    <option value="High noon harsh shadows">High Noon (정오/강한 그림자)</option>
-                    <option value="Overcast soft diffused light">Overcast (흐림/부드러운 빛)</option>
-                    <option value="Morning dawn mist">Dawn Mist (새벽 안개)</option>
-                    <option value="Dappled light through trees">Dappled Light (나무 그림자)</option>
-                    <option value="God rays (crepuscular rays)">God Rays (빛내림 효과)</option>
-                    <option value="Northern lights (Aurora)">Aurora (오로라)</option>
-                    <option value="Moonlight cool tone">Moonlight (달빛)</option>
-                </optgroup>
-
-                <optgroup label="💡 Artificial Light (인공광)">
-                    <option value="Warm tungsten interior lights">Warm Tungsten (따뜻한 실내등)</option>
-                    <option value="Cool fluorescent office lights">Cool Fluorescent (형광등)</option>
-                    <option value="Neon cyberpunk lighting">Neon Lights (네온 사인)</option>
-                    <option value="Street lamps at night">Street Lamps (가로등)</option>
-                    <option value="Architectural facade lighting">Facade Lighting (경관 조명)</option>
-                    <option value="Studio softbox lighting">Studio Softbox (스튜디오 조명)</option>
-                    <option value="Rembrandt lighting">Rembrandt (렘브란트 조명/명암)</option>
-                    <option value="IES profile spotlights">IES Spotlights (현실적 스포트라이트)</option>
-                    <option value="Bioluminescent glow">Bioluminescent (야광/발광)</option>
-                    <option value="Candlelight atmosphere">Candlelight (촛불/아늑함)</option>
-                </optgroup>
-
-                <optgroup label="🎨 Color Grading & Mood (색감)">
-                    <option value="Cinematic teal and orange">Teal & Orange (영화적 색감)</option>
-                    <option value="Wes Anderson pastel palette">Wes Anderson (파스텔/동화)</option>
-                    <option value="Cyberpunk pink and blue">Pink & Blue (사이버펑크)</option>
-                    <option value="Monochromatic noir">Monochromatic (흑백 느와르)</option>
-                    <option value="Sepia vintage tone">Sepia (세피아/빈티지)</option>
-                    <option value="High contrast chiaroscuro">Chiaroscuro (극적인 명암대비)</option>
-                    <option value="Muted desaturated tones">Muted Tones (채도 빠진/차분함)</option>
-                    <option value="Vivid saturated colors">Vivid Colors (강렬한 원색)</option>
-                    <option value="Dark moody atmosphere">Dark Moody (어둡고 무거운)</option>
-                    <option value="Bright airy high-key">High-Key (밝고 화사한)</option>
-                </optgroup>
+            <label>8. Viewpoint</label>
+            <select id="s_view" onchange="toggleCustom(this, 'inp_view')">
+                <option value="">-- 카메라 --</option>
+                <option value="Eye-level perspective">Eye-Level</option>
+                <option value="Aerial bird's eye view">Aerial View</option>
+                <option value="Low angle worm's eye view">Low Angle</option>
+                <option value="Interior perspective">Interior</option>
+                <option value="Isometric diagram">Isometric</option>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
-            <input type="text" id="inp_light" placeholder="조명 입력...">
+            <input type="text" id="inp_view" placeholder="카메라 입력...">
         </div>
-
         <div class="input-group">
-            <label>10. Ratio <span class="sub-label">이미지 비율</span></label>
+            <label>9. Ratio</label>
             <select id="inp_ratio">
-                <option value="wide landscape aspect ratio (16:9)">16:9 (PC/유튜브/와이드)</option>
-                <option value="vertical portrait aspect ratio (9:16)">9:16 (모바일/릴스/숏츠)</option>
-                <option value="square aspect ratio (1:1)">1:1 (인스타그램/정방형)</option>
-                <option value="classic photography ratio (4:3)">4:3 (일반 사진/아이패드)</option>
-                <option value="portrait photography ratio (3:4)">3:4 (인물 사진)</option>
-                <option value="panoramic aspect ratio (21:9)">21:9 (울트라와이드/영화)</option>
-                <option value="IMAX aspect ratio (1.43:1)">IMAX (아이맥스)</option>
+                <option value="16:9 aspect ratio">16:9 (Wide)</option>
+                <option value="9:16 aspect ratio">9:16 (Vertical)</option>
+                <option value="1:1 aspect ratio">1:1 (Square)</option>
             </select>
         </div>
     </div>
@@ -964,18 +300,19 @@
     <button class="btn-gen" onclick="generatePrompt()">GENERATE PROMPT</button>
 
     <div class="result-area">
-        <textarea id="res_text" readonly placeholder="옵션을 선택하면 프롬프트가 생성됩니다."></textarea>
-        <button class="btn-copy" onclick="copyText()">복사하기 (Copy)</button>
+        <textarea id="res_text" readonly placeholder="옵션을 선택하거나 상단 버튼을 눌러보세요."></textarea>
+        <button class="btn-copy" onclick="copyText()">복사하기</button>
     </div>
 </div>
 
 <script>
-    // [V19 추가] Preset Logic
+    // 헬퍼 함수: 값 설정
     function setVal(id, value) {
         const sel = document.getElementById(id);
         if(sel) sel.value = value;
     }
 
+    // 헬퍼 함수: 랜덤 선택
     function randomSelect(id) {
         const sel = document.getElementById(id);
         if(!sel) return;
@@ -986,58 +323,42 @@
         }
     }
 
+    // [핵심] 버튼 기능 구현
     function applyPreset(type) {
-        // 1. 매스 스터디 (백색 모형)
         if(type === 'mass') {
-            setVal('s_rep', 'White architectural scale model');
+            // 🏳️ 매스 스터디
+            setVal('s_render', 'White architectural model');
             setVal('s_mat', 'White Stucco');
-            setVal('s_den', 'no people, pure architectural focus');
-            setVal('s_light', 'Studio softbox lighting');
-            alert('🏳️ 매스 스터디 모드: 백색 모형 스타일로 설정되었습니다.');
+            setVal('s_people', 'no people, pure architecture');
+            setVal('s_mood', 'clean and clinical');
+            alert("🏳️ 매스 스터디 모드 적용됨");
         } 
-        // 2. 실사 변경 (Real Photo)
         else if(type === 'real') {
-            setVal('s_rep', 'Photorealistic architectural photography');
-            setVal('s_mat', 'Exposed Concrete'); // 예시 재질 (또는 기존 유지 로직 구현 가능하나, 여기선 리셋)
-            setVal('s_den', 'moderate daily activity');
-            setVal('s_light', 'Golden hour warm sunlight');
-            alert('📸 실사 모드: 사실적인 렌더링 스타일로 변경되었습니다.');
+            // 📸 실사 모드
+            setVal('s_render', 'Photorealistic, 8k resolution');
+            setVal('s_mat', 'Exposed Concrete'); 
+            setVal('s_people', 'sparse figures for scale');
+            setVal('s_time', 'golden hour sunset');
+            alert("📸 실사 렌더링 모드 적용됨");
         } 
-        // 3. 랜덤 - 자연/힐링
-        else if(type === 'nature') {
-            randomSelect('s_region'); // Nature group bias handling needs more complex JS, simplifying to random
-            randomSelect('s_site');
-            randomSelect('s_usage');
-            randomSelect('s_type');
-            randomSelect('s_style');
-            setVal('s_mood', 'peaceful and serene'); // Mood fixed
-            setVal('s_weather', 'clear blue sky');
-            generatePrompt();
-        }
-        // 4. 랜덤 - 도심/야경
-        else if(type === 'urban') {
+        else if(type === 'random') {
+            // 🎲 랜덤 (모든 항목 무작위)
             randomSelect('s_region');
             randomSelect('s_site');
             randomSelect('s_usage');
-            setVal('s_time', 'dark night');
-            setVal('s_light', 'Neon cyberpunk lighting');
-            setVal('s_mood', 'cyberpunk neon aesthetic');
-            generatePrompt();
-        }
-        // 5. 랜덤 - 로컬/한국
-        else if(type === 'local') {
-            // Force some Korean presets if possible, otherwise random
-            randomSelect('s_region'); 
-            randomSelect('s_type');
-            setVal('s_style', 'Modern Hanok');
-            setVal('s_act', 'Street Food Tent (Pojangmacha)');
-            generatePrompt();
+            randomSelect('s_style');
+            randomSelect('s_mat');
+            randomSelect('s_form');
+            randomSelect('s_time');
+            randomSelect('s_mood');
+            randomSelect('s_people');
+            randomSelect('s_render');
+            randomSelect('s_view');
+            alert("🎲 랜덤 설정 완료!");
         }
         
-        // Apply changes to text area immediately for presets 1 & 2
-        if (type === 'mass' || type === 'real') {
-            generatePrompt();
-        }
+        // 값 변경 후 바로 텍스트 생성
+        generatePrompt();
     }
 
     function toggleCustom(selectObj, inputId) {
@@ -1059,86 +380,52 @@
     }
 
     function generatePrompt() {
-        // Step 1
         const region = getVal(document.getElementById('s_region'), 'inp_loc_region');
         const site = getVal(document.getElementById('s_site'), 'inp_loc_site');
         const usage = getVal(document.getElementById('s_usage'), 'inp_prog_main');
-        const type = getVal(document.getElementById('s_type'), 'inp_prog_type');
         const style = getVal(document.getElementById('s_style'), 'inp_con_style');
         const mat = getVal(document.getElementById('s_mat'), 'inp_con_mat');
-        const floor = getVal(document.getElementById('s_floor'), 'inp_scale_floor');
         const form = getVal(document.getElementById('s_form'), 'inp_scale_form');
-
-        // Step 2
         const time = getVal(document.getElementById('s_time'), 'inp_time');
-        const weather = getVal(document.getElementById('s_weather'), 'inp_weather');
         const mood = getVal(document.getElementById('s_mood'), 'inp_mood');
-
-        // Step 3
-        const den = getVal(document.getElementById('s_den'), 'inp_den');
-        const act = getVal(document.getElementById('s_act'), 'inp_act');
-        const rep = getVal(document.getElementById('s_rep'), 'inp_rep');
-
-        // Step 4
-        const view = getVal(document.getElementById('s_view'), 'inp_view');
+        const people = getVal(document.getElementById('s_people'), 'inp_people');
         const render = getVal(document.getElementById('s_render'), 'inp_style');
-        const light = getVal(document.getElementById('s_light'), 'inp_light');
+        const view = getVal(document.getElementById('s_view'), 'inp_view');
         const ratio = document.getElementById('inp_ratio').value;
 
-        // Assembly
-        const parts = [];
+        // 프롬프트 조합
+        let parts = [];
         
-        // Subject Construction
+        // Subject
         let subject = `Subject: A`;
-        if(floor) subject += ` ${floor}`;
         if(form) subject += ` ${form}`;
         if(usage) subject += ` ${usage}`;
-        if(type) subject += ` (${type})`;
         parts.push(subject);
 
         // Design
-        let design = [];
-        if(style) design.push(`designed in ${style} style`);
-        if(mat) design.push(`featuring ${mat} facade`);
-        if(design.length > 0) parts.push(`Design: ${design.join(', ')}`);
+        if(style) parts.push(`Style: ${style}`);
+        if(mat) parts.push(`Material: ${mat}`);
 
         // Context
-        let context = [];
-        if(region) context.push(`situated ${region}`);
-        if(site) context.push(`${site}`);
-        if(context.length > 0) parts.push(`Context: ${context.join(', ')}`);
+        if(region || site) parts.push(`Location: ${region} ${site}`);
 
-        // Environment
-        let envParts = [];
-        if(time) envParts.push(time);
-        if(weather) envParts.push(weather);
-        if(mood) envParts.push(`${mood} atmosphere`);
-        if(envParts.length > 0) parts.push(`Environment: ${envParts.join(', ')}`);
+        // Mood & Env
+        if(time || mood) parts.push(`Atmosphere: ${time}, ${mood}`);
 
         // People
-        let pplParts = [];
-        if(den) pplParts.push(den);
-        if(act) pplParts.push(act);
-        if(rep) pplParts.push(`depicted as ${rep}`);
-        if(pplParts.length > 0) parts.push(`Entourage: ${pplParts.join(', ')}`);
+        if(people) parts.push(`Entourage: ${people}`);
 
         // Render
-        if(view) parts.push(`Viewpoint: ${view}`);
-        let finalStyle = render || "Photorealistic, 8k resolution";
-        let finalLight = light || "Cinematic lighting";
-        parts.push(`Lighting: ${finalLight}`);
-        parts.push(`Composition: ${ratio}`);
+        let renderPart = `Render: ${render || "Photorealistic"}, ${view || "Eye-level"}, ${ratio}`;
+        parts.push(renderPart);
 
-        const finalPrompt = `Architectural Visualization. \n\n` + 
-            parts.join('. \n') + `.\n\n` +
-            `Render Style: ${finalStyle}, highly detailed textures, shot on Phase One camera, Unreal Engine 5 render.`;
-
+        const finalPrompt = `Architectural Visualization. \n\n` + parts.join('. \n') + `.`;
         document.getElementById('res_text').value = finalPrompt;
     }
 
     function copyText() {
         const txt = document.getElementById('res_text');
-        if(!txt.value) return alert("프롬프트를 먼저 생성해주세요.");
+        if(!txt.value) return alert("먼저 생성해주세요.");
         txt.select();
         document.execCommand('copy');
         alert("복사되었습니다!");
