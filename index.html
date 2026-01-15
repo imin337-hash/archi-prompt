@@ -562,33 +562,123 @@
             <input type="text" id="inp_view" placeholder="카메라 앵글 입력...">
         </div>
 
-        <div class="input-group">
-            <label>8. Render Engine</label>
-            <select id="s_render" onchange="toggleCustom(this, 'inp_style')">
-                <option value="">-- 엔진 선택 --</option>
-                <option value="Unreal Engine 5 with Lumen">Unreal Engine 5</option>
-                <option value="V-Ray 6 render">V-Ray 6</option>
-                <option value="Lumion 12">Lumion</option>
-                <option value="Twinmotion">Twinmotion</option>
-                <option value="8k resolution ultra detailed">8K Resolution</option>
-                <option value="custom">✍️ 직접 입력</option>
-            </select>
-            <input type="text" id="inp_style" placeholder="렌더 설정 입력...">
-        </div>
+<div class="input-group">
+    <label>8. Render Engine</label>
+    <select id="s_render" onchange="toggleCustom(this, 'inp_style')">
+        <option value="">-- 엔진 및 스타일 선택 (50+) --</option>
+        <option value="Unreal Engine 5 with Lumen">Unreal Engine 5 (Lumen)</option>
+        <option value="V-Ray 6 render">V-Ray 6</option>
+        <option value="Octane Render">Octane Render</option>
+        <option value="Redshift by Maxon">Redshift</option>
+        <option value="Arnold Render">Arnold</option>
+        <option value="Corona Renderer">Corona Renderer</option>
+        <option value="Lumion 12">Lumion</option>
+        <option value="Twinmotion">Twinmotion</option>
+        <option value="Blender Cycles">Cycles Engine</option>
+        <option value="Ray Tracing Global Illumination">Ray Tracing (광추적)</option>
+        <option value="8k resolution ultra detailed">8K Ultra Detailed</option>
+        <option value="Photorealistic Architecture">Photorealistic (실사 건축)</option>
+        <option value="Hyper-realistic 16k">Hyper-realistic (초실사)</option>
+        <option value="Nanite Detail UE5">UE5 Nanite (초정밀)</option>
+        <option value="Unity HDRP">Unity HDRP</option>
+        <option value="Oil Painting Texture">Oil Painting (유화)</option>
+        <option value="Watercolor Illustration">Watercolor (수채화)</option>
+        <option value="Gouache Style">Gouache (과슈)</option>
+        <option value="Ink and Wash Painting">Ink Wash (수묵화)</option>
+        <option value="Charcoal Sketch">Charcoal (목탄)</option>
+        <option value="Palette Knife Painting">Palette Knife (질감 강조)</option>
+        <option value="Ukiyo-e Japanese Art">Ukiyo-e (우키요에)</option>
+        <option value="Studio Ghibli Aesthetic">Studio Ghibli (지브리 풍)</option>
+        <option value="Disney Pixar Animation Style">Pixar Style (픽사 풍)</option>
+        <option value="Makoto Shinkai Style">Makoto Shinkai (신카이 마코토)</option>
+        <option value="Anime Cel Shading">Cel Shading (카툰 렌더)</option>
+        <option value="Retro 90s Anime">90s Retro Anime (레트로 애니)</option>
+        <option value="35mm Film Grain">35mm Film Grain (필름)</option>
+        <option value="Kodachrome Vintage">Kodachrome (빈티지 컬러)</option>
+        <option value="Polaroid Style">Polaroid (폴라로이드)</option>
+        <option value="Macro Photography">Macro Shot (접사)</option>
+        <option value="Tilt-shift Photography">Tilt-shift (미니어처)</option>
+        <option value="Deep Focus Wide Angle">Deep Focus (광각)</option>
+        <option value="Soft Bokeh Background">Bokeh (아웃포커싱)</option>
+        <option value="Infrared Photography">Infrared (적외선)</option>
+        <option value="Isometric 3D Render">Isometric (아이소메트릭)</option>
+        <option value="Low Poly Art">Low Poly (로우 폴리)</option>
+        <option value="Voxel Art Style">Voxel Art (복셀)</option>
+        <option value="Vector Illustration">Vector (벡터 일러스트)</option>
+        <option value="Cybernetic Tech Style">Cybernetic (사이보그)</option>
+        <option value="Holographic Render">Hologram (홀로그램)</option>
+        <option value="Glitch Art Effect">Glitch Art (글리치)</option>
+        <option value="Claymation Style">Claymation (클레이)</option>
+        <option value="Paper Cutout Art">Paper Cut (종이 공예)</option>
+        <option value="Blueprint Drawing">Blueprint (청사진)</option>
+        <option value="Wireframe Model">Wireframe (와이어프레임)</option>
+        <option value="Splash Art Concept">Splash Art (컨셉 원화)</option>
+        <option value="Matte Painting Cinema">Matte Painting (영화 배경)</option>
+        <option value="Double Exposure">Double Exposure (이중 노출)</option>
+        <option value="Surrealist Dali Style">Surrealism (초현실주의)</option>
+        <option value="custom">✍️ 직접 입력</option>
+    </select>
+    <input type="text" id="inp_style" placeholder="렌더 설정 입력...">
+</div>
 
-        <div class="input-group">
-            <label>9. Lighting <span class="sub-label">조명 (50+)</span></label>
-            <select id="s_light" onchange="toggleCustom(this, 'inp_light')">
-                <option value="">-- 조명 선택 --</option>
-                <option value="Golden hour warm sunlight">Golden Hour</option>
-                <option value="Blue hour cool twilight">Blue Hour</option>
-                <option value="Warm tungsten interior lights">Warm Tungsten (실내등)</option>
-                <option value="Neon cyberpunk lighting">Neon Lights (네온)</option>
-                <option value="God rays (crepuscular rays)">God Rays (빛내림)</option>
-                <option value="custom">✍️ 직접 입력</option>
-            </select>
-            <input type="text" id="inp_light" placeholder="조명 입력...">
-        </div>
+<div class="input-group">
+    <label>9. Lighting <span class="sub-label">조명 (50+)</span></label>
+    <select id="s_light" onchange="toggleCustom(this, 'inp_light')">
+        <option value="">-- 조명 선택 (50+) --</option>
+        <option value="Golden hour warm sunlight">Golden Hour (골든 아워)</option>
+        <option value="Blue hour cool twilight">Blue Hour (매직 아워)</option>
+        <option value="High Noon Harsh Sunlight">High Noon (정오의 강한 햇빛)</option>
+        <option value="Morning Mist Sunlight">Morning Mist (아침 안개 햇살)</option>
+        <option value="Dappled Sunlight through leaves">Dappled Light (나뭇잎 사이 햇살)</option>
+        <option value="Afternoon Golden Glow">Afternoon Glow (오후의 노란 빛)</option>
+        <option value="Full Moon Moonlight">Moonlight (달빛)</option>
+        <option value="Starry Night Starlight">Starlight (별빛)</option>
+        <option value="Gloomy Overcast Light">Overcast (흐린 날)</option>
+        <option value="Cinematic Lighting">Cinematic (영화적 조명)</option>
+        <option value="Dramatic Chiaroscuro">Chiaroscuro (강렬한 명암비)</option>
+        <option value="Volumetric Foggy Lighting">Volumetric Fog (입체 안개광)</option>
+        <option value="God rays (crepuscular rays)">God Rays (빛내림)</option>
+        <option value="Ethereal Dreamy Glow">Ethereal (몽환적인 광채)</option>
+        <option value="Misty Foggy Atmosphere">Misty (자욱한 안개 분위기)</option>
+        <option value="Dusty Sunbeams">Dusty Beams (먼지 섞인 햇살)</option>
+        <option value="Three-point Lighting">3-Point Lighting (인물 표준)</option>
+        <option value="Softbox Studio Light">Softbox (부드러운 스튜디오광)</option>
+        <option value="Rim Lighting Backlit">Rim Light (외곽선 강조)</option>
+        <option value="Rembrandt Lighting">Rembrandt (렘브란트 조명)</option>
+        <option value="High-key Bright Lighting">High-key (밝고 화사한)</option>
+        <option value="Low-key Moody Lighting">Low-key (어둡고 고독한)</option>
+        <option value="Butterfly Beauty Lighting">Butterfly Light (뷰티 촬영)</option>
+        <option value="Warm tungsten interior lights">Warm Tungsten (실내등)</option>
+        <option value="Candlelight Flicker">Candlelight (촛불)</option>
+        <option value="Warm Fireplace Glow">Fireplace (벽난로)</option>
+        <option value="Cold Fluorescent Light">Fluorescent (형광등)</option>
+        <option value="Soft Incandescent Light">Incandescent (백열등)</option>
+        <option value="Industrial Sodium Vapor">Sodium Vapor (주황색 가로등)</option>
+        <option value="Vintage Street Lamp">Street Lamp (가로등)</option>
+        <option value="Neon cyberpunk lighting">Neon Lights (네온/사이버펑크)</option>
+        <option value="Cyberpunk Pink and Blue">Pink & Blue Neon (네온 조합)</option>
+        <option value="Vibrant RGB Lighting">Vibrant RGB (화려한 RGB)</option>
+        <option value="Ultraviolet Blacklight">UV Blacklight (자외선 야광)</option>
+        <option value="Pastel Color Palette Lighting">Pastel Light (파스텔 조명)</option>
+        <option value="Monochromatic Light">Monochromatic (단색 조명)</option>
+        <option value="Bioluminescent Glow">Bioluminescent (생물 발광)</option>
+        <option value="Flashlight Beam in Dark">Flashlight (손전등)</option>
+        <option value="Laser Beam Effects">Laser Beams (레이저)</option>
+        <option value="Prismatic Rainbow Light">Prismatic (무지개/프리즘)</option>
+        <option value="Stroboscopic Lighting">Stroboscopic (스트로브)</option>
+        <option value="Lightning Bolt Flash">Lightning Flash (번개)</option>
+        <option value="Underwater Caustic Light">Underwater Caustics (물속 굴절광)</option>
+        <option value="Lens Flare Sunlight">Lens Flare (렌즈 플레어)</option>
+        <option value="Rainy Night Reflections">Rainy Reflection (비오는 밤 반사)</option>
+        <option value="Silhouette Backlighting">Silhouette (실루엣)</option>
+        <option value="Arctic Cold Blue Light">Arctic Blue (북극의 한기)</option>
+        <option value="Desert Warm Orange Light">Desert Orange (사막의 열기)</option>
+        <option value="Magical Sparkle Light">Magical Glow (마법의 반짝임)</option>
+        <option value="Hard Shadows Dramatic">Hard Shadows (강한 그림자)</option>
+        <option value="custom">✍️ 직접 입력</option>
+    </select>
+    <input type="text" id="inp_light" placeholder="조명 입력...">
+</div>
 
         <div class="input-group">
             <label>10. Ratio</label>
