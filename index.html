@@ -514,24 +514,52 @@
         </div>
     </div>
 
-    <div class="section-header">4. CAMERA & RENDER SETTINGS</div>
-    <div class="grid-box">
-        <div class="input-group">
-            <label>7. Viewpoint <span class="sub-label">카메라</span></label>
+<div class="input-group">
+            <label>8. Viewpoint <span class="sub-label">카메라 앵글 (50+)</span></label>
             <select id="s_view" onchange="toggleCustom(this, 'inp_view')">
                 <option value="">-- 카메라 선택 --</option>
-                <optgroup label="Angles">
-                    <option value="Eye-level perspective">Eye-Level (눈높이)</option>
-                    <option value="Aerial bird's eye view">Aerial (조감도)</option>
+                
+                <optgroup label="📐 Orthographic (정투상도/도면)">
+                    <option value="Front Elevation View">Front Elevation (정면도)</option>
+                    <option value="Rear Elevation View">Rear Elevation (배면도)</option>
+                    <option value="Right Side Elevation View">Right Side Elevation (우측면도)</option>
+                    <option value="Left Side Elevation View">Left Side Elevation (좌측면도)</option>
+                    <option value="Top-down Plan View">Top-down Plan (배치도/지붕평면)</option>
+                    <option value="Cross-section Cutaway">Section Cut (단면 투시도)</option>
                 </optgroup>
-                <optgroup label="Lens">
-                    <option value="16mm Ultra-wide lens">16mm Ultra-Wide (초광각)</option>
-                    <option value="35mm Street photography lens">35mm Classic (스트릿)</option>
-                    <option value="85mm Portrait lens">85mm Portrait (인물)</option>
+
+                <optgroup label="🧊 Axonometric & Iso (입체 도면)">
+                    <option value="Isometric View">Isometric (아이소메트릭)</option>
+                    <option value="Axonometric Projection">Axonometric (엑소노메트릭)</option>
+                    <option value="Exploded Axonometric View">Exploded Axon (분해 조립도)</option>
+                    <option value="Worm's Eye Axonometric">Worm's Eye Axon (앙시 엑소)</option>
                 </optgroup>
+
+                <optgroup label="👁️ Perspective (투시도)">
+                    <option value="Eye-level Perspective">Eye-level (눈높이 투시)</option>
+                    <option value="One-point Perspective">One-point (1소점 투시)</option>
+                    <option value="Two-point Perspective">Two-point (2소점 투시)</option>
+                    <option value="Three-point Perspective">Three-point (3소점 웅장함)</option>
+                    <option value="Low Angle Worm's Eye View">Low Angle (로우 앵글)</option>
+                    <option value="Extreme Low Angle">Extreme Low Angle (초저각/개미시선)</option>
+                    <option value="High Angle Bird's Eye View">Bird's Eye (조감도)</option>
+                    <option value="Aerial Drone Shot">Aerial Drone (항공 촬영)</option>
+                </optgroup>
+
+                <optgroup label="🎬 Cinematic & Lens (연출)">
+                    <option value="Drone Shot 45 degree">Drone 45° (쿼터뷰)</option>
+                    <option value="Interior Perspective View">Interior Perspective (실내 투시)</option>
+                    <option value="Wide Angle 16mm Lens">Wide Angle 16mm (광각)</option>
+                    <option value="Telephoto Compression">Telephoto (망원 압축)</option>
+                    <option value="Tilt-shift Miniature Effect">Tilt-shift (미니어처 효과)</option>
+                    <option value="Fish-eye Lens Distortion">Fish-eye (어안렌즈)</option>
+                    <option value="Dutch Angle Tilted">Dutch Angle (기울기/역동적)</option>
+                    <option value="Over-the-shoulder Shot">Over-the-shoulder (어깨너머 시선)</option>
+                </optgroup>
+
                 <option value="custom">✍️ 직접 입력</option>
             </select>
-            <input type="text" id="inp_view" placeholder="카메라 입력...">
+            <input type="text" id="inp_view" placeholder="카메라 앵글 입력...">
         </div>
 
         <div class="input-group">
@@ -714,3 +742,4 @@
 
 </body>
 </html>
+
