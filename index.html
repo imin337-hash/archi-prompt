@@ -680,16 +680,33 @@
     <input type="text" id="inp_light" placeholder="조명 입력...">
 </div>
 
-        <div class="input-group">
-            <label>10. Ratio</label>
-            <select id="inp_ratio">
-                <option value="wide landscape aspect ratio (16:9)">16:9 (Wide)</option>
-                <option value="vertical portrait aspect ratio (9:16)">9:16 (Vertical)</option>
-                <option value="square aspect ratio (1:1)">1:1 (Square)</option>
-                <option value="classic photography ratio (4:3)">4:3 (Classic)</option>
-            </select>
-        </div>
-    </div>
+<div class="input-group">
+    <label>10. Ratio (Extended)</label>
+    <select id="inp_ratio">
+        <optgroup label="Standard & Digital">
+            <option value="square aspect ratio (1:1)">1:1 (Square - SNS)</option>
+            <option value="classic photography ratio (4:3)">4:3 (Classic Photo)</option>
+            <option value="wide landscape aspect ratio (16:9)">16:9 (HD Video/Web)</option>
+        </optgroup>
+
+        <optgroup label="Social Media & Mobile">
+            <option value="instagram portrait ratio (4:5)">4:5 (IG Portrait)</option>
+            <option value="vertical portrait aspect ratio (9:16)">9:16 (TikTok/Reels/Shorts)</option>
+            <option value="pinterest style ratio (2:3)">2:3 (Pinterest/Standard Portrait)</option>
+        </optgroup>
+
+        <optgroup label="Cinematic & Wide">
+            <option value="ultrawide monitor ratio (21:9)">21:9 (Ultrawide)</option>
+            <option value="cinematic anamorphic ratio (2.39:1)">2.39:1 (Movie Scope)</option>
+            <option value="extreme panoramic ratio (3:1)">3:1 (Super Panorama)</option>
+        </optgroup>
+
+        <optgroup label="Print & Document">
+            <option value="international paper size ratio (1:1.414)">ISO A-Paper (A4, A3)</option>
+            <option value="standard print ratio (5:7)">5:7 (Large Format Print)</option>
+        </optgroup>
+    </select>
+</div>
 
     <button class="btn-gen" onclick="generatePrompt()">GENERATE PROMPT</button>
 
@@ -832,4 +849,5 @@
 
 </body>
 </html>
+
 
