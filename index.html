@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MY ARCHITECT - V17.0 Massive</title>
+    <title>MY ARCHITECT - V17.0 Law Complete</title>
     <style>
         :root { --dark: #1a1a1a; --bg: #f4f4f4; --border: #dcdcdc; --white: #fff; }
         
@@ -81,174 +81,145 @@
 <div class="container">
     <header>
         <h1>MY ARCHITECT</h1>
-        <span class="badge">V17.0</span>
+        <span class="badge">V18.0</span>
         <div class="subtitle">AI PROMPT GENERATOR</div>
     </header>
 
     <div class="section-header">1. PROJECT DEFINITION (기본 설정)</div>
     <div class="grid-box">
         
-<div class="input-group">
+        <div class="input-group">
             <label>1-A. Region <span class="sub-label">지역 / 도시 배경</span></label>
             <select onchange="toggleCustom(this, 'inp_loc_region')">
                 <option value="">-- 지역 선택 --</option>
-                
-                <optgroup label="🇰🇷 Seoul: Old & New (서울 도심)">
-                    <option value="in Gangnam Teheran-ro with skyscrapers">Gangnam (강남 테헤란로/빌딩숲)</option>
-                    <option value="in Yeouido financial district near Han River">Yeouido (여의도 금융가)</option>
-                    <option value="in Seongsu-dong red brick factory cafe street">Seongsu-dong (성수동 붉은벽돌 거리)</option>
-                    <option value="in Euljiro retro industrial alleyway">Euljiro (을지로 노포/골목길)</option>
-                    <option value="in Hongdae energetic youth street with neon signs">Hongdae (홍대 번화가/네온)</option>
-                    <option value="in Bukchon Hanok Village traditional area">Bukchon (북촌/서촌 한옥마을)</option>
-                    <option value="in Itaewon hillside neighborhood with views">Itaewon/Hannam (이태원/한남 언덕)</option>
-                    <option value="near Gwanghwamun square with mountains background">Gwanghwamun (광화문/북악산 배경)</option>
+                <optgroup label="🇰🇷 Seoul: Old & New">
+                    <option value="in Gangnam Teheran-ro with skyscrapers">Gangnam (강남 테헤란로)</option>
+                    <option value="in Yeouido financial district">Yeouido (여의도 금융가)</option>
+                    <option value="in Seongsu-dong red brick factory cafe street">Seongsu-dong (성수동)</option>
+                    <option value="in Euljiro retro industrial alleyway">Euljiro (을지로 노포)</option>
+                    <option value="in Hongdae energetic youth street">Hongdae (홍대 거리)</option>
+                    <option value="in Bukchon Hanok Village">Bukchon (북촌 한옥마을)</option>
+                    <option value="in Itaewon hillside neighborhood">Itaewon (이태원)</option>
+                    <option value="near Gwanghwamun square">Gwanghwamun (광화문)</option>
                 </optgroup>
-
-                <optgroup label="🇰🇷 Residential & Daily Life (일반 주거지)">
-                    <option value="in a typical Korean red brick villa neighborhood">Red Brick Villa (구도심 빨간벽돌 빌라촌)</option>
-                    <option value="in a massive high-rise apartment complex">Apartment Complex (대단지 아파트 조경)</option>
-                    <option value="in a mixed-use residential area (Sang-ga Jutaek)">Sang-ga Jutaek (1층상가/택지지구)</option>
-                    <option value="in a semi-basement banjiha neighborhood">Banjiha Neighborhood (다세대/반지하 주택가)</option>
-                    <option value="in a quiet suburban cul-de-sac">Suburban Housing (한적한 전원주택단지)</option>
-                    <option value="on a rooftop extension space (Oktapbang)">Rooftop (옥탑방/옥상 정원)</option>
-                    <option value="in a narrow alley with overhead power lines">Old Alleyway (전선이 복잡한 좁은 골목)</option>
+                <optgroup label="🇰🇷 Residential & Life">
+                    <option value="in a red brick villa neighborhood">Red Brick Villa (빌라촌)</option>
+                    <option value="in a massive high-rise apartment complex">Apartment Complex (아파트단지)</option>
+                    <option value="in a mixed-use residential area (Sang-ga Jutaek)">Sang-ga Jutaek (상가주택지)</option>
+                    <option value="in a semi-basement banjiha neighborhood">Banjiha Area (다세대/반지하)</option>
+                    <option value="in a quiet suburban cul-de-sac">Suburban Housing (전원주택단지)</option>
                 </optgroup>
-
-                <optgroup label="🇰🇷 New Town & Infrastructure (신도시/인프라)">
-                    <option value="in Pangyo Techno Valley IT district">Pangyo Techno Valley (판교/IT단지)</option>
-                    <option value="in a planned New Town like Dongtan/Songdo">New Town (동탄/송도/세종 신도시)</option>
-                    <option value="near a clean Lake Park (Ilsan/Gwanggyo style)">Lake Park (일산/광교 호수공원)</option>
-                    <option value="near a busy Subway Station exit">Subway Station Area (역세권 대로변)</option>
-                    <option value="under a massive highway bridge">Under-bridge (고가도로 하부)</option>
-                    <option value="near an industrial complex">Industrial Complex (지식산업센터/공단)</option>
+                <optgroup label="🇰🇷 New Town & Infra">
+                    <option value="in Pangyo Techno Valley">Pangyo (판교 테크노밸리)</option>
+                    <option value="in a planned New Town like Dongtan">New Town (신도시)</option>
+                    <option value="near a clean Lake Park">Lake Park (호수공원)</option>
+                    <option value="near a busy Subway Station exit">Subway Station (역세권)</option>
+                    <option value="under a massive highway bridge">Under-bridge (고가하부)</option>
                 </optgroup>
-
-                <optgroup label="🇰🇷 Local & Rural (지방/자연)">
-                    <option value="in Busan Haeundae coastal city context">Busan Haeundae (부산 해운대/마린시티)</option>
-                    <option value="in a hillside village (Gamcheon style)">Hillside Village (부산 감천/달동네)</option>
-                    <option value="on Jeju Island volcanic coast with stone walls">Jeju Coast (제주 해안/돌담)</option>
-                    <option value="in a Jeju Gotjawal forest">Jeju Forest (제주 곶자왈/숲)</option>
-                    <option value="in a rural rice paddy field landscape">Rice Paddy Field (시골 논밭 풍경)</option>
-                    <option value="near a fishing port on the East Sea">Fishing Port (동해안 어촌/항구)</option>
-                    <option value="in a pine tree forest (Korean Sonamu)">Pine Forest (한국 소나무 숲)</option>
-                    <option value="near a traditional Buddhist temple in mountains">Mountain Temple (산사/절 입구)</option>
+                <optgroup label="🇰🇷 Local & Nature">
+                    <option value="in Busan Haeundae coastal city">Busan Haeundae (해운대)</option>
+                    <option value="in a hillside village (Gamcheon style)">Hillside Village (달동네)</option>
+                    <option value="on Jeju Island volcanic coast">Jeju Coast (제주 해안)</option>
+                    <option value="in a rural rice paddy field">Rice Paddy (시골 논밭)</option>
+                    <option value="in a pine tree forest">Pine Forest (소나무 숲)</option>
                 </optgroup>
-
-                <optgroup label="🇰🇷 Commercial (상업)">
-                    <option value="in a traditional market (Gwangjang Market style)">Traditional Market (재래시장)</option>
-                    <option value="in a busy food alley (Mukja Golmok)">Food Alley (먹자골목)</option>
-                    <option value="near a large department store intersection">Department Store Area (백화점 사거리)</option>
-                    <option value="in a trendy cafe street (Garosu-gil style)">Trendy Cafe Street (가로수길/카페거리)</option>
-                </optgroup>
-
                 <optgroup label="🌍 Global Context">
-                    <option value="in a dense metropolis like New York">New York (뉴욕)</option>
-                    <option value="in a historical European city center">Europe (유럽 구도심)</option>
-                    <option value="in a futuristic cyberpunk city">Cyberpunk (사이버펑크)</option>
-                    <option value="in Tokyo">Tokyo (도쿄)</option>
-                    <option value="perched on a steep cliff overlooking the ocean">Coastal Cliff (해안 절벽)</option>
-                    <option value="in a deep misty ancient forest">Ancient Forest (고대 숲)</option>
+                    <option value="in New York City">New York (뉴욕)</option>
+                    <option value="in a European Old Town">Europe (유럽 구도심)</option>
+                    <option value="in a Cyberpunk City">Cyberpunk (사이버펑크)</option>
+                    <option value="perched on a steep cliff">Coastal Cliff (절벽)</option>
                     <option value="in the Sahara Desert">Desert (사막)</option>
-                    <option value="on a Tropical Island">Tropical Island (열대섬)</option>
                 </optgroup>
-                <option value="custom">✍️ 직접 입력 (Custom)</option>
+                <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_loc_region" placeholder="지역 입력...">
         </div>
 
-<div class="input-group">
-            <label>1-B. Site Condition <span class="sub-label">대지 조건 / 땅의 형태</span></label>
+        <div class="input-group">
+            <label>1-B. Site Condition <span class="sub-label">대지 조건</span></label>
             <select onchange="toggleCustom(this, 'inp_loc_site')">
                 <option value="">-- 대지 조건 선택 --</option>
-                
-                <optgroup label="Urban Fabric (도시 조직)">
+                <optgroup label="Urban Fabric">
                     <option value="on a prominent corner lot">Corner Lot (코너 대지)</option>
-                    <option value="between two tall buildings (in-fill)">In-fill Site (도심 틈새 끼인 땅)</option>
-                    <option value="at a busy intersection">Busy Intersection (교차로 코너)</option>
-                    <option value="in a narrow dead-end alley">Dead-end Alley (막다른 골목/쿨데삭)</option>
-                    <option value="facing a public plaza">Facing Public Plaza (광장 앞)</option>
-                    <option value="on a pedestrian-only street">Pedestrian Street (보행자 전용 도로변)</option>
-                    <option value="on an existing rooftop (rooftop extension)">Rooftop Extension (옥상 증축)</option>
-                    <option value="in a dense slum redevelopment area">Redevelopment Zone (재개발 구역)</option>
-                    <option value="surrounded by historic buildings">Historic District (역사 지구 내)</option>
+                    <option value="between two tall buildings (in-fill)">In-fill Site (틈새 대지)</option>
+                    <option value="at a busy intersection">Intersection (교차로)</option>
+                    <option value="in a narrow dead-end alley">Dead-end Alley (막다른 골목)</option>
+                    <option value="facing a public plaza">Facing Plaza (광장 앞)</option>
+                    <option value="on an existing rooftop">Rooftop (옥상 증축)</option>
+                    <option value="in a redevelopment zone">Redevelopment (재개발지구)</option>
                 </optgroup>
-
-                <optgroup label="Topography & Terrain (지형)">
+                <optgroup label="Topography">
                     <option value="on a flat open field">Flat Field (평지)</option>
-                    <option value="on a gentle grassy slope">Gentle Slope (완만한 경사지)</option>
-                    <option value="clinging to a steep hillside">Steep Hillside (급경사지/달동네)</option>
+                    <option value="on a gentle grassy slope">Gentle Slope (완만한 경사)</option>
+                    <option value="clinging to a steep hillside">Steep Hillside (급경사지)</option>
                     <option value="perched on a rocky cliff edge">Cliff Edge (절벽 끝)</option>
-                    <option value="in a sunken recessed plot">Sunken Plot (썬큰/꺼진 땅)</option>
-                    <option value="on a terraced landscape">Terraced Site (계단식 대지)</option>
-                    <option value="in a valley floor">Valley Floor (계곡 바닥)</option>
-                    <option value="embedded in a mountain face">Mountain Embedded (산자락 매립형)</option>
-                    <option value="on a rolling hill">Rolling Hill (구릉지)</option>
+                    <option value="in a sunken recessed plot">Sunken Plot (썬큰/꺼진땅)</option>
+                    <option value="on a terraced landscape">Terraced (계단식)</option>
                 </optgroup>
-
-                <optgroup label="Water & Nature (수변/자연)">
+                <optgroup label="Water & Nature">
                     <option value="on a riverbank overlooking water">Riverbank (강변)</option>
-                    <option value="on a serene lakeside">Lakeside (호숫가)</option>
-                    <option value="on a sandy coastal beach">Coastal Beach (해변가)</option>
-                    <option value="floating on water">Floating Site (수상)</option>
-                    <option value="in a wetland marsh">Wetland/Marsh (습지)</option>
-                    <option value="on a small isolated island">Private Island (무인도/섬)</option>
-                    <option value="next to a waterfall">Waterfall Edge (폭포 옆)</option>
-                    <option value="on a peninsula jutting into sea">Peninsula (반도)</option>
+                    <option value="on a serene lakeside">Lakeside (호수변)</option>
+                    <option value="on a sandy coastal beach">Coastal Beach (해변)</option>
+                    <option value="in a wetland marsh">Wetland (습지)</option>
                 </optgroup>
-
-                <optgroup label="Infrastructure & Edge (인프라)">
+                <optgroup label="Infrastructure">
                     <option value="next to a busy highway">Highway Side (고속도로변)</option>
-                    <option value="under a massive bridge">Underbridge Space (교량 하부)</option>
-                    <option value="along a railway track">Railway Trackside (철길 옆)</option>
-                    <option value="connected to a subway station">Subway Connected (지하철 연결)</option>
-                    <option value="in an industrial harbor/port">Industrial Port (항만/부두)</option>
-                    <option value="near an airport runway">Airport Vicinity (공항 활주로 인근)</option>
-                    <option value="on a parking lot site">Parking Lot Conversion (주차장 부지)</option>
+                    <option value="under a massive bridge">Underbridge (교량하부)</option>
+                    <option value="along a railway track">Railway Side (철길 옆)</option>
                 </optgroup>
-
-                <optgroup label="Challenging Shapes (특수 형태)">
-                    <option value="on a triangular wedge shape">Triangular Wedge (삼각형/플랫아이언)</option>
-                    <option value="on a long narrow strip (eel's bed)">Narrow Strip (세장형/뱀장어 침대)</option>
-                    <option value="on an irregular polygon shape">Irregular Polygon (부정형 대지)</option>
-                    <option value="on a tiny micro-plot">Micro Plot (초협소 대지)</option>
-                    <option value="on a circular plot">Circular Plot (원형 대지)</option>
-                    <option value="inside a large cave">Cave Interior (동굴 내부)</option>
-                    <option value="spanning across a gorge (bridge)">Spanning Gorge (협곡 사이)</option>
+                <optgroup label="Shapes">
+                    <option value="on a triangular wedge shape">Triangular (삼각형)</option>
+                    <option value="on a long narrow strip">Narrow Strip (세장형)</option>
+                    <option value="on an irregular polygon shape">Irregular (부정형)</option>
+                    <option value="on a tiny micro-plot">Micro Plot (협소대지)</option>
                 </optgroup>
-
-                <option value="custom">✍️ 직접 입력 (Custom)</option>
+                <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_loc_site" placeholder="대지 조건 입력...">
         </div>
 
         <div class="input-group full-width">
-            <label>2-A. Main Usage <span class="sub-label">건축법상 주용도</span></label>
+            <label>2-A. Main Usage <span class="sub-label">건축법상 용도군 (29개군)</span></label>
             <select onchange="toggleCustom(this, 'inp_prog_main')">
-                <option value="">-- 용도 선택 (건축법 시행령) --</option>
-                <optgroup label="주거 시설 (Residential)">
-                    <option value="Single-detached House">단독주택 (Single House)</option>
-                    <option value="Multi-household House (Dagagu)">다가구주택 (Dagagu)</option>
-                    <option value="Apartment Complex">아파트 (Apartment)</option>
-                    <option value="Multi-unit House (Dasedae)">다세대주택 (Multi-unit)</option>
-                    <option value="Officetel (Studio Apartment)">오피스텔 (Officetel)</option>
+                <option value="">-- 용도 선택 (건축법 시행령 별표1) --</option>
+                <optgroup label="주거 & 근린 (Living)">
+                    <option value="Single-detached House">1. 단독주택 (Single House)</option>
+                    <option value="Multi-unit Housing">2. 공동주택 (Multi-unit)</option>
+                    <option value="Class 1 Neighborhood Living Facility">3. 제1종 근린생활시설</option>
+                    <option value="Class 2 Neighborhood Living Facility">4. 제2종 근린생활시설</option>
                 </optgroup>
-                <optgroup label="상업/업무 시설">
-                    <option value="Retail Shop">소매점 (Retail)</option>
-                    <option value="Cafe / Bakery">휴게음식점 (Cafe)</option>
-                    <option value="Restaurant">일반음식점 (Restaurant)</option>
-                    <option value="Department Store">백화점 (Dept. Store)</option>
-                    <option value="Shopping Mall">쇼핑몰 (Mall)</option>
-                    <option value="Corporate Headquarters">업무시설/사옥 (HQ Office)</option>
-                    <option value="Luxury Hotel">호텔 (Hotel)</option>
+                <optgroup label="문화, 집회 & 종교 (Culture)">
+                    <option value="Cultural and Assembly Facility">5. 문화 및 집회시설</option>
+                    <option value="Religious Facility">6. 종교시설 (Religious)</option>
                 </optgroup>
-                <optgroup label="문화/공공/기타">
-                    <option value="Performing Arts Center">공연장 (Theater)</option>
-                    <option value="Art Museum / Gallery">미술관/전시장 (Museum)</option>
-                    <option value="Public Library">도서관 (Library)</option>
-                    <option value="General Hospital">종합병원 (Hospital)</option>
-                    <option value="International Airport">공항 (Airport)</option>
-                    <option value="Industrial Factory">공장 (Factory)</option>
-                    <option value="Church / Cathedral">교회/성당 (Religious)</option>
+                <optgroup label="판매, 영업 & 업무 (Business)">
+                    <option value="Sales Facility">7. 판매시설 (Sales)</option>
+                    <option value="Transportation Facility">8. 운수시설 (Transport)</option>
+                    <option value="Business Facility">14. 업무시설 (Office)</option>
+                    <option value="Lodging Facility">15. 숙박시설 (Lodging)</option>
+                    <option value="Amusement Facility">16. 위락시설 (Amusement)</option>
+                </optgroup>
+                <optgroup label="교육 & 의료 & 복지 (Public)">
+                    <option value="Medical Facility">9. 의료시설 (Medical)</option>
+                    <option value="Education and Research Facility">10. 교육연구시설 (Education)</option>
+                    <option value="Elderly and Children Facility">11. 노유자시설 (Elderly/Child)</option>
+                    <option value="Training Facility">12. 수련시설 (Training)</option>
+                    <option value="Sports Facility">13. 운동시설 (Sports)</option>
+                </optgroup>
+                <optgroup label="산업 & 기타 (Industry/Etc)">
+                    <option value="Factory">17. 공장 (Factory)</option>
+                    <option value="Warehouse Facility">18. 창고시설 (Warehouse)</option>
+                    <option value="Hazardous Substance Storage">19. 위험물 저장 및 처리 시설</option>
+                    <option value="Automotive Related Facility">20. 자동차 관련 시설</option>
+                    <option value="Animal and Plant Facility">21. 동/식물 관련 시설</option>
+                    <option value="Resource Circulation Facility">22. 자원순환 관련 시설</option>
+                    <option value="Correctional and Military Facility">23. 교정 및 군사 시설</option>
+                    <option value="Broadcasting Communication Facility">24. 방송통신시설</option>
+                    <option value="Power Generation Facility">25. 발전시설</option>
+                    <option value="Cemetery Related Facility">26. 묘지 관련 시설</option>
+                    <option value="Tourism and Rest Facility">27. 관광 휴게 시설</option>
+                    <option value="Funeral Facility">28. 장례시설</option>
+                    <option value="Campsite Facility">29. 야영장 시설</option>
                 </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
@@ -256,17 +227,37 @@
         </div>
 
         <div class="input-group full-width">
-            <label>2-B. Specific Type <span class="sub-label">세부 유형 / 타입</span></label>
+            <label>2-B. Specific Type <span class="sub-label">세부 유형 / 시설</span></label>
             <select onchange="toggleCustom(this, 'inp_prog_type')">
                 <option value="">-- 세부 유형 선택 --</option>
-                <option value="Luxury Private Villa">Luxury Villa (고급 빌라)</option>
-                <option value="Minimalist Tiny House">Tiny House (협소 주택)</option>
-                <option value="Co-living Social Housing">Co-living (공유 주택)</option>
-                <option value="Flagship Store">Flagship Store (플래그십 스토어)</option>
-                <option value="Pop-up Pavilion">Pavilion (파빌리온)</option>
-                <option value="Mountain Cabin">Cabin (산장)</option>
-                <option value="Glamping Tent">Glamping (글램핑)</option>
-                <option value="Container Architecture">Container (컨테이너)</option>
+                <optgroup label="Residential Types">
+                    <option value="Luxury Private Villa">Luxury Villa (고급 단독)</option>
+                    <option value="Dagagu House">Dagagu House (다가구)</option>
+                    <option value="Apartment Complex">Apartment Complex (아파트 단지)</option>
+                    <option value="Officetel">Officetel (오피스텔)</option>
+                    <option value="Dasedae Housing (Villa)">Villa (다세대/빌라)</option>
+                    <option value="Gosiwon">Gosiwon (고시원)</option>
+                    <option value="Co-living House">Co-living (공유주택)</option>
+                </optgroup>
+                <optgroup label="Commercial & Public">
+                    <option value="Cafe and Bakery">Cafe & Bakery (카페/제과점)</option>
+                    <option value="Convenience Store">Convenience Store (편의점)</option>
+                    <option value="Local Clinic">Local Clinic (의원/치과)</option>
+                    <option value="General Hospital">General Hospital (종합병원)</option>
+                    <option value="Public Library">Public Library (도서관)</option>
+                    <option value="Art Museum">Art Museum (미술관)</option>
+                    <option value="Church">Church (교회)</option>
+                    <option value="Department Store">Department Store (백화점)</option>
+                    <option value="Corporate HQ">Corporate HQ (기업사옥)</option>
+                    <option value="Government Office">Government Office (관공서)</option>
+                    <option value="Traditional Market">Traditional Market (전통시장)</option>
+                    <option value="Knowledge Industry Center">Knowledge Industry Center (지식산업센터)</option>
+                    <option value="Data Center">Data Center (데이터센터)</option>
+                    <option value="Smart Factory">Smart Factory (스마트공장)</option>
+                    <option value="Parking Tower">Parking Tower (주차빌딩)</option>
+                    <option value="Hanok Hotel">Hanok Hotel (한옥호텔)</option>
+                    <option value="Glamping Site">Glamping Site (글램핑장)</option>
+                </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_prog_type" placeholder="세부 유형 입력...">
@@ -316,11 +307,11 @@
                 <optgroup label="Concept & Future">
                     <option value="Futuristic">Futuristic (미래지향)</option>
                     <option value="Cyberpunk">Cyberpunk (사이버펑크)</option>
-                    <option value="Solarpunk">Solarpunk (솔라펑크/친환경)</option>
+                    <option value="Solarpunk">Solarpunk (솔라펑크)</option>
                     <option value="Steampunk">Steampunk (스팀펑크)</option>
                     <option value="Biophilic Design">Biophilic (바이오필릭)</option>
                     <option value="Organic Architecture">Organic (유기적 건축)</option>
-                    <option value="Kinetic Architecture">Kinetic (키네틱/움직이는)</option>
+                    <option value="Kinetic Architecture">Kinetic (키네틱)</option>
                     <option value="Modular Architecture">Modular (모듈러)</option>
                     <option value="Tiny House Movement">Tiny House (타이니 하우스)</option>
                     <option value="Container Architecture">Container (컨테이너)</option>
@@ -337,19 +328,19 @@
                 <optgroup label="Concrete & Masonry">
                     <option value="Exposed Concrete">Exposed Concrete (노출콘크리트)</option>
                     <option value="Board-formed Concrete">Board-formed Concrete (송판노출)</option>
-                    <option value="Polished Concrete">Polished Concrete (폴리싱 콘크리트)</option>
+                    <option value="Polished Concrete">Polished Concrete (폴리싱)</option>
                     <option value="Precast Concrete Panels">Precast Panels (PC 패널)</option>
                     <option value="Red Brick">Red Brick (붉은 벽돌)</option>
                     <option value="Grey Brick">Grey Brick (회색 벽돌)</option>
                     <option value="White Brick">White Brick (백색 벽돌)</option>
                     <option value="Reclaimed Brick">Reclaimed Brick (고벽돌)</option>
                     <option value="Black Brick">Black Brick (전돌)</option>
-                    <option value="Stone Gabion">Gabion (게비온/돌망태)</option>
+                    <option value="Stone Gabion">Gabion (게비온)</option>
                 </optgroup>
                 <optgroup label="Metals">
                     <option value="Rusted Corten Steel">Corten Steel (코르텐강)</option>
                     <option value="Black Steel Panels">Black Steel (블랙 스틸/징크)</option>
-                    <option value="Anodized Aluminum">Anodized Aluminum (아노다이징 알루미늄)</option>
+                    <option value="Anodized Aluminum">Anodized Aluminum (알루미늄)</option>
                     <option value="Perforated Metal Screen">Perforated Metal (타공판)</option>
                     <option value="Corrugated Metal">Corrugated Metal (골강판)</option>
                     <option value="Titanium Zinc">Titanium Zinc (티타늄 징크)</option>
@@ -374,7 +365,7 @@
                     <option value="Glass Curtain Wall">Glass Curtain Wall (커튼월)</option>
                     <option value="Frameless Glass">Frameless Glass (프레임리스 유리)</option>
                     <option value="Frosted Glass (U-Glass)">U-Glass (U글래스/불투명)</option>
-                    <option value="Dichroic Glass">Dichroic Glass (다이크로익/오로라)</option>
+                    <option value="Dichroic Glass">Dichroic Glass (다이크로익)</option>
                     <option value="Translucent Polycarbonate">Polycarbonate (폴리카보네이트)</option>
                     <option value="ETFE Pillow Cladding">ETFE (ETFE 쿠션)</option>
                     <option value="Fiber Cement Panels">Fiber Cement (시멘트 사이딩)</option>
