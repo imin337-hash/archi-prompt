@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MY ARCHITECT - V18.0</title>
+    <title>MY ARCHITECT</title>
     <style>
         :root { --dark: #1a1a1a; --bg: #f4f4f4; --border: #dcdcdc; --white: #fff; }
         
@@ -20,10 +20,22 @@
             padding: 40px 20px; box-shadow: 0 0 25px rgba(0,0,0,0.05); min-height: 100vh;
         }
         
-        header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
+        header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
         h1 { margin: 0; color: var(--dark); font-weight: 900; letter-spacing: -1px; font-size: 28px; text-transform: uppercase; }
         .subtitle { color: #666; font-size: 13px; margin-top: 6px; font-weight: 500; }
         .badge { display: inline-block; background: var(--dark); color: #fff; padding: 3px 8px; font-size: 11px; border-radius: 4px; vertical-align: middle; margin-top: 5px; }
+
+        /* [V19 추가] 스마트 버튼 스타일 */
+        .magic-box { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 40px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px dashed #ccc; }
+        .btn-magic {
+            padding: 10px 16px; font-size: 13px; font-weight: 700;
+            border: 1px solid #ccc; background: white; color: #444;
+            border-radius: 30px; cursor: pointer; transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .btn-magic:hover { background: var(--dark); color: white; border-color: var(--dark); transform: translateY(-2px); }
+        .btn-magic.primary { border: 1px solid var(--dark); color: var(--dark); }
+        .btn-magic.primary:hover { background: var(--dark); color: white; }
 
         .section-header { 
             font-size: 16px; font-weight: 800; color: var(--dark); 
@@ -73,6 +85,8 @@
             .grid-box { grid-template-columns: 1fr; gap: 20px; }
             .full-width { grid-column: span 1; }
             h1 { font-size: 24px; }
+            .magic-box { gap: 6px; }
+            .btn-magic { flex: 1 1 45%; font-size: 12px; padding: 10px 5px; text-align: center; }
         }
     </style>
 </head>
@@ -81,16 +95,24 @@
 <div class="container">
     <header>
         <h1>MY ARCHITECT</h1>
-        <span class="badge">V18.0</span>
+        <span class="badge">V19.0</span>
         <div class="subtitle">AI PROMPT GENERATOR</div>
     </header>
+
+    <div class="magic-box">
+        <button class="btn-magic primary" onclick="applyPreset('mass')">🏳️ Mass Study (백색모형)</button>
+        <button class="btn-magic primary" onclick="applyPreset('real')">📸 Real Photo (실사변경)</button>
+        <button class="btn-magic" onclick="applyRandom('nature')">🎲 Nature (자연/힐링)</button>
+        <button class="btn-magic" onclick="applyRandom('urban')">🎲 Urban (도심/야경)</button>
+        <button class="btn-magic" onclick="applyRandom('local')">🎲 Local (한국/로컬)</button>
+    </div>
 
     <div class="section-header">1. PROJECT DEFINITION (기본 설정)</div>
     <div class="grid-box">
         
         <div class="input-group">
             <label>1-A. Region <span class="sub-label">지역 / 도시 배경</span></label>
-            <select onchange="toggleCustom(this, 'inp_loc_region')">
+            <select id="s_region" onchange="toggleCustom(this, 'inp_loc_region')">
                 <option value="">-- 지역 선택 --</option>
                 <optgroup label="🇰🇷 Seoul: Old & New">
                     <option value="in Gangnam Teheran-ro with skyscrapers">Gangnam (강남 테헤란로)</option>
@@ -137,7 +159,7 @@
 
         <div class="input-group">
             <label>1-B. Site Condition <span class="sub-label">대지 조건</span></label>
-            <select onchange="toggleCustom(this, 'inp_loc_site')">
+            <select id="s_site" onchange="toggleCustom(this, 'inp_loc_site')">
                 <option value="">-- 대지 조건 선택 --</option>
                 <optgroup label="Urban Fabric">
                     <option value="on a prominent corner lot">Corner Lot (코너 대지)</option>
@@ -180,7 +202,7 @@
 
         <div class="input-group full-width">
             <label>2-A. Main Usage <span class="sub-label">건축법상 용도군 (29개군)</span></label>
-            <select onchange="toggleCustom(this, 'inp_prog_main')">
+            <select id="s_usage" onchange="toggleCustom(this, 'inp_prog_main')">
                 <option value="">-- 용도 선택 (건축법 시행령 별표1) --</option>
                 <optgroup label="주거 & 근린 (Living)">
                     <option value="Single-detached House">1. 단독주택 (Single House)</option>
@@ -226,9 +248,9 @@
             <input type="text" id="inp_prog_main" placeholder="용도 입력...">
         </div>
 
-<div class="input-group full-width">
+        <div class="input-group full-width">
             <label>2-B. Specific Type <span class="sub-label">세부 시설 / 유형 (설계공모 포함)</span></label>
-            <select onchange="toggleCustom(this, 'inp_prog_type')">
+            <select id="s_type" onchange="toggleCustom(this, 'inp_prog_type')">
                 <option value="">-- 세부 시설 선택 --</option>
                 
                 <optgroup label="🏆 Design Competition (설계공모/공공)">
@@ -306,7 +328,7 @@
 
         <div class="input-group">
             <label>3-A. Style <span class="sub-label">건축 양식 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_con_style')">
+            <select id="s_style" onchange="toggleCustom(this, 'inp_con_style')">
                 <option value="">-- 스타일 선택 --</option>
                 <optgroup label="Modern & Contemporary">
                     <option value="Minimalist">Minimalist (미니멀리즘)</option>
@@ -364,7 +386,7 @@
 
         <div class="input-group">
             <label>3-B. Material <span class="sub-label">주요 마감재 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_con_mat')">
+            <select id="s_mat" onchange="toggleCustom(this, 'inp_con_mat')">
                 <option value="">-- 재료 선택 --</option>
                 <optgroup label="Concrete & Masonry">
                     <option value="Exposed Concrete">Exposed Concrete (노출콘크리트)</option>
@@ -430,7 +452,7 @@
 
         <div class="input-group">
             <label>4-A. Floor Count <span class="sub-label">층수</span></label>
-            <select onchange="toggleCustom(this, 'inp_scale_floor')">
+            <select id="s_floor" onchange="toggleCustom(this, 'inp_scale_floor')">
                 <option value="">-- 층수 선택 --</option>
                 <option value="single-story">1F (단층)</option>
                 <option value="low-rise (2-4 stories)">Low-rise (2~4층)</option>
@@ -445,7 +467,7 @@
 
         <div class="input-group">
             <label>4-B. Form <span class="sub-label">건물 형태 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_scale_form')">
+            <select id="s_form" onchange="toggleCustom(this, 'inp_scale_form')">
                 <option value="">-- 형태 선택 --</option>
                 <optgroup label="Basic Geometric">
                     <option value="Boxy and Cubic">Boxy/Cubic (박스형)</option>
@@ -511,7 +533,7 @@
     <div class="grid-box">
         <div class="input-group">
             <label>5-A. Time <span class="sub-label">시간대</span></label>
-            <select onchange="toggleCustom(this, 'inp_time')">
+            <select id="s_time" onchange="toggleCustom(this, 'inp_time')">
                 <option value="">-- 시간 선택 --</option>
                 <option value="early morning dawn">Dawn (새벽)</option>
                 <option value="clear sunny noon">High Noon (정오)</option>
@@ -525,7 +547,7 @@
         </div>
         <div class="input-group">
             <label>5-B. Weather <span class="sub-label">날씨</span></label>
-            <select onchange="toggleCustom(this, 'inp_weather')">
+            <select id="s_weather" onchange="toggleCustom(this, 'inp_weather')">
                 <option value="">-- 날씨 선택 --</option>
                 <option value="clear blue sky">Clear (맑음)</option>
                 <option value="overcast grey sky">Overcast (흐림)</option>
@@ -539,7 +561,7 @@
         </div>
         <div class="input-group full-width">
             <label>5-C. Mood <span class="sub-label">분위기</span></label>
-            <select onchange="toggleCustom(this, 'inp_mood')">
+            <select id="s_mood" onchange="toggleCustom(this, 'inp_mood')">
                 <option value="">-- 분위기 선택 --</option>
                 <option value="peaceful and serene">Peaceful (평온한)</option>
                 <option value="warm and cozy">Cozy (아늑한)</option>
@@ -559,7 +581,7 @@
     <div class="grid-box">
         <div class="input-group">
             <label>6-A. Density <span class="sub-label">인구 밀도</span></label>
-            <select onchange="toggleCustom(this, 'inp_den')">
+            <select id="s_den" onchange="toggleCustom(this, 'inp_den')">
                 <option value="">-- 밀도 선택 --</option>
                 <option value="no people, pure architectural focus">No People (사람 없음)</option>
                 <option value="sparse figures for scale">Sparse (소수)</option>
@@ -569,9 +591,9 @@
             </select>
             <input type="text" id="inp_den" placeholder="밀도 입력...">
         </div>
-<div class="input-group">
+        <div class="input-group">
             <label>6-B. Activity <span class="sub-label">활동 / 유형 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_act')">
+            <select id="s_act" onchange="toggleCustom(this, 'inp_act')">
                 <option value="">-- 활동 선택 --</option>
                 
                 <optgroup label="Business & Commute (업무/출퇴근)">
@@ -641,9 +663,9 @@
             </select>
             <input type="text" id="inp_act" placeholder="활동 입력...">
         </div>
-<div class="input-group full-width">
+        <div class="input-group full-width">
             <label>6-C. Representation Style <span class="sub-label">표현 기법 / 렌더링 스타일 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_rep')">
+            <select id="s_rep" onchange="toggleCustom(this, 'inp_rep')">
                 <option value="">-- 스타일 선택 --</option>
                 
                 <optgroup label="📸 Photorealism & High-End (실사/하이엔드)">
@@ -715,12 +737,12 @@
         </div>
     </div>
 
-<div class="section-header">4. CAMERA & RENDER SETTINGS (카메라/렌더)</div>
+    <div class="section-header">4. CAMERA & RENDER SETTINGS (카메라/렌더)</div>
     <div class="grid-box">
         
         <div class="input-group">
             <label>7. Viewpoint & Lens <span class="sub-label">카메라 앵글 / 렌즈 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_view')">
+            <select id="s_view" onchange="toggleCustom(this, 'inp_view')">
                 <option value="">-- 카메라 선택 --</option>
                 
                 <optgroup label="📏 Angles & Perspectives (앵글)">
@@ -774,7 +796,7 @@
 
         <div class="input-group">
             <label>8. Render Engine & Tech <span class="sub-label">렌더 엔진 / 품질 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_style')">
+            <select id="s_render" onchange="toggleCustom(this, 'inp_style')">
                 <option value="">-- 렌더 엔진 선택 --</option>
                 
                 <optgroup label="🖥️ Render Engines (엔진)">
@@ -821,7 +843,7 @@
 
         <div class="input-group">
             <label>9. Lighting & Tone <span class="sub-label">조명 / 톤앤매너 (50+)</span></label>
-            <select onchange="toggleCustom(this, 'inp_light')">
+            <select id="s_light" onchange="toggleCustom(this, 'inp_light')">
                 <option value="">-- 조명 선택 --</option>
                 
                 <optgroup label="☀️ Natural Light (자연광)">
@@ -889,6 +911,76 @@
 </div>
 
 <script>
+    // [V19 추가] Preset Logic
+    function setVal(id, value) {
+        const sel = document.getElementById(id);
+        if(sel) sel.value = value;
+    }
+
+    function randomSelect(id) {
+        const sel = document.getElementById(id);
+        if(!sel) return;
+        const opts = sel.querySelectorAll('option:not([value=""]):not([value="custom"])');
+        if(opts.length > 0) {
+            const rand = Math.floor(Math.random() * opts.length);
+            sel.value = opts[rand].value;
+        }
+    }
+
+    function applyPreset(type) {
+        // 1. 매스 스터디 (백색 모형)
+        if(type === 'mass') {
+            setVal('s_rep', 'White architectural scale model');
+            setVal('s_mat', 'White Stucco');
+            setVal('s_den', 'no people, pure architectural focus');
+            setVal('s_light', 'Studio softbox lighting');
+            alert('🏳️ 매스 스터디 모드: 백색 모형 스타일로 설정되었습니다.');
+        } 
+        // 2. 실사 변경 (Real Photo)
+        else if(type === 'real') {
+            setVal('s_rep', 'Photorealistic architectural photography');
+            setVal('s_mat', 'Exposed Concrete'); // 예시 재질 (또는 기존 유지 로직 구현 가능하나, 여기선 리셋)
+            setVal('s_den', 'moderate daily activity');
+            setVal('s_light', 'Golden hour warm sunlight');
+            alert('📸 실사 모드: 사실적인 렌더링 스타일로 변경되었습니다.');
+        } 
+        // 3. 랜덤 - 자연/힐링
+        else if(type === 'nature') {
+            randomSelect('s_region'); // Nature group bias handling needs more complex JS, simplifying to random
+            randomSelect('s_site');
+            randomSelect('s_usage');
+            randomSelect('s_type');
+            randomSelect('s_style');
+            setVal('s_mood', 'peaceful and serene'); // Mood fixed
+            setVal('s_weather', 'clear blue sky');
+            generatePrompt();
+        }
+        // 4. 랜덤 - 도심/야경
+        else if(type === 'urban') {
+            randomSelect('s_region');
+            randomSelect('s_site');
+            randomSelect('s_usage');
+            setVal('s_time', 'dark night');
+            setVal('s_light', 'Neon cyberpunk lighting');
+            setVal('s_mood', 'cyberpunk neon aesthetic');
+            generatePrompt();
+        }
+        // 5. 랜덤 - 로컬/한국
+        else if(type === 'local') {
+            // Force some Korean presets if possible, otherwise random
+            randomSelect('s_region'); 
+            randomSelect('s_type');
+            setVal('s_style', 'Modern Hanok');
+            setVal('s_act', 'Street Food Tent (Pojangmacha)');
+            generatePrompt();
+        }
+        
+        // Apply changes to text area immediately for presets 1 & 2
+        if (type === 'mass' || type === 'real') {
+            generatePrompt();
+        }
+    }
+
     function toggleCustom(selectObj, inputId) {
         const inputEl = document.getElementById(inputId);
         if(selectObj.value === 'custom') {
@@ -909,29 +1001,29 @@
 
     function generatePrompt() {
         // Step 1
-        const region = getVal(document.querySelectorAll('select')[0], 'inp_loc_region');
-        const site = getVal(document.querySelectorAll('select')[1], 'inp_loc_site');
-        const usage = getVal(document.querySelectorAll('select')[2], 'inp_prog_main');
-        const type = getVal(document.querySelectorAll('select')[3], 'inp_prog_type');
-        const style = getVal(document.querySelectorAll('select')[4], 'inp_con_style');
-        const mat = getVal(document.querySelectorAll('select')[5], 'inp_con_mat');
-        const floor = getVal(document.querySelectorAll('select')[6], 'inp_scale_floor');
-        const form = getVal(document.querySelectorAll('select')[7], 'inp_scale_form');
+        const region = getVal(document.getElementById('s_region'), 'inp_loc_region');
+        const site = getVal(document.getElementById('s_site'), 'inp_loc_site');
+        const usage = getVal(document.getElementById('s_usage'), 'inp_prog_main');
+        const type = getVal(document.getElementById('s_type'), 'inp_prog_type');
+        const style = getVal(document.getElementById('s_style'), 'inp_con_style');
+        const mat = getVal(document.getElementById('s_mat'), 'inp_con_mat');
+        const floor = getVal(document.getElementById('s_floor'), 'inp_scale_floor');
+        const form = getVal(document.getElementById('s_form'), 'inp_scale_form');
 
         // Step 2
-        const time = getVal(document.querySelectorAll('select')[8], 'inp_time');
-        const weather = getVal(document.querySelectorAll('select')[9], 'inp_weather');
-        const mood = getVal(document.querySelectorAll('select')[10], 'inp_mood');
+        const time = getVal(document.getElementById('s_time'), 'inp_time');
+        const weather = getVal(document.getElementById('s_weather'), 'inp_weather');
+        const mood = getVal(document.getElementById('s_mood'), 'inp_mood');
 
         // Step 3
-        const den = getVal(document.querySelectorAll('select')[11], 'inp_den');
-        const act = getVal(document.querySelectorAll('select')[12], 'inp_act');
-        const rep = getVal(document.querySelectorAll('select')[13], 'inp_rep');
+        const den = getVal(document.getElementById('s_den'), 'inp_den');
+        const act = getVal(document.getElementById('s_act'), 'inp_act');
+        const rep = getVal(document.getElementById('s_rep'), 'inp_rep');
 
         // Step 4
-        const view = getVal(document.querySelectorAll('select')[14], 'inp_view');
-        const render = getVal(document.querySelectorAll('select')[15], 'inp_style');
-        const light = getVal(document.querySelectorAll('select')[16], 'inp_light');
+        const view = getVal(document.getElementById('s_view'), 'inp_view');
+        const render = getVal(document.getElementById('s_render'), 'inp_style');
+        const light = getVal(document.getElementById('s_light'), 'inp_light');
         const ratio = document.getElementById('inp_ratio').value;
 
         // Assembly
@@ -996,5 +1088,3 @@
 
 </body>
 </html>
-
-
