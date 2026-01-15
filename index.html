@@ -226,39 +226,80 @@
             <input type="text" id="inp_prog_main" placeholder="용도 입력...">
         </div>
 
-        <div class="input-group full-width">
-            <label>2-B. Specific Type <span class="sub-label">세부 유형 / 시설</span></label>
+<div class="input-group full-width">
+            <label>2-B. Specific Type <span class="sub-label">세부 시설 / 유형 (설계공모 포함)</span></label>
             <select onchange="toggleCustom(this, 'inp_prog_type')">
-                <option value="">-- 세부 유형 선택 --</option>
-                <optgroup label="Residential Types">
-                    <option value="Luxury Private Villa">Luxury Villa (고급 단독)</option>
-                    <option value="Dagagu House">Dagagu House (다가구)</option>
-                    <option value="Apartment Complex">Apartment Complex (아파트 단지)</option>
-                    <option value="Officetel">Officetel (오피스텔)</option>
-                    <option value="Dasedae Housing (Villa)">Villa (다세대/빌라)</option>
-                    <option value="Gosiwon">Gosiwon (고시원)</option>
-                    <option value="Co-living House">Co-living (공유주택)</option>
+                <option value="">-- 세부 시설 선택 --</option>
+                
+                <optgroup label="🏆 Design Competition (설계공모/공공)">
+                    <option value="Complex Cultural Center (Living SOC)">Living SOC (생활SOC 복합화시설)</option>
+                    <option value="Public Library & Archives">Public Library (공공 도서관)</option>
+                    <option value="National Sports Center (Swimming Pool)">Sports Center (국민체육센터/수영장)</option>
+                    <option value="Administrative Welfare Center (Jumin Center)">Community Center (행정복지센터/주민센터)</option>
+                    <option value="Youth Support Center">Youth Center (청소년 수련관/문화의집)</option>
+                    <option value="Elderly Welfare Center">Senior Center (노인복지관)</option>
+                    <option value="Public Daycare / Kindergarten">Public Daycare (국공립 어린이집/유치원)</option>
+                    <option value="Green Smart Future School">Future School (그린스마트 미래학교)</option>
+                    <option value="Urban Regeneration Anchor Facility">Regeneration Hub (도시재생 앵커시설)</option>
+                    <option value="Start-up Incubation Center">Start-up Hub (창업지원센터)</option>
+                    <option value="Public Health Center">Health Center (보건소)</option>
+                    <option value="Fire Station (119 Safety Center)">Fire Station (소방서/119안전센터)</option>
+                    <option value="Happy Housing (Public Rental Apt)">Public Housing (행복주택/공공임대)</option>
                 </optgroup>
-                <optgroup label="Commercial & Public">
-                    <option value="Cafe and Bakery">Cafe & Bakery (카페/제과점)</option>
-                    <option value="Convenience Store">Convenience Store (편의점)</option>
-                    <option value="Local Clinic">Local Clinic (의원/치과)</option>
-                    <option value="General Hospital">General Hospital (종합병원)</option>
-                    <option value="Public Library">Public Library (도서관)</option>
-                    <option value="Art Museum">Art Museum (미술관)</option>
-                    <option value="Church">Church (교회)</option>
-                    <option value="Department Store">Department Store (백화점)</option>
-                    <option value="Corporate HQ">Corporate HQ (기업사옥)</option>
-                    <option value="Government Office">Government Office (관공서)</option>
-                    <option value="Traditional Market">Traditional Market (전통시장)</option>
+
+                <optgroup label="🏠 Residential (한국 주거)">
+                    <option value="Branded Apartment Complex">Branded Apartment (대단지 브랜드 아파트)</option>
+                    <option value="Officetel (Studio Apartment)">Officetel (오피스텔/풀옵션 원룸)</option>
+                    <option value="Red Brick Multi-family Villa">Red Brick Villa (빨간벽돌 다세대 빌라)</option>
+                    <option value="Piloti Structure Villa">Piloti Villa (1층 주차장 필로티 빌라)</option>
+                    <option value="Rooftop House (Oktapbang)">Rooftop House (옥탑방/초록 방수페인트)</option>
+                    <option value="Semi-basement Housing (Banjiha)">Banjiha (반지하 주택)</option>
+                    <option value="Micro-housing Gosiwon">Gosiwon (고시원/고시텔)</option>
+                    <option value="Share House">Share House (청년 쉐어하우스)</option>
+                    <option value="Traditional Hanok House">Hanok Residence (전통 한옥)</option>
+                    <option value="Modernized 2-story House">Yang-ok (70-80년대식 2층 양옥)</option>
+                </optgroup>
+
+                <optgroup label="🏪 Commercial & Retail (생활 상권)">
+                    <option value="24h Convenience Store (K-Store)">Convenience Store (편의점+야외테이블)</option>
+                    <option value="Coin Karaoke (Noraebang)">Coin Karaoke (코인노래방)</option>
+                    <option value="PC Bang (Gaming Center)">PC Bang (PC방)</option>
+                    <option value="Study Cafe">Study Cafe (스터디카페)</option>
+                    <option value="Screen Golf Center">Screen Golf (스크린 골프장)</option>
+                    <option value="Korean Sauna (Jjimjilbang)">Jjimjilbang (대형 찜질방/사우나)</option>
+                    <option value="Beauty Salon / Hair Shop">Hair Shop (미용실/헤어샵)</option>
+                    <option value="Real Estate Agency">Real Estate Agency (부동산/공인중개사)</option>
+                    <option value="Neighborhood Supermarket">Local Supermarket (동네 마트/슈퍼)</option>
+                    <option value="Unmanned Ice Cream Shop">Unmanned Shop (무인 아이스크림/빨래방)</option>
+                </optgroup>
+
+                <optgroup label="🍗 Food & Nightlife (음식/유흥)">
+                    <option value="Korean BBQ Restaurant">K-BBQ Restaurant (고깃집/드럼통 의자)</option>
+                    <option value="Fried Chicken Pub (Hof)">Chicken Hof (치킨집/호프)</option>
+                    <option value="Trendy Seongsu-style Cafe">Industrial Cafe (성수동 공장형 카페)</option>
+                    <option value="Traditional Teahouse">Hanok Teahouse (전통 찻집)</option>
+                    <option value="Street Food Tent (Pojangmacha)">Pojangmacha (포장마차 텐트)</option>
+                    <option value="Traditional Market Stall">Market Stall (재래시장 가판대)</option>
+                    <option value="Food Alley (Mukja Golmok)">Food Alley (먹자골목)</option>
+                </optgroup>
+
+                <optgroup label="🏢 Office & Industry (업무/산업)">
                     <option value="Knowledge Industry Center">Knowledge Industry Center (지식산업센터)</option>
-                    <option value="Data Center">Data Center (데이터센터)</option>
-                    <option value="Smart Factory">Smart Factory (스마트공장)</option>
-                    <option value="Parking Tower">Parking Tower (주차빌딩)</option>
-                    <option value="Hanok Hotel">Hanok Hotel (한옥호텔)</option>
-                    <option value="Glamping Site">Glamping Site (글램핑장)</option>
+                    <option value="Co-working Space">Shared Office (공유 오피스)</option>
+                    <option value="Small Factory (Semi-industrial)">Small Factory (준공업지역 소규모 공장)</option>
+                    <option value="Logistics Warehouse">Logistics Center (물류 창고/택배 터미널)</option>
                 </optgroup>
-                <option value="custom">✍️ 직접 입력</option>
+
+                <optgroup label="⛪ Religious & Others (기타)">
+                    <option value="Red Cross Church">Church with Neon Cross (상가 교회)</option>
+                    <option value="Buddhist Mountain Temple">Mountain Temple (산사/절)</option>
+                    <option value="Funeral Home">Funeral Hall (장례식장)</option>
+                    <option value="Automated Parking Tower">Parking Tower (기계식 주차타워)</option>
+                    <option value="Subway Station Entrance">Subway Entrance (지하철 출입구)</option>
+                    <option value="Drive-thru Coffee Shop">Drive-thru (드라이브 스루 매장)</option>
+                </optgroup>
+
+                <option value="custom">✍️ 직접 입력 (Custom)</option>
             </select>
             <input type="text" id="inp_prog_type" placeholder="세부 유형 입력...">
         </div>
@@ -725,3 +766,4 @@
 
 </body>
 </html>
+
