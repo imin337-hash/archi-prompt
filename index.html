@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MY ARCHITECT</title>
+    <title>MY ARCHITECT - V19.2</title>
     <style>
         :root { --dark: #1a1a1a; --bg: #f4f4f4; --border: #dcdcdc; --white: #fff; }
         
@@ -25,16 +25,26 @@
         .subtitle { color: #666; font-size: 13px; margin-top: 6px; font-weight: 500; }
         .badge { display: inline-block; background: var(--dark); color: #fff; padding: 3px 8px; font-size: 11px; border-radius: 4px; vertical-align: middle; margin-top: 5px; }
 
-        /* [V19 추가] 스마트 버튼 스타일 */
-        .magic-box { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 40px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px dashed #ccc; }
+        /* [수정됨] 3개 버튼 스타일 */
+        .magic-box { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 10px; 
+            margin-bottom: 40px; 
+            padding: 15px; 
+            background: #f8f9fa; 
+            border-radius: 8px; 
+            border: 1px dashed #ccc; 
+        }
         .btn-magic {
-            padding: 10px 16px; font-size: 13px; font-weight: 700;
+            padding: 12px 10px; font-size: 14px; font-weight: 700;
             border: 1px solid #ccc; background: white; color: #444;
-            border-radius: 30px; cursor: pointer; transition: 0.2s;
+            border-radius: 8px; cursor: pointer; transition: 0.2s;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            width: 100%;
         }
         .btn-magic:hover { background: var(--dark); color: white; border-color: var(--dark); transform: translateY(-2px); }
-        .btn-magic.primary { border: 1px solid var(--dark); color: var(--dark); }
+        .btn-magic.primary { border: 2px solid var(--dark); color: var(--dark); background: #fff; }
         .btn-magic.primary:hover { background: var(--dark); color: white; }
 
         .section-header { 
@@ -85,8 +95,7 @@
             .grid-box { grid-template-columns: 1fr; gap: 20px; }
             .full-width { grid-column: span 1; }
             h1 { font-size: 24px; }
-            .magic-box { gap: 6px; }
-            .btn-magic { flex: 1 1 45%; font-size: 12px; padding: 10px 5px; text-align: center; }
+            .magic-box { grid-template-columns: 1fr; } 
         }
     </style>
 </head>
@@ -95,16 +104,14 @@
 <div class="container">
     <header>
         <h1>MY ARCHITECT</h1>
-        <span class="badge">V19.0</span>
+        <span class="badge">V19.2</span>
         <div class="subtitle">AI PROMPT GENERATOR</div>
     </header>
 
     <div class="magic-box">
-        <button class="btn-magic primary" onclick="applyPreset('mass')">🏳️ Mass Study (백색모형)</button>
-        <button class="btn-magic primary" onclick="applyPreset('real')">📸 Real Photo (실사변경)</button>
-        <button class="btn-magic" onclick="applyRandom('nature')">🎲 Nature (자연/힐링)</button>
-        <button class="btn-magic" onclick="applyRandom('urban')">🎲 Urban (도심/야경)</button>
-        <button class="btn-magic" onclick="applyRandom('local')">🎲 Local (한국/로컬)</button>
+        <button class="btn-magic primary" onclick="applyPreset('mass')">🏳️ Mass Study (백색 모형)</button>
+        <button class="btn-magic primary" onclick="applyPreset('real')">📸 Real Photo (실사 렌더링)</button>
+        <button class="btn-magic" onclick="applyPreset('random')">🎲 Random Inspiration (랜덤)</button>
     </div>
 
     <div class="section-header">1. PROJECT DEFINITION (기본 설정)</div>
@@ -560,17 +567,69 @@
             <input type="text" id="inp_weather" placeholder="날씨 입력...">
         </div>
         <div class="input-group full-width">
-            <label>5-C. Mood <span class="sub-label">분위기</span></label>
+            <label>5-C. Mood <span class="sub-label">분위기 (50+)</span></label>
             <select id="s_mood" onchange="toggleCustom(this, 'inp_mood')">
                 <option value="">-- 분위기 선택 --</option>
-                <option value="peaceful and serene">Peaceful (평온한)</option>
-                <option value="warm and cozy">Cozy (아늑한)</option>
-                <option value="clean and clinical">Clean (깨끗한/청량한)</option>
-                <option value="cyberpunk neon aesthetic">Cyberpunk (사이버펑크)</option>
-                <option value="noir cinematic black and white">Noir (누아르)</option>
-                <option value="luxury and opulent">Luxury (럭셔리)</option>
-                <option value="ethereal and dreamy fantasy">Dreamy (몽환적)</option>
-                <option value="post-apocalyptic abandoned">Abandoned (폐허 느낌)</option>
+                <optgroup label="🌿 Calm & Serene (차분함/힐링)">
+                    <option value="Peaceful and serene">Peaceful (평온한)</option>
+                    <option value="Zen-like silence">Zen (정적/젠 스타일)</option>
+                    <option value="Meditative atmosphere">Meditative (명상적인)</option>
+                    <option value="Idyllic pastoral vibe">Idyllic (전원적인)</option>
+                    <option value="Warm and cozy">Cozy (아늑한)</option>
+                    <option value="Homely and inviting">Homey (가정적인)</option>
+                    <option value="Bright and airy">Airy (화사한)</option>
+                    <option value="Clean and minimalist">Clean (깨끗한)</option>
+                    <option value="Quiet and tranquil">Tranquil (고요한)</option>
+                    <option value="Harmonious with nature">Harmonious (조화로운)</option>
+                </optgroup>
+                <optgroup label="🏙️ Urban & Energetic (활력/도시)">
+                    <option value="Bustling and vibrant">Bustling (북적이는)</option>
+                    <option value="Dynamic and energetic">Dynamic (역동적인)</option>
+                    <option value="Chaotic urban energy">Chaotic (혼란스러운)</option>
+                    <option value="Electric nightlife vibe">Electric (짜릿한)</option>
+                    <option value="Hectic city life">Hectic (분주한)</option>
+                    <option value="Festive and celebratory">Festive (축제 분위기)</option>
+                    <option value="Lively street atmosphere">Lively (생기 넘치는)</option>
+                    <option value="Trendy and hip">Trendy (트렌디한)</option>
+                    <option value="Modern and chic">Chic (시크한)</option>
+                    <option value="Sophisticated urban">Sophisticated (세련된)</option>
+                </optgroup>
+                <optgroup label="🌑 Dark & Dramatic (무거움/극적)">
+                    <option value="Moody and melancholic">Melancholic (우울한/감성적)</option>
+                    <option value="Noir cinematic style">Noir (누아르풍)</option>
+                    <option value="Mysterious and secretive">Mysterious (신비로운)</option>
+                    <option value="Ominous and foreboding">Ominous (불길한)</option>
+                    <option value="Gloomy and overcast">Gloomy (음울한)</option>
+                    <option value="Dramatic lighting contrast">Dramatic (극적인)</option>
+                    <option value="Gritty industrial vibe">Gritty (거친)</option>
+                    <option value="Post-apocalyptic abandoned">Abandoned (버려진)</option>
+                    <option value="Dystopian future">Dystopian (디스토피아)</option>
+                    <option value="Spooky and horror">Horror (공포/스산한)</option>
+                </optgroup>
+                <optgroup label="✨ Dreamy & Artistic (몽환/예술)">
+                    <option value="Ethereal and dreamy">Ethereal (천상의/몽환적)</option>
+                    <option value="Surreal fantasy world">Surreal (초현실적)</option>
+                    <option value="Whimsical and playful">Whimsical (기발한)</option>
+                    <option value="Romantic and soft">Romantic (로맨틱)</option>
+                    <option value="Nostalgic retro vibe">Nostalgic (향수어린)</option>
+                    <option value="Vintage cinematic look">Vintage (빈티지)</option>
+                    <option value="Magical realism">Magical (마법 같은)</option>
+                    <option value="Theatrical stage lighting">Theatrical (연극적인)</option>
+                    <option value="Cinematic epic scale">Epic (서사적인/웅장한)</option>
+                    <option value="Abstract and conceptual">Abstract (추상적인)</option>
+                </optgroup>
+                <optgroup label="💎 Luxury & Future (고급/미래)">
+                    <option value="High-end luxury">Luxury (럭셔리)</option>
+                    <option value="Opulent and grand">Opulent (호화로운)</option>
+                    <option value="Majestic and regal">Majestic (장엄한)</option>
+                    <option value="Elegant and refined">Elegant (우아한)</option>
+                    <option value="Clinical and sterile">Clinical (임상적/냉철한)</option>
+                    <option value="High-tech futuristic">High-tech (하이테크)</option>
+                    <option value="Cyberpunk neon style">Cyberpunk (사이버펑크)</option>
+                    <option value="Sci-fi laboratory">Sci-fi (공상과학)</option>
+                    <option value="Artificial and synthetic">Artificial (인공적인)</option>
+                    <option value="Minimalist perfection">Perfection (완벽주의)</option>
+                </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
             <input type="text" id="inp_mood" placeholder="분위기 입력...">
