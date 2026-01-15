@@ -5,45 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MY ARCHITECT</title>
     <style>
-        :root { --dark: #1a1a1a; --bg: #f4f4f4; --border: #dcdcdc; --white: #fff; --accent: #2980b9; }
+        :root { --dark: #111; --bg: #f4f4f4; --border: #ccc; --white: #fff; --accent: #2980b9; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Pretendard', sans-serif; background: var(--bg); margin: 0; padding: 0; color: #222; line-height: 1.5; }
-        .container { background: var(--white); width: 100%; max-width: 900px; margin: 0 auto; padding: 40px 20px; box-shadow: 0 0 25px rgba(0,0,0,0.05); min-height: 100vh; }
+        .container { background: var(--white); width: 100%; max-width: 900px; margin: 0 auto; padding: 40px 20px; box-shadow: 0 0 30px rgba(0,0,0,0.08); min-height: 100vh; border-top: 10px solid var(--dark); }
         
         header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
-        h1 { margin: 0; color: var(--dark); font-weight: 900; letter-spacing: -1px; font-size: 28px; text-transform: uppercase; }
-        .subtitle { color: #666; font-size: 13px; margin-top: 6px; font-weight: 500; }
+        h1 { margin: 0; color: var(--dark); font-weight: 900; letter-spacing: -1px; font-size: 32px; text-transform: uppercase; }
+        .subtitle { color: #666; font-size: 13px; margin-top: 6px; font-weight: 500; letter-spacing: 1px; }
         .badge { display: inline-block; background: var(--accent); color: #fff; padding: 3px 8px; font-size: 11px; border-radius: 4px; vertical-align: middle; margin-top: 5px; }
 
-        /* 스마트 버튼 */
-        .magic-box { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 40px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px dashed #ccc; }
-        .btn-magic { padding: 12px 10px; font-size: 14px; font-weight: 700; border: 1px solid #ccc; background: white; color: #444; border-radius: 8px; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: 100%; }
+        /* 3개의 스마트 버튼 */
+        .magic-box { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 40px; padding: 15px; background: #f1f3f5; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .btn-magic { padding: 14px 10px; font-size: 14px; font-weight: 700; border: 1px solid #ccc; background: white; color: #444; border-radius: 6px; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.05); width: 100%; }
         .btn-magic:hover { background: var(--dark); color: white; border-color: var(--dark); transform: translateY(-2px); }
         .btn-magic.primary { border: 2px solid var(--dark); color: var(--dark); background: #fff; }
         .btn-magic.primary:hover { background: var(--dark); color: white; }
 
-        .section-header { font-size: 16px; font-weight: 800; color: var(--dark); background: #eef2f5; padding: 12px 15px; border-radius: 6px; margin-top: 50px; margin-bottom: 20px; letter-spacing: -0.3px; border-left: 5px solid var(--dark); }
+        .section-header { font-size: 16px; font-weight: 800; color: var(--dark); background: #e9ecef; padding: 12px 15px; border-radius: 6px; margin-top: 50px; margin-bottom: 20px; letter-spacing: -0.3px; border-left: 5px solid var(--dark); }
         .section-header:first-of-type { margin-top: 0; }
 
         .grid-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .full-width { grid-column: span 2; }
         .input-group { margin-bottom: 5px; }
-        label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 12px; color: #444; text-transform: uppercase; }
+        label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 12px; color: #333; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        select, input[type="text"] { width: 100%; height: 50px; padding: 0 12px; border: 1px solid var(--border); background-color: #fff; font-size: 14px; border-radius: 6px; appearance: none; color: #333; transition: 0.2s; }
-        select { background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 15px center; background-size: 14px; }
-        select:focus, input:focus { border-color: var(--dark); outline: none; box-shadow: 0 0 0 2px rgba(0,0,0,0.05); }
-        input[type="text"] { margin-top: 8px; display: none; border-left: 4px solid var(--dark); }
-        optgroup { font-weight: 800; color: #000; background: #e9ecef; }
+        select, input[type="text"] { width: 100%; height: 50px; padding: 0 12px; border: 1px solid var(--border); background-color: #fff; font-size: 14px; border-radius: 4px; appearance: none; color: #333; transition: 0.2s; }
+        select { background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 15px center; background-size: 14px; cursor: pointer; }
+        select:focus, input:focus { border-color: var(--dark); outline: none; background-color: #fafafa; }
+        input[type="text"] { margin-top: 8px; display: none; border-left: 4px solid var(--accent); }
+        
+        optgroup { font-weight: 800; color: #000; background: #e0e0e0; font-style: normal; }
         option { background: #fff; color: #333; padding: 10px; font-weight: 400; }
-        .updated { animation: highlight 0.5s ease; }
-        @keyframes highlight { 0% { background-color: #fff; } 50% { background-color: #e3f2fd; } 100% { background-color: #fff; } }
+        .updated { animation: highlight 0.6s ease; }
+        @keyframes highlight { 0% { background-color: #fff; } 50% { background-color: #fff3cd; } 100% { background-color: #fff; } }
 
-        .btn-gen { width: 100%; padding: 20px; background: var(--dark); color: white; border: none; font-size: 18px; font-weight: 800; cursor: pointer; margin-top: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: transform 0.1s; }
+        .btn-gen { width: 100%; padding: 22px; background: var(--dark); color: white; border: none; font-size: 18px; font-weight: 800; cursor: pointer; margin-top: 40px; border-radius: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: transform 0.1s; letter-spacing: 1px; }
         .btn-gen:active { transform: scale(0.98); }
-        .result-area { margin-top: 30px; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        textarea { width: 100%; height: 220px; border: none; resize: none; font-family: monospace; font-size: 13px; color: #333; outline: none; line-height: 1.6; }
-        .btn-copy { width: 100%; padding: 12px; background: #f8f9fa; border: 1px solid #ddd; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 6px; color: #333; }
+        .result-area { margin-top: 30px; background: #f8f9fa; padding: 25px; border: 1px solid #ddd; position: relative; }
+        textarea { width: 100%; height: 200px; border: none; background: transparent; resize: none; font-family: monospace; font-size: 13px; color: #333; outline: none; line-height: 1.6; }
+        .btn-copy { position: absolute; bottom: 20px; right: 20px; padding: 8px 20px; background: white; border: 1px solid #333; font-weight: bold; cursor: pointer; color: #333; font-size: 12px; transition: 0.2s; }
+        .btn-copy:hover { background: var(--dark); color: white; }
 
         @media (max-width: 768px) { .container { padding: 20px 15px; } .grid-box { grid-template-columns: 1fr; gap: 20px; } .full-width { grid-column: span 1; } .magic-box { grid-template-columns: 1fr; } }
     </style>
@@ -53,8 +55,8 @@
 <div class="container">
     <header>
         <h1>MY ARCHITECT</h1>
-        <span class="badge">V24.0</span>
-        <div class="subtitle">AI PROMPT GENERATOR</div>
+        <span class="badge">V26.0</span>
+        <div class="subtitle">Complete Architectural Visualization Tool</div>
     </header>
 
     <div class="magic-box">
@@ -66,35 +68,35 @@
     <div class="section-header">1. PROJECT DEFINITION</div>
     <div class="grid-box">
         <div class="input-group">
-            <label>1-A. Region <span class="sub-label">지역 (50+)</span></label>
+            <label>1-A. Region</label>
             <select id="s_region" onchange="toggleCustom(this, 'inp_loc_region')">
                 <option value="">-- 지역 선택 --</option>
                 <optgroup label="🇰🇷 Seoul Hotspots">
                     <option value="in Gangnam Teheran-ro">Gangnam (강남 테헤란로)</option>
-                    <option value="in Yeouido financial district">Yeouido (여의도)</option>
-                    <option value="in Seongsu-dong red brick street">Seongsu (성수동)</option>
-                    <option value="in Euljiro retro alleyway">Euljiro (을지로)</option>
-                    <option value="in Hongdae youth street">Hongdae (홍대)</option>
-                    <option value="in Bukchon Hanok Village">Bukchon (북촌)</option>
-                    <option value="in Itaewon hillside">Itaewon (이태원)</option>
-                    <option value="near Gwanghwamun square">Gwanghwamun (광화문)</option>
+                    <option value="in Yeouido financial district">Yeouido (여의도 금융가)</option>
+                    <option value="in Seongsu-dong red brick street">Seongsu (성수동 카페거리)</option>
+                    <option value="in Euljiro retro alleyway">Euljiro (을지로 노포거리)</option>
+                    <option value="in Hongdae youth street">Hongdae (홍대 거리)</option>
+                    <option value="in Bukchon Hanok Village">Bukchon (북촌 한옥마을)</option>
+                    <option value="in Itaewon hillside">Itaewon (이태원 언덕길)</option>
+                    <option value="near Gwanghwamun square">Gwanghwamun (광화문 광장)</option>
                 </optgroup>
-                <optgroup label="🇰🇷 Residential & New Town">
+                <optgroup label="🇰🇷 Residential & Local">
                     <option value="in a high-rise apartment complex">Apartment Complex (아파트단지)</option>
-                    <option value="in a red brick villa neighborhood">Villa Area (빌라촌)</option>
-                    <option value="in Pangyo Techno Valley">Pangyo (판교)</option>
+                    <option value="in a red brick villa neighborhood">Old Villa Area (구도심 빌라촌)</option>
+                    <option value="in Pangyo Techno Valley">Pangyo (판교 테크노밸리)</option>
                     <option value="in a suburban new town">New Town (신도시)</option>
-                    <option value="near a busy subway station">Subway Station (역세권)</option>
+                    <option value="in Busan Haeundae coastal city">Busan Haeundae (해운대)</option>
+                    <option value="in Jeju Island volcanic landscape">Jeju Island (제주도)</option>
                 </optgroup>
                 <optgroup label="🌍 Global & Nature">
                     <option value="in New York City">New York (뉴욕)</option>
                     <option value="in a European Old Town">Europe (유럽 구도심)</option>
                     <option value="in a Cyberpunk City">Cyberpunk (사이버펑크)</option>
-                    <option value="in Jeju Island volcanic coast">Jeju Coast (제주 해안)</option>
                     <option value="in a deep forest">Deep Forest (깊은 숲)</option>
-                    <option value="on a snowy mountain">Alpine Peak (설산)</option>
                     <option value="perched on a cliff">Cliff (절벽)</option>
                     <option value="in the Sahara Desert">Desert (사막)</option>
+                    <option value="on Mars surface">Mars (화성)</option>
                 </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
@@ -102,7 +104,7 @@
         </div>
 
         <div class="input-group">
-            <label>1-B. Site Condition <span class="sub-label">대지 조건 (50+)</span></label>
+            <label>1-B. Site Condition</label>
             <select id="s_site" onchange="toggleCustom(this, 'inp_loc_site')">
                 <option value="">-- 대지 조건 선택 --</option>
                 <optgroup label="Urban Fabric">
@@ -121,7 +123,7 @@
                     <option value="in a sunken recessed plot">Sunken Plot (썬큰)</option>
                     <option value="on a terraced landscape">Terraced (계단식)</option>
                 </optgroup>
-                <optgroup label="Infrastructure & Nature">
+                <optgroup label="Water & Infra">
                     <option value="next to a busy highway">Highway Side (고속도로변)</option>
                     <option value="under a massive bridge">Underbridge (교량하부)</option>
                     <option value="on a riverbank">Riverbank (강변)</option>
@@ -136,7 +138,7 @@
         <div class="input-group full-width">
             <label style="color:#2980b9;">2-A. Main Usage Group (건축법 30개 용도군)</label>
             <select id="s_usage" onchange="updateSubCat(); toggleCustom(this, 'inp_prog_main');">
-                <option value="">-- 용도군 선택 (1~30) --</option>
+                <option value="">-- 용도군 선택 --</option>
                 <optgroup label="주거 및 근린생활">
                     <option value="g1">1. 단독주택 (Single-detached)</option>
                     <option value="g2">2. 공동주택 (Multi-unit)</option>
@@ -164,11 +166,10 @@
                 <optgroup label="산업 및 기타">
                     <option value="g17">17. 공장 (Factory)</option>
                     <option value="g18">18. 창고시설 (Warehouse)</option>
-                    <option value="g19">19. 위험물저장/처리 (Hazardous)</option>
                     <option value="g20">20. 자동차관련 (Automotive)</option>
-                    <option value="g21">21. 동식물관련 (Animal/Plant)</option>
                     <option value="g24">24. 방송통신시설 (Broadcasting)</option>
                     <option value="g27">27. 관광휴게시설 (Tourism Rest)</option>
+                    <option value="g_etc">기타 시설 (19,21,22,23,25,26,28,29)</option>
                 </optgroup>
                 <optgroup label="✨ 복합용도 (NEW)">
                     <option value="g30">30. 복합시설 (Mixed-Use Complex)</option>
@@ -187,7 +188,7 @@
         </div>
 
         <div class="input-group">
-            <label>3-A. Style <span class="sub-label">건축 양식 (50+)</span></label>
+            <label>3-A. Style</label>
             <select id="s_style" onchange="toggleCustom(this, 'inp_con_style')">
                 <option value="">-- 스타일 선택 --</option>
                 <optgroup label="Modern & Contemporary">
@@ -196,6 +197,7 @@
                     <option value="Bauhaus">Bauhaus (바우하우스)</option>
                     <option value="Modernism">Modernism (모더니즘)</option>
                     <option value="Postmodernism">Postmodernism (포스트모더니즘)</option>
+                    <option value="Mid-Century Modern">Mid-Century Modern (미드센추리)</option>
                     <option value="Brutalist">Brutalist (브루탈리즘)</option>
                     <option value="High-Tech Architecture">High-Tech (하이테크)</option>
                     <option value="Deconstructivism">Deconstructivism (해체주의)</option>
@@ -210,14 +212,21 @@
                     <option value="Swiss Chalet">Swiss Chalet (스위스 샬레)</option>
                     <option value="Tropical Modernism">Tropical Modernism (열대 모던)</option>
                 </optgroup>
-                <optgroup label="Classic & Future">
+                <optgroup label="Historical & Classic">
                     <option value="Neoclassical">Neoclassical (신고전주의)</option>
                     <option value="Gothic Revival">Gothic Revival (고딕)</option>
                     <option value="Art Deco">Art Deco (아르데코)</option>
+                    <option value="Victorian">Victorian (빅토리아풍)</option>
+                    <option value="Baroque">Baroque (바로크)</option>
+                </optgroup>
+                <optgroup label="Concept & Future">
                     <option value="Futuristic">Futuristic (미래지향)</option>
                     <option value="Cyberpunk">Cyberpunk (사이버펑크)</option>
                     <option value="Solarpunk">Solarpunk (솔라펑크)</option>
+                    <option value="Biophilic Design">Biophilic (바이오필릭)</option>
+                    <option value="Organic Architecture">Organic (유기적 건축)</option>
                     <option value="Kinetic Architecture">Kinetic (키네틱)</option>
+                    <option value="Modular Architecture">Modular (모듈러)</option>
                     <option value="Container Architecture">Container (컨테이너)</option>
                 </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
@@ -226,7 +235,7 @@
         </div>
 
         <div class="input-group">
-            <label>3-B. Material <span class="sub-label">마감재 (50+)</span></label>
+            <label>3-B. Material</label>
             <select id="s_mat" onchange="toggleCustom(this, 'inp_con_mat')">
                 <option value="">-- 재료 선택 --</option>
                 <optgroup label="Concrete & Masonry">
@@ -250,6 +259,8 @@
                 <optgroup label="Wood, Glass & Stone">
                     <option value="Natural Timber Siding">Natural Timber (천연 목재)</option>
                     <option value="Red Cedar">Red Cedar (적삼목)</option>
+                    <option value="Charred Wood">Charred Wood (탄화목)</option>
+                    <option value="Bamboo Facade">Bamboo (대나무)</option>
                     <option value="Glass Curtain Wall">Glass Curtain Wall (커튼월)</option>
                     <option value="Frameless Glass">Frameless Glass (프레임리스)</option>
                     <option value="U-Glass">U-Glass (유글래스)</option>
@@ -264,7 +275,35 @@
         </div>
 
         <div class="input-group">
-            <label>4. Form & Scale <span class="sub-label">형태 (50+)</span></label>
+            <label style="color:#2980b9;">4-A. Scale & Floors (층수/규모)</label>
+            <select id="s_floor" onchange="toggleCustom(this, 'inp_scale_floor')">
+                <option value="">-- 층수/규모 선택 --</option>
+                <optgroup label="Specific Floors (1F~9F)">
+                    <option value="Single-story 1F">1F (단층)</option>
+                    <option value="2-story">2F (2층)</option>
+                    <option value="3-story">3F (3층)</option>
+                    <option value="4-story">4F (4층)</option>
+                    <option value="5-story">5F (5층)</option>
+                    <option value="6-story">6F (6층)</option>
+                    <option value="7-story">7F (7층)</option>
+                    <option value="8-story">8F (8층)</option>
+                    <option value="9-story">9F (9층)</option>
+                </optgroup>
+                <optgroup label="Building Scale (규모)">
+                    <option value="Low-rise building">Low-rise (저층/10층 미만)</option>
+                    <option value="Mid-rise building">Mid-rise (중층/10~29층)</option>
+                    <option value="High-rise building">High-rise (고층/30층+)</option>
+                    <option value="Skyscraper">Skyscraper (초고층/50층+)</option>
+                    <option value="Massive monumental scale">Massive (초대형/기념비적)</option>
+                    <option value="Tiny micro-scale">Tiny (초소형/파빌리온)</option>
+                </optgroup>
+                <option value="custom">✍️ 직접 입력</option>
+            </select>
+            <input type="text" id="inp_scale_floor" placeholder="층수 입력...">
+        </div>
+
+        <div class="input-group">
+            <label>4-B. Form (형태)</label>
             <select id="s_form" onchange="toggleCustom(this, 'inp_scale_form')">
                 <option value="">-- 형태 선택 --</option>
                 <optgroup label="Geometric">
@@ -287,8 +326,7 @@
                     <option value="Interlocking Volumes">Interlocking (맞물린)</option>
                     <option value="Cluster of Small Units">Cluster (군집형)</option>
                     <option value="Courtyard (U-shaped)">Courtyard (중정형)</option>
-                    <option value="High-rise Tower">High-rise (고층 타워)</option>
-                    <option value="Low-rise Sprawling">Low-rise (저층 분산)</option>
+                    <option value="Subterranean">Subterranean (지하/반지하)</option>
                 </optgroup>
                 <option value="custom">✍️ 직접 입력</option>
             </select>
@@ -299,7 +337,7 @@
     <div class="section-header">2. ENVIRONMENT & MOOD</div>
     <div class="grid-box">
         <div class="input-group">
-            <label>5-A. Time & Weather <span class="sub-label">(50+)</span></label>
+            <label>5-A. Time & Weather</label>
             <select id="s_time" onchange="toggleCustom(this, 'inp_time')">
                 <option value="">-- 시간/날씨 선택 --</option>
                 <option value="clear sunny noon">Sunny Noon (정오)</option>
@@ -318,7 +356,7 @@
             <input type="text" id="inp_time" placeholder="시간 입력...">
         </div>
         <div class="input-group">
-            <label>5-B. Mood <span class="sub-label">분위기 (50+)</span></label>
+            <label>5-B. Mood</label>
             <select id="s_mood" onchange="toggleCustom(this, 'inp_mood')">
                 <option value="">-- 분위기 선택 --</option>
                 <optgroup label="Calm & Serene">
@@ -354,7 +392,7 @@
     <div class="section-header">3. PEOPLE & RENDER</div>
     <div class="grid-box">
         <div class="input-group">
-            <label>6. People <span class="sub-label">인물 (50+)</span></label>
+            <label>6. People</label>
             <select id="s_people" onchange="toggleCustom(this, 'inp_people')">
                 <option value="">-- 인물 선택 --</option>
                 <optgroup label="Density">
@@ -382,7 +420,7 @@
             <input type="text" id="inp_people" placeholder="인물 입력...">
         </div>
         <div class="input-group">
-            <label>7. Render Style <span class="sub-label">렌더 (50+)</span></label>
+            <label>7. Render Style</label>
             <select id="s_render" onchange="toggleCustom(this, 'inp_style')">
                 <option value="">-- 렌더 스타일 --</option>
                 <optgroup label="Photorealistic">
@@ -407,8 +445,8 @@
             </select>
             <input type="text" id="inp_style" placeholder="렌더 스타일 입력...">
         </div>
-        <div class="input-group full-width">
-            <label>8. Viewpoint <span class="sub-label">카메라 (50+)</span></label>
+        <div class="input-group">
+            <label>8. Viewpoint</label>
             <select id="s_view" onchange="toggleCustom(this, 'inp_view')">
                 <option value="">-- 카메라 선택 --</option>
                 <optgroup label="Angles">
@@ -437,6 +475,7 @@
                 <option value="16:9 aspect ratio">16:9 (Wide)</option>
                 <option value="9:16 aspect ratio">9:16 (Vertical)</option>
                 <option value="1:1 aspect ratio">1:1 (Square)</option>
+                <option value="21:9 aspect ratio">21:9 (Panoramic)</option>
             </select>
         </div>
     </div>
@@ -450,39 +489,38 @@
 </div>
 
 <script>
-    // --- [데이터베이스] 30개 용도군별 상세 매핑 ---
+    // --- [데이터베이스] 30개 용도군별 상세 매핑 (복합용도 포함) ---
     const subCategories = {
-        "g1": [{v:"Single-detached House", t:"단독주택"}, {v:"Official Residence", t:"공관"}],
-        "g2": [{v:"Apartment Complex", t:"아파트"}, {v:"Multi-unit House", t:"연립/다세대"}, {v:"Dormitory", t:"기숙사"}],
-        "g3": [{v:"Retail Shop", t:"소매점"}, {v:"Community Center", t:"마을회관"}, {v:"Clinic", t:"의원"}, {v:"Table Tennis Hall", t:"탁구장"}],
-        "g4": [{v:"Restaurant", t:"일반음식점"}, {v:"Cafe", t:"카페/휴게음식점"}, {v:"Bookstore", t:"서점"}, {v:"Office Agency", t:"부동산/사무소"}],
-        "g5": [{v:"Concert Hall", t:"공연장"}, {v:"Art Museum", t:"미술관/박물관"}, {v:"Convention Center", t:"전시장"}, {v:"Zoo/Botanical Garden", t:"동/식물원"}],
-        "g6": [{v:"Church", t:"교회"}, {v:"Cathedral", t:"성당"}, {v:"Buddhist Temple", t:"사찰"}, {v:"Shrine", t:"제실"}],
-        "g7": [{v:"Department Store", t:"백화점"}, {v:"Shopping Mall", t:"쇼핑몰"}, {v:"Supermarket", t:"대형마트"}, {v:"Traditional Market", t:"재래시장"}],
-        "g8": [{v:"Airport Terminal", t:"공항터미널"}, {v:"Train Station", t:"철도역사"}, {v:"Bus Terminal", t:"버스터미널"}, {v:"Port Facility", t:"항만시설"}],
-        "g9": [{v:"General Hospital", t:"종합병원"}, {v:"Mental Hospital", t:"정신병원"}, {v:"Convalescent Hospital", t:"요양병원"}],
-        "g10": [{v:"Elementary School", t:"초등학교"}, {v:"High School", t:"고등학교"}, {v:"University Campus", t:"대학교"}, {v:"Library", t:"도서관"}, {v:"Research Institute", t:"연구소"}],
-        "g11": [{v:"Kindergarten", t:"유치원/어린이집"}, {v:"Elderly Welfare Center", t:"노인복지시설"}, {v:"Orphanage", t:"아동복지시설"}],
+        "g1": [{v:"Single-detached House", t:"단독주택"}, {v:"Official Residence", t:"공관"}, {v:"Luxury Villa", t:"고급빌라"}],
+        "g2": [{v:"Apartment Complex", t:"아파트단지"}, {v:"Multi-unit House", t:"연립/다세대"}, {v:"Dormitory", t:"기숙사"}],
+        "g3": [{v:"Retail Shop", t:"소매점"}, {v:"Community Center", t:"마을회관"}, {v:"Clinic", t:"의원"}, {v:"Bakery", t:"제과점"}],
+        "g4": [{v:"Restaurant", t:"일반음식점"}, {v:"Trendy Cafe", t:"카페"}, {v:"Bookstore", t:"서점"}, {v:"Real Estate Agency", t:"부동산"}],
+        "g5": [{v:"Concert Hall", t:"공연장"}, {v:"Art Museum", t:"미술관/박물관"}, {v:"Convention Center", t:"전시장"}, {v:"Botanical Garden", t:"식물원"}],
+        "g6": [{v:"Church", t:"교회"}, {v:"Cathedral", t:"성당"}, {v:"Buddhist Temple", t:"사찰"}, {v:"Chapel", t:"예배당"}],
+        "g7": [{v:"Department Store", t:"백화점"}, {v:"Shopping Mall", t:"쇼핑몰"}, {v:"Supermarket", t:"대형마트"}, {v:"Traditional Market", t:"전통시장"}],
+        "g8": [{v:"Airport Terminal", t:"공항터미널"}, {v:"Train Station", t:"철도역사"}, {v:"Bus Terminal", t:"버스터미널"}],
+        "g9": [{v:"General Hospital", t:"종합병원"}, {v:"Medical Center", t:"의료원"}, {v:"Sanatorium", t:"요양병원"}],
+        "g10": [{v:"Elementary School", t:"초등학교"}, {v:"High School", t:"고등학교"}, {v:"University Campus", t:"대학교"}, {v:"Public Library", t:"도서관"}],
+        "g11": [{v:"Kindergarten", t:"유치원"}, {v:"Daycare Center", t:"어린이집"}, {v:"Elderly Welfare Center", t:"노인복지관"}],
         "g12": [{v:"Youth Training Center", t:"청소년수련관"}, {v:"Youth Hostel", t:"유스호스텔"}],
         "g13": [{v:"Gymnasium", t:"체육관"}, {v:"Stadium", t:"운동장"}, {v:"Swimming Pool", t:"수영장"}],
-        "g14": [{v:"Office Building", t:"일반업무시설"}, {v:"Officetel", t:"오피스텔"}, {v:"Government Office", t:"공공청사"}],
-        "g15": [{v:"Luxury Hotel", t:"호텔"}, {v:"Resort", t:"휴양콘도"}, {v:"Hostel", t:"호스텔"}],
-        "g16": [{v:"Amusement Park", t:"유원시설"}, {v:"Casino", t:"카지노"}, {v:"Night Club", t:"무도장"}],
-        "g17": [{v:"Factory Plant", t:"일반공장"}, {v:"Knowledge Industry Center", t:"지식산업센터(아파트형공장)"}],
-        "g18": [{v:"Logistics Warehouse", t:"물류창고"}, {v:"Cold Storage", t:"냉동냉장창고"}, {v:"Container Terminal", t:"하역장"}],
-        "g19": [{v:"Gas Station", t:"주유소"}, {v:"LPG Station", t:"가스충전소"}, {v:"Hazardous Storage", t:"위험물저장소"}],
-        "g20": [{v:"Parking Tower", t:"주차타워"}, {v:"Car Wash", t:"세차장"}, {v:"Driving School", t:"운전학원"}],
-        "g21": [{v:"Barn", t:"축사"}, {v:"Greenhouse", t:"온실/버섯재배사"}],
-        "g24": [{v:"Broadcasting Station", t:"방송국"}, {v:"Data Center", t:"데이터센터"}, {v:"Telecom Tower", t:"통신시설"}],
-        "g27": [{v:"Outdoor Music Hall", t:"야외음악당"}, {v:"Rest Area", t:"고속도로 휴게소"}, {v:"Park Pavilion", t:"공원시설"}],
-        
-        // [30. 복합시설 (Mixed-Use)]
+        "g14": [{v:"Office Building", t:"업무빌딩"}, {v:"Officetel", t:"오피스텔"}, {v:"Government Office", t:"관공서"}],
+        "g15": [{v:"Luxury Hotel", t:"호텔"}, {v:"Resort", t:"리조트"}, {v:"Guesthouse", t:"게스트하우스"}],
+        "g16": [{v:"Amusement Park", t:"유원지"}, {v:"Casino", t:"카지노"}, {v:"Night Club", t:"무도장"}],
+        "g17": [{v:"Factory Plant", t:"공장"}, {v:"Knowledge Industry Center", t:"지식산업센터"}, {v:"Brewery", t:"양조장"}],
+        "g18": [{v:"Logistics Warehouse", t:"물류창고"}, {v:"Cold Storage", t:"냉동창고"}],
+        "g19": [{v:"Gas Station", t:"주유소"}, {v:"Hazardous Storage", t:"위험물저장소"}],
+        "g20": [{v:"Parking Tower", t:"주차타워"}, {v:"Car Wash", t:"세차장"}],
+        "g21": [{v:"Greenhouse", t:"온실"}, {v:"Smart Farm", t:"스마트팜"}],
+        "g24": [{v:"Broadcasting Station", t:"방송국"}, {v:"Data Center", t:"데이터센터"}],
+        "g27": [{v:"Rest Area", t:"휴게소"}, {v:"Outdoor Music Hall", t:"야외음악당"}],
+        "g_etc": [{v:"Cemetery", t:"묘지시설"}, {v:"Funeral Home", t:"장례식장"}, {v:"Campsite", t:"야영장"}],
         "g30": [
             {v:"Mixed-use Residential Complex", t:"주상복합 (주거+상업)"},
-            {v:"Transit Transfer Center", t:"복합환승센터 (역사+상업)"},
-            {v:"Cultural Complex", t:"문화복합단지 (도서관+미술관)"},
-            {v:"Urban Entertainment Center", t:"대형복합쇼핑몰 (몰+영화관)"},
-            {v:"Knowledge Industry Complex", t:"복합지식산업센터 (공장+기숙사+상가)"},
+            {v:"Transit Transfer Center", t:"복합환승센터 (역사+몰)"},
+            {v:"Cultural Complex", t:"복합문화공간 (도서관+갤러리)"},
+            {v:"Urban Entertainment Center", t:"복합쇼핑몰 (몰+영화관)"},
+            {v:"Knowledge Industry Complex", t:"복합지식산업센터 (공장+기숙사)"},
             {v:"Start-up Campus", t:"창업캠퍼스 (오피스+주거)"}
         ]
     };
@@ -541,7 +579,7 @@
             setVal('s_render', 'White architectural model');
             setVal('s_mat', 'White Stucco');
             setVal('s_people', 'no people, pure architecture');
-            setVal('s_mood', 'Clean and minimalist');
+            setVal('s_mood', 'clean and minimalist');
             alert("🏳️ 매스 스터디 모드 적용");
         } 
         else if(type === 'real') {
@@ -554,10 +592,11 @@
             randomSelect('s_region');
             randomSelect('s_site');
             randomSelect('s_usage'); 
-            setTimeout(() => { 
+            setTimeout(() => { // UI 업데이트 대기
                 randomSelect('s_type');
                 randomSelect('s_style');
                 randomSelect('s_mat');
+                randomSelect('s_floor'); // 새로 추가된 층수도 랜덤 포함
                 randomSelect('s_form');
                 randomSelect('s_time');
                 randomSelect('s_mood');
@@ -597,6 +636,7 @@
         const type = getVal(document.getElementById('s_type'), 'inp_prog_type'); 
         const style = getVal(document.getElementById('s_style'), 'inp_con_style');
         const mat = getVal(document.getElementById('s_mat'), 'inp_con_mat');
+        const floor = getVal(document.getElementById('s_floor'), 'inp_scale_floor');
         const form = getVal(document.getElementById('s_form'), 'inp_scale_form');
         const time = getVal(document.getElementById('s_time'), 'inp_time');
         const mood = getVal(document.getElementById('s_mood'), 'inp_mood');
@@ -607,15 +647,17 @@
 
         let parts = [];
         let subject = `Subject: A`;
+        if(floor) subject += ` ${floor}`;
         if(form) subject += ` ${form}`;
         
-        // 용도 이름 매핑 (코드 -> 텍스트)
+        // 용도 텍스트 처리
         let usageName = usage;
-        // g30 같은 코드가 아니라 사람이 읽을 수 있는 텍스트로 변환
-        if (usage === 'g30') usageName = "Mixed-Use Complex"; 
+        if(usage === 'g30') usageName = "Mixed-Use Complex";
         
         let finalUsage = type ? `${type}` : usageName;
-        if(usage && type) finalUsage = `${type} (${usageName})`;
+        // 복합용도일때 더 자연스럽게
+        if(usage === 'g30' && type) finalUsage = `${type}`; 
+        else if(usage && type) finalUsage = `${type} (${usageName})`;
 
         if(finalUsage) subject += ` ${finalUsage}`;
         parts.push(subject);
