@@ -6,148 +6,138 @@
     <title>MY ARCHITECT</title>
     <style>
         :root {
-            --primary: #00e676; 
-            --secondary: #2979ff; 
+            --primary: #00e676;
+            --secondary: #2979ff;
             --bg: #121212;
             --card: #1e1e1e;
             --text: #e0e0e0;
         }
+        body { background: var(--bg); color: var(--text); font-family: 'Pretendard', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
         
-        /* 1. 배경을 화면 끝까지 채우기 위한 설정 */
-        body { 
-            background: var(--bg); 
-            color: var(--text); 
-            font-family: 'Pretendard', sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            padding: 0; 
-            margin: 0; 
-            width: 100%;
-            min-height: 100vh;
+        /* [핵심] 컨테이너 최대 너비 확장 */
+        .container { max-width: 1300px; width: 100%; background: var(--card); padding: 30px; border-radius: 16px; border: 1px solid #333; box-shadow: 0 15px 40px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 20px; }
+        
+        h1 { font-size: 24px; border-bottom: 3px solid var(--primary); padding-bottom: 12px; margin: 0 0 10px 0; display: flex; justify-content: space-between; align-items: flex-end; }
+        
+        /* [핵심] 4열 그리드 레이아웃 적용 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4개의 동일한 너비 컬럼 생성 */
+            gap: 25px; /* 컬럼 사이 간격 */
+            align-items: start; /* 상단 정렬 */
         }
 
-        /* 2. 컨테이너의 너비 제한(650px)을 풀고 100%로 변경 */
-        .container { 
-            width: 100%; 
-            max-width: 100%; /* 기존 650px에서 변경 */
-            background: var(--card); 
-            padding: 40px 20px; /* 상하 패딩 유지, 좌우 여백 조정 */
-            min-height: 100vh;
-            border: none; /* 전체화면 시 테두리 제거 */
-            border-radius: 0; /* 전체화면 시 라운드 제거 */
-            box-shadow: none;
-            box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+        /* 개별 컬럼 스타일 */
+        .grid-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03); /* 각 컬럼 약한 배경색 추가로 구분감 부여 */
+            padding: 15px;
+            border-radius: 12px;
         }
 
-        h1 { font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 0; display: flex; justify-content: space-between; align-items: flex-end; }
-        
-        .section-title { font-size: 13px; color: var(--primary); font-weight: bold; margin: 25px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .section-title.view { color: var(--secondary); }
+        /* 섹션 타이틀 스타일 (이전 디자인 유지) */
+        .section-title { font-size: 15px; color: var(--text); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0; display: flex; align-items: center; }
+        .section-title::before { content: ''; display: block; width: 4px; height: 16px; background: var(--primary); margin-right: 10px; border-radius: 2px; }
+        .section-title.view::before { background: var(--secondary); }
+        .section-title span { color: var(--primary); margin-right: 8px; }
+        .section-title.view span { color: var(--secondary); }
 
-        /* 3. 그리드 간격 및 비율 유지 */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        @media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 400px) { .grid { grid-template-columns: 1fr; } }
+        /* 버튼 목록 스타일 */
+        .vertical-list { display: flex; flex-direction: column; gap: 8px; }
 
-        .btn { background: #2a2a2a; border: 1px solid #444; color: #aaa; padding: 15px 5px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s; word-break: keep-all; }
-        .btn:hover { border-color: var(--primary); color: #fff; background: #333; }
-        
-        .btn.active { background: var(--primary); color: #000; font-weight: 800; border-color: #fff; box-shadow: 0 0 10px rgba(0, 230, 118, 0.4); }
-        
+        /* 버튼 스타일 최적화 */
+        .btn { background: #2a2a2a; border: 1px solid #444; color: #aaa; padding: 10px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; transition: 0.2s; word-break: keep-all; text-align: left; display: flex; align-items: center; }
+        .btn:hover { border-color: var(--primary); color: #fff; background: #333; transform: translateX(3px); }
+        .btn.active { background: var(--primary); color: #000; font-weight: 800; border-color: #fff; box-shadow: 0 4px 12px rgba(0, 230, 118, 0.3); transform: translateX(3px); }
         .group-view .btn:hover { border-color: var(--secondary); }
-        .group-view .btn.active { background: var(--secondary); color: #fff; box-shadow: 0 0 10px rgba(41, 121, 255, 0.4); }
+        .group-view .btn.active { background: var(--secondary); color: #fff; box-shadow: 0 4px 12px rgba(41, 121, 255, 0.3); }
 
-        .output-box { margin-top: 35px; background: #000; padding: 20px; border-radius: 8px; border: 1px solid var(--primary); position: relative; }
-        textarea { width: 100%; height: 110px; background: transparent; border: none; color: var(--primary); font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4; resize: none; outline: none; }
-        .copy-btn { width: 100%; background: var(--primary); color: #000; border: none; padding: 18px; font-weight: 800; border-radius: 6px; cursor: pointer; margin-top: 10px; font-size: 15px; transition: 0.2s; }
-        .copy-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        /* 결과창 스타일 */
+        .output-box { background: #080808; padding: 20px; border-radius: 12px; border: 1px solid var(--primary); }
+        textarea { width: 100%; height: 80px; background: transparent; border: none; color: var(--primary); font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.5; resize: none; outline: none; box-sizing: border-box; }
+        .copy-btn { width: 100%; background: var(--primary); color: #000; border: none; padding: 15px; font-weight: 800; border-radius: 8px; cursor: pointer; margin-top: 15px; font-size: 14px; transition: 0.2s; }
+        .copy-btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4); }
+
+        /* 반응형: 화면이 좁아지면 2열 -> 1열로 변경 */
+        @media (max-width: 1100px) { .main-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .main-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>MY ARCHITECT <small style="font-size: 12px; opacity: 0.6; color: #fff;">LITE 1.0</small></h1>
+    <h1>MY ARCHITECT <small style="font-size: 12px; opacity: 0.6; color: #fff; font-weight: normal;">LITE</small></h1>
 
-    <div class="section-title">1. 건축 형태 (Form)</div>
-    <div class="grid" id="group-form">
-        <button class="btn active" onclick="sel(this, 'form', 'Modern House, Minimalist Box')">모던 박스 주택</button>
-        <button class="btn" onclick="sel(this, 'form', 'Futuristic Skyscraper, Parametric Design')">미래형 파라메트릭 빌딩</button>
-        <button class="btn" onclick="sel(this, 'form', 'Traditional Hanok, Korean Giwa Roof')">전통 한옥 (현대적)</button>
-        <button class="btn" onclick="sel(this, 'form', 'Organic Pavilion, Zaha Hadid Style')">유기적 곡선 파빌리온</button>
-        <button class="btn" onclick="sel(this, 'form', 'Industrial Warehouse, Loft Style')">인더스트리얼 로프트</button>
-        <button class="btn" onclick="sel(this, 'form', 'Eco-friendly Glass House, Biophilic')">에코 글래스 하우스</button>
-        <button class="btn" onclick="sel(this, 'form', 'Brutalist Architecture, Massive Concrete')">브루탈리즘 (웅장함)</button>
-        <button class="btn" onclick="sel(this, 'form', 'Deconstructivism, Chaos and Order')">해체주의 (기하학적)</button>
-        <button class="btn" onclick="sel(this, 'form', 'Gothic Revival, Intricate Details')">고딕 리바이벌 (디테일)</button>
-    </div>
+    <div class="main-grid">
+        
+        <div class="grid-col">
+            <div class="section-title"><span>A.</span> 건축 형태</div>
+            <div class="vertical-list" id="group-form">
+                <button class="btn active" onclick="sel(this, 'form', 'Modern House, Minimalist Box')">모던 박스 주택</button>
+                <button class="btn" onclick="sel(this, 'form', 'Futuristic Skyscraper, Parametric Design')">미래형 파라메트릭 빌딩</button>
+                <button class="btn" onclick="sel(this, 'form', 'Traditional Hanok, Korean Giwa Roof')">전통 한옥 (현대적)</button>
+                <button class="btn" onclick="sel(this, 'form', 'Organic Pavilion, Zaha Hadid Style')">유기적 곡선 파빌리온</button>
+                <button class="btn" onclick="sel(this, 'form', 'Industrial Warehouse, Loft Style')">인더스트리얼 로프트</button>
+                <button class="btn" onclick="sel(this, 'form', 'Eco-friendly Glass House, Biophilic')">에코 글래스 하우스</button>
+                <button class="btn" onclick="sel(this, 'form', 'Brutalist Architecture, Massive Concrete')">브루탈리즘 (웅장함)</button>
+                <button class="btn" onclick="sel(this, 'form', 'Deconstructivism, Chaos and Order')">해체주의 (기하학적)</button>
+                <button class="btn" onclick="sel(this, 'form', 'Gothic Revival, Intricate Details')">고딕 리바이벌 (디테일)</button>
+            </div>
+        </div>
 
-    <div class="section-title">2. 배경 & 재질 (Env & Mat)</div>
-    <div class="grid" id="group-env">
-        <button class="btn active" onclick="sel(this, 'env', 'Dense Forest, Exposed Concrete')">깊은 숲 + 콘크리트</button>
-        <button class="btn" onclick="sel(this, 'env', 'Cliffside Ocean, White Stucco')">해안 절벽 + 스타코</button>
-        <button class="btn" onclick="sel(this, 'env', 'Cyberpunk City, Neon Lights, Steel')">사이버펑크 + 스틸</button>
-        <button class="btn" onclick="sel(this, 'env', 'Desert Dunes, Rammed Earth')">사막 언덕 + 다짐흙</button>
-        <button class="btn" onclick="sel(this, 'env', 'Snowy Mountains, Timber and Glass')">설원 + 목재 & 유리</button>
-        <button class="btn" onclick="sel(this, 'env', 'Cozy Garden, Red Brick')">정원 + 붉은 벽돌</button>
-        <button class="btn" onclick="sel(this, 'env', 'Underwater, Glass Dome, Coral Reef')">수중 도시 + 유리 돔</button>
-        <button class="btn" onclick="sel(this, 'env', 'Mars Colony, Red Soil, Sci-fi Panel')">화성 식민지 + 패널</button>
-        <button class="btn" onclick="sel(this, 'env', 'Autumn Park, Golden Leaves, Stone')">가을 공원 + 자연석</button>
-    </div>
+        <div class="grid-col">
+            <div class="section-title"><span>B.</span> 배경 & 재질</div>
+            <div class="vertical-list" id="group-env">
+                <button class="btn active" onclick="sel(this, 'env', 'Dense Forest, Exposed Concrete')">깊은 숲 + 콘크리트</button>
+                <button class="btn" onclick="sel(this, 'env', 'Cliffside Ocean, White Stucco')">해안 절벽 + 스타코</button>
+                <button class="btn" onclick="sel(this, 'env', 'Cyberpunk City, Neon Lights, Steel')">사이버펑크 + 스틸</button>
+                <button class="btn" onclick="sel(this, 'env', 'Desert Dunes, Rammed Earth')">사막 언덕 + 다짐흙</button>
+                <button class="btn" onclick="sel(this, 'env', 'Snowy Mountains, Timber and Glass')">설원 + 목재 & 유리</button>
+                <button class="btn" onclick="sel(this, 'env', 'Cozy Garden, Red Brick')">정원 + 붉은 벽돌</button>
+                <button class="btn" onclick="sel(this, 'env', 'Underwater, Glass Dome, Coral Reef')">수중 도시 + 유리 돔</button>
+                <button class="btn" onclick="sel(this, 'env', 'Mars Colony, Red Soil, Sci-fi Panel')">화성 식민지 + 패널</button>
+                <button class="btn" onclick="sel(this, 'env', 'Autumn Park, Golden Leaves, Stone')">가을 공원 + 자연석</button>
+            </div>
+        </div>
 
-    <div class="section-title">3. 시각 효과 (Vibe)</div>
-    <div class="grid" id="group-vibe">
-        <button class="btn active" onclick="sel(this, 'vibe', 'Golden Hour, Cinematic Lighting')">노을 (시네마틱)</button>
-        <button class="btn" onclick="sel(this, 'vibe', 'Rainy Night, Moody Reflections')">비오는 밤 (무드)</button>
-        <button class="btn" onclick="sel(this, 'vibe', 'Blue Hour, Soft Ambient Light')">새벽 (차분함)</button>
-        <button class="btn" onclick="sel(this, 'vibe', 'Hyper-realistic, Sharp Focus, 8k')">초사실 (선명함)</button>
-        <button class="btn" onclick="sel(this, 'vibe', 'Foggy Morning, Mysterious Atmosphere')">안개 낀 아침 (신비로움)</button>
-        <button class="btn" onclick="sel(this, 'vibe', 'Studio Lighting, Clean Background')">스튜디오 조명 (깔끔함)</button>
-    </div>
+        <div class="grid-col">
+            <div class="section-title"><span>C.</span> 시각 효과</div>
+            <div class="vertical-list" id="group-vibe">
+                <button class="btn active" onclick="sel(this, 'vibe', 'Golden Hour, Cinematic Lighting')">노을 (시네마틱)</button>
+                <button class="btn" onclick="sel(this, 'vibe', 'Rainy Night, Moody Reflections')">비오는 밤 (무드)</button>
+                <button class="btn" onclick="sel(this, 'vibe', 'Blue Hour, Soft Ambient Light')">새벽 (차분함)</button>
+                <button class="btn" onclick="sel(this, 'vibe', 'Hyper-realistic, Sharp Focus, 8k')">초사실 (선명함)</button>
+                <button class="btn" onclick="sel(this, 'vibe', 'Foggy Morning, Mysterious Atmosphere')">안개 낀 아침 (신비로움)</button>
+                <button class="btn" onclick="sel(this, 'vibe', 'Studio Lighting, Clean Background')">스튜디오 조명 (깔끔함)</button>
+            </div>
+        </div>
 
-    <div class="section-title view">4. 뷰 & 앵글 (View)</div>
-    <div class="grid group-view" id="group-view">
-        <button class="btn active" onclick="sel(this, 'view', 'Eye-Level Shot')">사람 눈높이 (Eye-Level)</button>
-        <button class="btn" onclick="sel(this, 'view', 'Aerial Drone View, Bird\'s Eye View')">드론 조감도 (Aerial)</button>
-        <button class="btn" onclick="sel(this, 'view', 'Low Angle, Worm\'s Eye View, Majestic')">로우 앵글 (웅장하게)</button>
-        <button class="btn" onclick="sel(this, 'view', 'Isometric View, 3D Cutaway')">아이소메트릭 (모형)</button>
-        <button class="btn" onclick="sel(this, 'view', 'Interior Perspective, Wide Angle')">실내 투시도 (인테리어)</button>
-        <button class="btn" onclick="sel(this, 'view', 'Close-up Detail Shot, Macro')">클로즈업 (디테일)</button>
-    </div>
+        <div class="grid-col group-view">
+            <div class="section-title view"><span>D.</span> 뷰 & 앵글</div>
+            <div class="vertical-list" id="group-view">
+                <button class="btn active" onclick="sel(this, 'view', 'Eye-Level Shot')">사람 눈높이 (Eye-Level)</button>
+                <button class="btn" onclick="sel(this, 'view', 'Aerial Drone View, Bird\'s Eye View')">드론 조감도 (Aerial)</button>
+                <button class="btn" onclick="sel(this, 'view', 'Low Angle, Worm\'s Eye View, Majestic')">로우 앵글 (웅장하게)</button>
+                <button class="btn" onclick="sel(this, 'view', 'Isometric View, 3D Cutaway')">아이소메트릭 (모형)</button>
+                <button class="btn" onclick="sel(this, 'view', 'Interior Perspective, Wide Angle')">실내 투시도 (인테리어)</button>
+                <button class="btn" onclick="sel(this, 'view', 'Close-up Detail Shot, Macro')">클로즈업 (디테일)</button>
+            </div>
+        </div>
 
-    <div class="output-box">
+    </div> <div class="output-box">
         <textarea id="output" readonly></textarea>
         <button class="copy-btn" onclick="copy()">🚀 확장된 프롬프트 생성 & 복사</button>
     </div>
 </div>
 
 <script>
-    let choices = {
-        form: 'Modern House, Minimalist Box',
-        env: 'Dense Forest, Exposed Concrete',
-        vibe: 'Golden Hour, Cinematic Lighting',
-        view: 'Eye-Level Shot'
-    };
-
-    function sel(el, type, val) {
-        el.parentElement.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-        el.classList.add('active');
-        choices[type] = val;
-        update();
-    }
-
-    function update() {
-        const base = "Architecture photography of ";
-        const hqTags = "Best Quality, Masterpiece, High Resolution, 8k, Unreal Engine 5 Render, Sharp Detail, Highly Detailed Texture";
-        const result = `${base}${choices.form}, located in ${choices.env}, shot in ${choices.view}, ${choices.vibe}, ${hqTags}`;
-        document.getElementById('output').value = result;
-    }
-
-    function copy() {
-        const out = document.getElementById('output');
-        out.select();
-        document.execCommand('copy');
-        alert("업그레이드된 프롬프트가 복사되었습니다!");
-    }
+    // (자바스크립트는 동일합니다)
+    let choices = { form: 'Modern House, Minimalist Box', env: 'Dense Forest, Exposed Concrete', vibe: 'Golden Hour, Cinematic Lighting', view: 'Eye-Level Shot' };
+    function sel(el, type, val) { el.parentElement.querySelectorAll('.btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); choices[type] = val; update(); }
+    function update() { const base = "Architecture photography of "; const hqTags = "Best Quality, Masterpiece, High Resolution, 8k, Unreal Engine 5 Render, Sharp Detail, Highly Detailed Texture"; const result = `${base}${choices.form}, located in ${choices.env}, shot in ${choices.view}, ${choices.vibe}, ${hqTags}`; document.getElementById('output').value = result; }
+    function copy() { const out = document.getElementById('output'); out.select(); document.execCommand('copy'); alert("업그레이드된 프롬프트가 복사되었습니다! \nAI 이미지 생성기에 붙여넣으세요."); }
     update();
 </script>
 
