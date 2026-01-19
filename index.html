@@ -14,8 +14,8 @@
         }
         body { background: var(--bg); color: var(--text); font-family: 'Pretendard', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
         
-        /* [핵심] 컨테이너 최대 너비 확장 */
-        .container { max-width: 1300px; width: 100%; background: var(--card); padding: 30px; border-radius: 16px; border: 1px solid #333; box-shadow: 0 15px 40px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 20px; }
+        /* [수정됨] 컨테이너 테두리 색상을 #333에서 #000(검은색)으로 변경 */
+        .container { max-width: 1300px; width: 100%; background: var(--card); padding: 30px; border-radius: 16px; border: 1px solid #000; box-shadow: 0 15px 40px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 20px; }
         
         h1 { font-size: 24px; border-bottom: 3px solid var(--primary); padding-bottom: 12px; margin: 0 0 10px 0; display: flex; justify-content: space-between; align-items: flex-end; }
         
@@ -128,7 +128,7 @@
 
     </div> <div class="output-box">
         <textarea id="output" readonly></textarea>
-        <button class="copy-btn" onclick="copy()">ARCHITECTURE AI PROMPT GENERATOR</button>
+        <button class="copy-btn" onclick="copy()">🚀 확장된 프롬프트 생성 & 복사</button>
     </div>
 </div>
 
@@ -143,4 +143,3 @@
 
 </body>
 </html>
-
