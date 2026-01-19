@@ -7,34 +7,59 @@
     <style>
         :root {
             --primary: #00e676; 
-            --secondary: #2979ff; /* 앵글 선택용 포인트 컬러 */
+            --secondary: #2979ff; 
             --bg: #121212;
             --card: #1e1e1e;
             --text: #e0e0e0;
         }
-        body { background: var(--bg); color: var(--text); font-family: 'Pretendard', sans-serif; display: flex; justify-content: center; padding: 20px; margin: 0; }
-        .container { max-width: 650px; width: 100%; background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        /* 1. 배경을 화면 끝까지 채우기 위한 설정 */
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Pretendard', sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            padding: 0; 
+            margin: 0; 
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* 2. 컨테이너의 너비 제한(650px)을 풀고 100%로 변경 */
+        .container { 
+            width: 100%; 
+            max-width: 100%; /* 기존 650px에서 변경 */
+            background: var(--card); 
+            padding: 40px 20px; /* 상하 패딩 유지, 좌우 여백 조정 */
+            min-height: 100vh;
+            border: none; /* 전체화면 시 테두리 제거 */
+            border-radius: 0; /* 전체화면 시 라운드 제거 */
+            box-shadow: none;
+            box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+        }
+
         h1 { font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 0; display: flex; justify-content: space-between; align-items: flex-end; }
         
         .section-title { font-size: 13px; color: var(--primary); font-weight: bold; margin: 25px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .section-title.view { color: var(--secondary); } /* 앵글 섹션 색상 구분 */
+        .section-title.view { color: var(--secondary); }
 
-        /* 그리드: 모바일에서도 잘 보이게 반응형 조정 */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        @media (max-width: 500px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        /* 3. 그리드 간격 및 비율 유지 */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 400px) { .grid { grid-template-columns: 1fr; } }
 
-        .btn { background: #2a2a2a; border: 1px solid #444; color: #aaa; padding: 12px 5px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: 0.2s; word-break: keep-all; }
+        .btn { background: #2a2a2a; border: 1px solid #444; color: #aaa; padding: 15px 5px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s; word-break: keep-all; }
         .btn:hover { border-color: var(--primary); color: #fff; background: #333; }
         
         .btn.active { background: var(--primary); color: #000; font-weight: 800; border-color: #fff; box-shadow: 0 0 10px rgba(0, 230, 118, 0.4); }
         
-        /* 앵글 버튼 스타일 별도 지정 */
         .group-view .btn:hover { border-color: var(--secondary); }
         .group-view .btn.active { background: var(--secondary); color: #fff; box-shadow: 0 0 10px rgba(41, 121, 255, 0.4); }
 
         .output-box { margin-top: 35px; background: #000; padding: 20px; border-radius: 8px; border: 1px solid var(--primary); position: relative; }
-        textarea { width: 100%; height: 110px; background: transparent; border: none; color: var(--primary); font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.4; resize: none; outline: none; }
-        .copy-btn { width: 100%; background: var(--primary); color: #000; border: none; padding: 15px; font-weight: 800; border-radius: 6px; cursor: pointer; margin-top: 10px; font-size: 14px; transition: 0.2s; }
+        textarea { width: 100%; height: 110px; background: transparent; border: none; color: var(--primary); font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4; resize: none; outline: none; }
+        .copy-btn { width: 100%; background: var(--primary); color: #000; border: none; padding: 18px; font-weight: 800; border-radius: 6px; cursor: pointer; margin-top: 10px; font-size: 15px; transition: 0.2s; }
         .copy-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
     </style>
 </head>
@@ -96,7 +121,6 @@
 </div>
 
 <script>
-    // 선택값 저장소
     let choices = {
         form: 'Modern House, Minimalist Box',
         env: 'Dense Forest, Exposed Concrete',
@@ -104,40 +128,26 @@
         view: 'Eye-Level Shot'
     };
 
-    // 선택 함수
     function sel(el, type, val) {
-        // 해당 그룹의 모든 버튼 비활성화
         el.parentElement.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-        // 클릭한 버튼 활성화
         el.classList.add('active');
-        // 값 업데이트
         choices[type] = val;
-        // 텍스트 갱신
         update();
     }
 
-    // 프롬프트 조합 및 출력 함수
     function update() {
         const base = "Architecture photography of ";
-        // 퀄리티 태그 유지
         const hqTags = "Best Quality, Masterpiece, High Resolution, 8k, Unreal Engine 5 Render, Sharp Detail, Highly Detailed Texture";
-        
-        // 조합: 기본 + 형태 + 배경 + 뷰 + 분위기 + 퀄리티
-        // 순서는 AI가 이해하기 좋은 순서로 배치 (피사체 -> 배경 -> 앵글 -> 분위기 -> 화질)
         const result = `${base}${choices.form}, located in ${choices.env}, shot in ${choices.view}, ${choices.vibe}, ${hqTags}`;
-        
         document.getElementById('output').value = result;
     }
 
-    // 복사 기능
     function copy() {
         const out = document.getElementById('output');
         out.select();
         document.execCommand('copy');
-        alert("업그레이드된 프롬프트가 복사되었습니다! \nAI 이미지 생성기에 붙여넣으세요.");
+        alert("업그레이드된 프롬프트가 복사되었습니다!");
     }
-
-    // 초기 실행
     update();
 </script>
 
