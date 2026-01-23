@@ -3,83 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY ARCHITECT</title>
+    <title>MY ARCHITECT | ARCHITOOLS</title>
     <style>
         :root {
             --primary: #00e676;
             --secondary: #2979ff;
-            --bg: #000000;
-            --card: #1e1e1e;
-            --text: #e0e0e0;
+            --bg: #000000; /* 완전 블랙으로 수정 */
+            --card: #0a0a0a; /* 카드 배경을 더 어둡게 */
+            --text: #ffffff;
+            --border: #1a1a1a;
         }
-        body { background: var(--bg); color: var(--text); font-family: 'Pretendard', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-        
-        .container { max-width: 1300px; width: 100%; background: var(--card); padding: 30px; border-radius: 16px; border: 1px solid #000; box-shadow: 0 15px 40px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 20px; }
-        
-        h1 { font-size: 24px; border-bottom: 3px solid var(--primary); padding-bottom: 12px; margin: 0 0 10px 0; display: flex; justify-content: space-between; align-items: flex-end; }
-        
+
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', 'Pretendard', sans-serif; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            padding: 40px 20px; 
+            box-sizing: border-box; 
+        }
+
+        /* 상단 브랜드 위계 정리 */
+        .brand-header { text-align: center; margin-bottom: 40px; }
+        .brand-header .master-brand { font-size: 12px; letter-spacing: 0.5em; color: #666; text-transform: uppercase; margin-bottom: 8px; }
+        .brand-header .tool-name { font-size: 28px; letter-spacing: 0.1em; font-weight: 300; }
+        .brand-header .tool-name span { color: var(--primary); font-size: 12px; vertical-align: top; margin-left: 5px; opacity: 0.8; }
+
+        .container { 
+            max-width: 1200px; 
+            width: 100%; 
+            background: var(--card); 
+            padding: 40px; 
+            border-radius: 4px; /* 건축적인 느낌을 위해 라운드 축소 */
+            border: 1px solid var(--border); 
+            display: flex; 
+            flex-direction: column; 
+            gap: 30px; 
+        }
+
         .main-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            align-items: start;
+            gap: 20px;
         }
 
         .grid-col {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 15px;
-            border-radius: 12px;
+            gap: 12px;
+            background: #0f0f0f;
+            padding: 20px;
+            border: 1px solid #151515;
         }
 
-        .section-title { font-size: 15px; color: var(--text); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0; display: flex; align-items: center; }
-        .section-title::before { content: ''; display: block; width: 4px; height: 16px; background: var(--primary); margin-right: 10px; border-radius: 2px; }
-        .section-title.view::before { background: var(--secondary); }
-        .section-title span { color: var(--primary); margin-right: 8px; }
-        .section-title.view span { color: var(--secondary); }
+        .section-title { font-size: 11px; color: #555; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; }
+        .section-title span { color: var(--primary); margin-right: 5px; }
 
-        .vertical-list { display: flex; flex-direction: column; gap: 8px; }
+        .vertical-list { display: flex; flex-direction: column; gap: 6px; }
 
-        .btn { background: #2a2a2a; border: 1px solid #444; color: #aaa; padding: 10px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; transition: 0.2s; word-break: keep-all; text-align: left; display: flex; align-items: center; }
-        .btn:hover { border-color: var(--primary); color: #fff; background: #333; transform: translateX(3px); }
-        .btn.active { background: var(--primary); color: #000; font-weight: 800; border-color: #fff; box-shadow: 0 4px 12px rgba(0, 230, 118, 0.3); transform: translateX(3px); }
-        .group-view .btn:hover { border-color: var(--secondary); }
-        .group-view .btn.active { background: var(--secondary); color: #fff; box-shadow: 0 4px 12px rgba(41, 121, 255, 0.3); }
+        .btn { 
+            background: transparent; 
+            border: 1px solid #222; 
+            color: #888; 
+            padding: 12px; 
+            font-size: 11px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            text-align: left;
+            letter-spacing: 0.05em;
+        }
+        .btn:hover { border-color: var(--primary); color: #fff; background: #111; }
+        .btn.active { border-color: var(--primary); color: var(--primary); font-weight: 600; background: rgba(0, 230, 118, 0.05); }
+        
+        .group-view .btn.active { border-color: var(--secondary); color: var(--secondary); background: rgba(41, 121, 255, 0.05); }
 
-        .output-box { background: #080808; padding: 20px; border-radius: 12px; border: 1px solid var(--primary); }
-        textarea { width: 100%; height: 80px; background: transparent; border: none; color: var(--primary); font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.5; resize: none; outline: none; box-sizing: border-box; }
-        .copy-btn { width: 100%; background: var(--primary); color: #000; border: none; padding: 15px; font-weight: 800; border-radius: 8px; cursor: pointer; margin-top: 15px; font-size: 14px; transition: 0.2s; }
-        .copy-btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4); }
+        /* 결과창 디자인 */
+        .output-box { background: #000; padding: 25px; border: 1px solid var(--border); margin-top: 20px; }
+        textarea { width: 100%; height: 70px; background: transparent; border: none; color: #aaa; font-family: monospace; font-size: 12px; line-height: 1.6; resize: none; outline: none; }
+        
+        .copy-btn { 
+            width: 100%; 
+            background: transparent; 
+            border: 1px solid var(--primary); 
+            color: var(--primary); 
+            padding: 15px; 
+            font-size: 12px; 
+            letter-spacing: 0.2em;
+            cursor: pointer; 
+            margin-top: 15px; 
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .copy-btn:hover { background: var(--primary); color: #000; }
 
-        /* [수정됨] 바로가기 버튼 그룹 스타일 */
-        .link-group-title { margin: 20px 0 10px 0; font-size: 12px; color: #888; text-align: center; border-top: 1px solid #222; padding-top: 15px; }
-        .link-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .link-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
         .link-btn {
-            background: #222; border: 1px solid #444; color: #ccc;
-            text-decoration: none; padding: 12px 10px; border-radius: 6px; /* 클릭하기 편하게 패딩 약간 증가 */
-            font-size: 12px; text-align: center; transition: 0.2s; display: block;
-            font-weight: 600;
+            background: #000; border: 1px solid #222; color: #555;
+            text-decoration: none; padding: 12px; font-size: 10px; 
+            text-align: center; transition: 0.3s; letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
-        .link-btn:hover { background: var(--secondary); border-color: var(--secondary); color: #fff; transform: translateY(-2px); }
+        .link-btn:hover { border-color: #fff; color: #fff; }
 
         @media (max-width: 1100px) { .main-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { 
-            .main-grid { grid-template-columns: 1fr; } 
-            .link-buttons { grid-template-columns: repeat(2, 1fr); } 
-        }
+        @media (max-width: 600px) { .main-grid { grid-template-columns: 1fr; } .link-buttons { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>MY ARCHITECT <small style="font-size: 12px; opacity: 0.6; color: #fff; font-weight: normal;">LITE</small></h1>
+<div class="brand-header">
+    <div class="master-brand">Architools</div>
+    <div class="tool-name">MY ARCHITECT<span>LITE</span></div>
+</div>
 
+<div class="container">
     <div class="main-grid">
-        
         <div class="grid-col">
-            <div class="section-title"><span>A.</span> 건축 형태</div>
+            <div class="section-title"><span>01</span> Form</div>
             <div class="vertical-list" id="group-form">
                 <button class="btn active" onclick="sel(this, 'form', 'Modern House, Minimalist Box')">모던 박스 주택</button>
                 <button class="btn" onclick="sel(this, 'form', 'Futuristic Skyscraper, Parametric Design')">미래형 파라메트릭 빌딩</button>
@@ -87,14 +131,11 @@
                 <button class="btn" onclick="sel(this, 'form', 'Organic Pavilion, Zaha Hadid Style')">유기적 곡선 파빌리온</button>
                 <button class="btn" onclick="sel(this, 'form', 'Industrial Warehouse, Loft Style')">인더스트리얼 로프트</button>
                 <button class="btn" onclick="sel(this, 'form', 'Eco-friendly Glass House, Biophilic')">에코 글래스 하우스</button>
-                <button class="btn" onclick="sel(this, 'form', 'Brutalist Architecture, Massive Concrete')">브루탈리즘 (웅장함)</button>
-                <button class="btn" onclick="sel(this, 'form', 'Deconstructivism, Chaos and Order')">해체주의 (기하학적)</button>
-                <button class="btn" onclick="sel(this, 'form', 'Gothic Revival, Intricate Details')">고딕 리바이벌 (디테일)</button>
             </div>
         </div>
 
         <div class="grid-col">
-            <div class="section-title"><span>B.</span> 배경 & 재질</div>
+            <div class="section-title"><span>02</span> Material</div>
             <div class="vertical-list" id="group-env">
                 <button class="btn active" onclick="sel(this, 'env', 'Dense Forest, Exposed Concrete')">깊은 숲 + 콘크리트</button>
                 <button class="btn" onclick="sel(this, 'env', 'Cliffside Ocean, White Stucco')">해안 절벽 + 스타코</button>
@@ -102,53 +143,40 @@
                 <button class="btn" onclick="sel(this, 'env', 'Desert Dunes, Rammed Earth')">사막 언덕 + 다짐흙</button>
                 <button class="btn" onclick="sel(this, 'env', 'Snowy Mountains, Timber and Glass')">설원 + 목재 & 유리</button>
                 <button class="btn" onclick="sel(this, 'env', 'Cozy Garden, Red Brick')">정원 + 붉은 벽돌</button>
-                <button class="btn" onclick="sel(this, 'env', 'Underwater, Glass Dome, Coral Reef')">수중 도시 + 유리 돔</button>
-                <button class="btn" onclick="sel(this, 'env', 'Mars Colony, Red Soil, Sci-fi Panel')">화성 식민지 + 패널</button>
-                <button class="btn" onclick="sel(this, 'env', 'Autumn Park, Golden Leaves, Stone')">가을 공원 + 자연석</button>
             </div>
         </div>
 
         <div class="grid-col">
-            <div class="section-title"><span>C.</span> 시각 효과</div>
+            <div class="section-title"><span>03</span> Light</div>
             <div class="vertical-list" id="group-vibe">
                 <button class="btn active" onclick="sel(this, 'vibe', 'Golden Hour, Cinematic Lighting')">노을 (시네마틱)</button>
                 <button class="btn" onclick="sel(this, 'vibe', 'Rainy Night, Moody Reflections')">비오는 밤 (무드)</button>
                 <button class="btn" onclick="sel(this, 'vibe', 'Blue Hour, Soft Ambient Light')">새벽 (차분함)</button>
                 <button class="btn" onclick="sel(this, 'vibe', 'Hyper-realistic, Sharp Focus, 8k')">초사실 (선명함)</button>
                 <button class="btn" onclick="sel(this, 'vibe', 'Foggy Morning, Mysterious Atmosphere')">안개 낀 아침 (신비로움)</button>
-                <button class="btn" onclick="sel(this, 'vibe', 'Studio Lighting, Clean Background')">스튜디오 조명 (깔끔함)</button>
             </div>
         </div>
 
         <div class="grid-col group-view">
-            <div class="section-title view"><span>D.</span> 뷰 & 앵글</div>
+            <div class="section-title"><span>04</span> Angle</div>
             <div class="vertical-list" id="group-view">
                 <button class="btn active" onclick="sel(this, 'view', 'Eye-Level Shot')">사람 눈높이 (Eye-Level)</button>
                 <button class="btn" onclick="sel(this, 'view', 'Aerial Drone View, Bird\'s Eye View')">드론 조감도 (Aerial)</button>
                 <button class="btn" onclick="sel(this, 'view', 'Low Angle, Worm\'s Eye View, Majestic')">로우 앵글 (웅장하게)</button>
                 <button class="btn" onclick="sel(this, 'view', 'Isometric View, 3D Cutaway')">아이소메트릭 (모형)</button>
                 <button class="btn" onclick="sel(this, 'view', 'Interior Perspective, Wide Angle')">실내 투시도 (인테리어)</button>
-                <button class="btn" onclick="sel(this, 'view', 'Close-up Detail Shot, Macro')">클로즈업 (디테일)</button>
             </div>
         </div>
-
     </div> 
-    
+
     <div class="output-box">
         <textarea id="output" readonly></textarea>
-        <button class="copy-btn" onclick="copy()">🚀 확장된 프롬프트 생성 & 복사</button>
-        
-        <div class="link-group-title">복사한 프롬프트로 바로 생성하기 👇</div>
+        <button class="copy-btn" onclick="copy()">Generate & Copy Prompt</button>
         <div class="link-buttons">
-
-            <a href="https://nanobananapro.kr//" target="_blank" class="link-btn">🍌 LMSYS (나노바나나)</a>
-
-            <a href="https://www.bing.com/images/create" target="_blank" class="link-btn" style="border-color: #0078d4;">🎨 Bing Creator (MS)</a>
-            
-            <a href="https://perchance.org/ai-text-to-image-generator" target="_blank" class="link-btn">🎲 Perchance AI</a>
-            
-            <a href="https://tinywow.com/image/ai-image-generator" target="_blank" class="link-btn">✨ TinyWow AI</a>
-
+            <a href="https://nanobananapro.kr/" target="_blank" class="link-btn">Nano Banana</a>
+            <a href="https://www.bing.com/images/create" target="_blank" class="link-btn">Bing AI</a>
+            <a href="https://perchance.org/ai-text-to-image-generator" target="_blank" class="link-btn">Perchance</a>
+            <a href="https://tinywow.com/image/ai-image-generator" target="_blank" class="link-btn">TinyWow</a>
         </div>
     </div>
 </div>
@@ -156,11 +184,10 @@
 <script>
     let choices = { form: 'Modern House, Minimalist Box', env: 'Dense Forest, Exposed Concrete', vibe: 'Golden Hour, Cinematic Lighting', view: 'Eye-Level Shot' };
     function sel(el, type, val) { el.parentElement.querySelectorAll('.btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); choices[type] = val; update(); }
-    function update() { const base = "Architecture photography of "; const hqTags = "Best Quality, Masterpiece, High Resolution, 8k, Unreal Engine 5 Render, Sharp Detail, Highly Detailed Texture"; const result = `${base}${choices.form}, located in ${choices.env}, shot in ${choices.view}, ${choices.vibe}, ${hqTags}`; document.getElementById('output').value = result; }
-    function copy() { const out = document.getElementById('output'); out.select(); document.execCommand('copy'); alert("업그레이드된 프롬프트가 복사되었습니다! \nAI 이미지 생성기에 붙여넣으세요."); }
+    function update() { const base = "Architecture photography of "; const hqTags = "Best Quality, Masterpiece, 8k, Unreal Engine 5 Render, Sharp Detail"; const result = `${base}${choices.form}, in ${choices.env}, ${choices.view}, ${choices.vibe}, ${hqTags}`; document.getElementById('output').value = result; }
+    function copy() { const out = document.getElementById('output'); out.select(); document.execCommand('copy'); alert("Prompt Copied!"); }
     update();
 </script>
 
 </body>
 </html>
-
